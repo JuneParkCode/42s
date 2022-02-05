@@ -4,10 +4,10 @@ void	*ft_print_memory(void *addr, unsigned int size);
 
 int	main(void)
 {
-	const int SIZE = 123;
+	const int SIZE = 301;
 	char	*s = "hello worlds, Good Bye!, Hello!";
 	char	test[SIZE];
-	int	i;
+	int	i, j;
 	int	length;
 
 	i = 0;
@@ -18,10 +18,11 @@ int	main(void)
 		test[i] = s[i];
 		++i;
 	}
+	j = -128;
 	while (i < SIZE)
 	{
-		test[i] = i;
-		++i;
+		test[i] = j;
+		++j; ++i;
 	}
 	ft_print_memory(test, SIZE);
 	return (0);

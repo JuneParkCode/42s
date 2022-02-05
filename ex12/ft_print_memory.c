@@ -5,7 +5,7 @@ int	ft_char_is_printable(const char c)
 	return (32 <= c && c < 127);
 }
 
-void	ft_print_hex(int n, int length, int depth)
+void	ft_print_hex(long n, int length, int depth)
 {
 	unsigned char	c;
 	char		*hex;
@@ -13,7 +13,7 @@ void	ft_print_hex(int n, int length, int depth)
 
 	hex = "0123456789abcdef";
 	if (n < 0)
-		n = -n + 128;
+		n = -n + 127;
 	i = 0;
 	c = hex[n % 16];
 	if (depth < length)
@@ -21,16 +21,30 @@ void	ft_print_hex(int n, int length, int depth)
 	write(1, &c, 1);
 }
 
-void	ft_print_data_hex(int i, int size, int n, short *addr_cpy)
+void	ft_print_data_hex(int i, int size, int n, char *addr_cpy)
 {
 	int	j;
+	int	space;
+	int	length;
 
 	j = 0;
-	while (j < 8 && (i + 2 * j) < size)
+	length = 40;
+	while (j < 16 && (i + j) < size)
 	{
 		n = addr_cpy[i + j];
-		ft_print_hex(n, 4, 1);
-		write(1, " ", 1);
+		ft_print_hex(n, 2, 1);
+		length -= 2;
+		if (i + j == size - 1)
+		{
+			space = 0;
+			while (length-- > 0)
+				write(1, " ", 1);
+		}
+		else if (j % 2 == 1 )
+		{
+			length--;
+			write(1, " ", 1);
+		}
 		++j;
 	}
 }
@@ -53,13 +67,13 @@ void	ft_print_text(int i, int size, int n, char *addr_char)
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	short	*addr_cpy;
+	char	*addr_cpy;
 	int	i;
 	int	j;
 	long	addr_long;
 	int	n;
 
-	addr_cpy = (short *) addr;
+	addr_cpy = (char *) addr;
 	i = 0;
 	while (i < size)
 	{
