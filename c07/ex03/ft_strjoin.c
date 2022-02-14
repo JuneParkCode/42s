@@ -1,11 +1,8 @@
 #include <stdlib.h>
-#include <stdio.h>
-#define SIZE_CHAR 1
-#define SIZE_INT 4
 
-unsigned int ft_strlen(const char *str)
+unsigned int	ft_strlen(const char *str)
 {
-	unsigned int length;
+	unsigned int	length;
 
 	length = 0;
 	while (str[length])
@@ -13,10 +10,10 @@ unsigned int ft_strlen(const char *str)
 	return (length);
 }
 
-int ft_get_total_length(int total_length, int size, char **strs)
+int	ft_get_total_length(int total_length, int size, char **strs)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < size)
 	{
@@ -28,7 +25,8 @@ int ft_get_total_length(int total_length, int size, char **strs)
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
+
 	i = 0;
 	while (src[i])
 	{
@@ -39,57 +37,39 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
+char	*ft_empty_case(void)
+{
+	char	*result;
+
+	result = malloc(1);
+	result[0] = 0;
+	return (result);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int	idx_res;
-	int	idx_strs;
-	int	total_length;
+	int		idx_strs;
+	int		total_length;
 	char	*result;
 	char	*cur;
 
-	if (!size)
-	{
-		result = malloc(1 * SIZE_CHAR);
-		result[0] = 0;
-		return (result);
-	}
+	if (size <= 0)
+		return (ft_empty_case());
 	total_length = (size - 1) * ft_strlen(sep);
 	total_length = ft_get_total_length(total_length, size, strs) + 1;
-	result = malloc((total_length) * SIZE_CHAR);
+	result = malloc((total_length) * sizeof(char));
 	cur = result;
 	idx_strs = 0;
-	idx_res = 0;
 	while (idx_strs < size)
 	{
 		ft_strcpy(cur, strs[idx_strs]);
 		cur += ft_strlen(strs[idx_strs]);
 		if (cur == result + total_length - 1)
-			break;
+			break ;
 		ft_strcpy(cur, sep);
 		cur += ft_strlen(sep);
 		idx_strs++;
-		idx_res++;
 	}
 	result[total_length - 1] = 0;
 	return (result);
-}
-
-int main(void)
-{
-	char	*strs[] = {
-		"01234567",
-		"hijklmnop",
-		"qrstuwxyz"
-	};
-
-	printf("\nTEST1 : %s\n", strs[0]);
-	char	*sep = "| |";
-	char	*res = ft_strjoin(3, strs, sep);
-
-	printf("%s", res);
-	free(res);
-	printf("\nTEST2 : %s\n", strs[0]);
-	printf("res : %d\n", ft_strlen(res));
-	printf("string : %d\n",ft_strlen("abcdef"));
-	return (0);
 }

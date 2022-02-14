@@ -7,11 +7,14 @@ int	ft_ultimate_range(int **range, int min, int max)
 	int	size;
 	int	i;
 
-	size = max - min;
-	*range = malloc(size * SIZE_INT);
+	size = max - min + (min < 0 && max > 0);
+	*range = (int *) malloc(size * SIZE_INT);
 	i = 0;
 	while (i < size)
-		arr[i++] = min++;
+	{
+		*(*range + i) = min++;
+		++i;
+	}
 	if (size <= 0)
 		return (-1);
 	return (size);
