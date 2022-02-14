@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 int	ft_is_split(char c, char *split)
 {
@@ -62,16 +61,16 @@ char	*ft_get_word(char *str, char *charset, int *start)
 
 char	**ft_split(char *str, char *charset)
 {
+	int		idx_str;
+	int		idx_res;
+	int		num_word;
 	char	*word;
 	char	**result;
-	int		idx_str;
-	int		num_word;
-	int		idx_res;
 
-	num_word = ft_get_word_num(str, charset);
-	result = (char **) malloc(sizeof(char *) * (num_word + 1));
 	idx_str = 0;
 	idx_res = 0;
+	num_word = ft_get_word_num(str, charset);
+	result = (char **) malloc(sizeof(char *) * (num_word + 1));
 	while (str[idx_str])
 	{
 		word = ft_get_word(&str[idx_str], charset, &idx_str);
