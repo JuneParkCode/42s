@@ -18,7 +18,7 @@ int	ft_get_word_num(char *str, char *charset)
 	flag = 1;
 	while (str[i])
 	{
-		if (ft_is_split(str[i], charset) && !flag)
+		if (!flag && ft_is_split(str[i], charset))
 		{
 			num++;
 			flag = 1;

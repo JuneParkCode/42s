@@ -56,7 +56,7 @@ int	ft_valid_base(const char *str)
 	return (i > 1);
 }
 
-int	ft_get_base_idx(const char c, const char *base)
+int	ft_get_base_idx(char c, char *base)
 {
 	int	idx;
 

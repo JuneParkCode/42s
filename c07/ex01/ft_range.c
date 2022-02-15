@@ -8,6 +8,8 @@ int	*ft_range(int min, int max)
 	int	*arr;
 	int	i;
 
+	if (min >= max)
+		return (0);
 	size = max - min;
 	arr = malloc(size * SIZE_INT);
 	i = 0;
