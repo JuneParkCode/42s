@@ -12,18 +12,18 @@ void	ste_putstr(char *str)
 
 void	do_test(struct s_stock_str* par)
 {
-    while (par && par -> str)
+	if (!par)
+	{
+		ste_putstr("(NULL)\n");
+		return ;
+	}
+    while (1)
     {
-        if (par == 0)
-        {
-            ste_putstr("(NULL)\n");
-        }
-        else
-        {
-            ft_show_tab(par);
-        }
+        ft_show_tab(par);
         write(1, "\n", 1);
-        ++par;
+		if (!(par -> str))
+			return ;
+		++par;
     }
 }
 
@@ -48,6 +48,11 @@ int main(void)
 
 	char *av6[] = { "Smoke", "in", "the", "water" };
 	do_test(ft_strs_to_tab(3, av6));
-
+	
+	struct s_stock_str a;
+	a.size = 0;
+	a.str = 0;
+	a.copy = 0;
+	ft_show_tab(&a);
 	return (0);
 }

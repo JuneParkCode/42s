@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h>
-void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#define BUFFER_SIZE 3000
+
+void	ft_putstr(char *str);
+void	ft_put(char *str, unsigned int size);
+void	ft_msg(char *file_name, int err_code);
+
 /*
  *  ft_check_input_error
  *  Description		:	function checks input error
@@ -29,17 +31,16 @@ int	ft_check_input_error(int argc)
 {
 	if (argc <= 1)
 	{
-		ft_putstr("File name missing.\n");
+		ft_putstr(strerror(errno));
 		return (1);
 	}
 	if (argc > 2)
 	{
-		ft_putstr("Too many arguments.\n");
+		ft_putstr(strerror(errno));
 		return (2);
 	}
 	return (0);
 }
-
 
 /*
  *	ft_display_file
@@ -50,34 +51,28 @@ int	ft_check_input_error(int argc)
  */
 int	ft_display_file(char *file_name)
 {
-	char	buffer[201];
+	char	buffer[BUFFER_SIZE];
 	int		fd;
 	int		read_size;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_putstr("Cannot read file.");
-		return (2);
+		ft_msg(file_name, errno);
+		return (errno);
 	}
-	read_size = 1;
-	while (read_size > 0)
+	while (1)
 	{
-		read_size = read(fd, buffer, 200);
+		read_size = read(fd, buffer, BUFFER_SIZE);
+		if (read_size == 0)
+			break ;
 		if (read_size < 0)
-			break;
-		buffer[read_size] = 0;
-		ft_putstr(buffer);
+		{
+			ft_msg(file_name, errno);
+			break ;
+		}
+		ft_put(buffer, read_size);
 	}
 	close(fd);
-	return (0);
-}
-
-int	main(int argc, char *argv[])
-{
-	if (ft_check_input_error(argc))
-		return (-1);
-	if (ft_display_file(argv[1]))
-		return (-2);
 	return (0);
 }
