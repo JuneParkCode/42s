@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:03:11 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/17 19:32:03 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/19 16:33:02 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
-#define BUFFER_SIZE 3000
+#define BUFFER_SIZE 30000
 
 void	ft_putstr(char *str);
 void	ft_put(char *str, unsigned int size);
