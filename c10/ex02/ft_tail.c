@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:13:02 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 17:08:31 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:53:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	put_tail_by_line(char *buffer, t_l length, t_l size, t_l buffer_size);
 void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size);
 void	ft_msg(char *file_name, t_l err_code);
 t_l		get_file_size(char *file_name);
+void	put_file_name(char *file_name, int flag);
 
 void	do_tail_stdin_line(t_l buffer_size)
 {
@@ -59,7 +60,7 @@ void	do_tail_stdin_byte(t_l buffer_size, t_l length)
 	free(buffer);
 }
 
-int	do_tail_line(char *file_name, t_l len, int argc)
+int	do_tail_line(char *file_name, t_l len, int flag)
 {
 	char	*buffer;
 	t_l		fd;
@@ -81,6 +82,8 @@ int	do_tail_line(char *file_name, t_l len, int argc)
 		return (0);
 	}
 	read_size = read(fd, buffer, buffer_size);
+	if (flag)
+		put_file_name(file_name, (flag > 1));
 	if (read_size > 0)
 		put_tail_by_line(buffer, len, read_size, buffer_size);
 	close(fd);
@@ -88,7 +91,7 @@ int	do_tail_line(char *file_name, t_l len, int argc)
 	return (1);
 }
 
-int	do_tail_byte(char *file_name, t_l len, int argc)
+int	do_tail_byte(char *file_name, t_l len, int flag)
 {
 	char	*buffer;
 	t_l		fd;
@@ -110,6 +113,8 @@ int	do_tail_byte(char *file_name, t_l len, int argc)
 		return (0);
 	}
 	read_size = read(fd, buffer, buffer_size);
+	if (flag)
+		put_file_name(file_name, (flag > 1));
 	if (read_size > 0)
 		put_tail_by_byte(buffer, len, read_size, buffer_size);
 	close(fd);
