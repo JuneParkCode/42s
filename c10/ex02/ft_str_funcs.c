@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:31:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 15:11:55 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:47:27 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,27 @@ void	ft_puterr(char *str)
 		write(2, str++, 1);
 }
 
-void	ft_put(char *str, unsigned int size)
+void	ft_put(char *str, unsigned long long size)
 {
-	unsigned int	idx;
+	unsigned long long	idx;
 
 	idx = 0;
 	while (idx < size)
 		write(1, &str[idx++], 1);
 }
 
-void	ft_msg(char *file_name, int err_code, char *bs_name)
+void	ft_msg(char *file_name, long long err_code)
 {
-	ft_puterr(bs_name);
-	ft_puterr(": ");
+	ft_puterr("tail: ");
 	ft_puterr(file_name);
 	ft_puterr(": ");
 	ft_puterr(strerror(err_code));
 	ft_puterr("\n");
 }
 
-int	ft_strcmp(char *s1, char *s2)
+long long	ft_strcmp(char *s1, char *s2)
 {
-	int				i;
+	long long		i;
 	unsigned char	*str1;
 	unsigned char	*str2;
 

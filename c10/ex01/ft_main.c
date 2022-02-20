@@ -6,18 +6,18 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:30:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/19 20:01:29 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:08:29 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <errno.h>
 #include <unistd.h>
+#include <libgen.h>
 
 void	ft_putstr(char *str);
 void	ft_msg(char *str, int err_code);
 int		ft_putstdin();
-int		ft_display_file(char *file_name);
+int		ft_display_file(char *file_name, char *bs_name);
 int		ft_strcmp(char *s1, char *s2);
 
 int	main(int argc, char *argv[])
@@ -44,7 +44,7 @@ int	main(int argc, char *argv[])
 				flag = read(STDIN_FILENO, buffer, 10);
 			idx++;
 		}
-		ft_display_file(argv[idx++]);
+		ft_display_file(argv[idx++], basename(argv[0]));
 	}
 	close(STDIN_FILENO);
 	return (0);
