@@ -6,11 +6,9 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:43:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 17:36:40 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:00:52 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
 #define BUFFER_SIZE 20000
 
 long long	ft_strcmp(char *s1, char *s2);
@@ -20,6 +18,7 @@ int			do_tail_line(char *file_name, long long len, int flag);
 int			do_tail_byte(char *file_name, long long len, int flag);
 void		ft_putstr(char *str);
 // atoi 구현해!!!!!
+
 int	main(int argc, char *argv[])
 {
 	long long	idx;
