@@ -1,0 +1,724 @@
+e or directory
+tail: z: No such file or directory
+tail: y: No such file or directory
+==> ft_main.c <==
+rn (0);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:06:48
+❯ tail -c 10 x ft_file.c z y ft_main.c
+tail: x: No such file or directory
+==> ft_file.c <==
+(size);
+}
+tail: z: No such file or directory
+tail: y: No such file or directory
+
+==> ft_main.c <==
+rn (0);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:07:02
+❯ tail -c 10 x x ft_file.c z y ft_main.c
+tail: x: No such file or directory
+tail: x: No such file or directory
+==> ft_file.c <==
+(size);
+}
+tail: z: No such file or directory
+tail: y: No such file or directory
+
+==> ft_main.c <==
+rn (0);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:20:46
+❯ gcc *.c
+ft_main.c:33:27: error: too few arguments to function call, expected 3,
+      have 2
+                do_tail_line(argv[1], 10);
+                ~~~~~~~~~~~~            ^
+ft_main.c:19:1: note: 'do_tail_line' declared here
+void            do_tail_line(char *file_name, long long len, int flag);
+^
+ft_main.c:46:11: error: invalid operands to binary expression
+      ('int' and 'void')
+  ...flag += do_tail_byte(argv[idx], length, flag);
+     ~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+~/lap_C/c10/c10/ex02 master*                                     17:27:47
+❯ gcc *.c
+ft_main.c:46:11: error: invalid operands to binary expression
+      ('int' and 'void')
+  ...flag += do_tail_byte(argv[idx], length, flag);
+     ~~~~ ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+~/lap_C/c10/c10/ex02 master*                                     17:28:08
+❯ gcc *.c
+Undefined symbols for architecture x86_64:
+  "_put_file_name", referenced from:
+      _do_tail_byte in ft_tail-12db93.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+~/lap_C/c10/c10/ex02 master*                                     17:28:32
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:28:44
+❯ ./a.out -c 10 x y z
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+~/lap_C/c10/c10/ex02 master*                                     17:28:48
+❯ ./a.out -c 10 x y z ft_file.c
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+==> ft_file.c <==
+(size);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:28:52
+❯ ./a.out -c 10 x y z ft_file.c bigfile.txt bigfile.txt z ft_main.c y ft_put_tail.c
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+==> ft_file.c <==
+(size);
+}
+
+==> bigfile.txt <==
+*******)
+
+
+==> bigfile.txt <==
+*******)
+
+tail: z: No such file or directory
+
+==> ft_main.c <==
+rn (0);
+}
+tail: y: No such file or directory
+
+==> ft_put_tail.c <==
+ength);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:29:06
+❯ tail -c 10 x y z ft_file.c bigfile.txt bigfile.txt z ft_main.c y ft_put_tail.c
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+==> ft_file.c <==
+(size);
+}
+
+==> bigfile.txt <==
+*******)
+
+
+==> bigfile.txt <==
+*******)
+
+tail: z: No such file or directory
+
+==> ft_main.c <==
+rn (0);
+}
+tail: y: No such file or directory
+
+==> ft_put_tail.c <==
+ength);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:29:14
+❯ tail -c 10 x y z ft_file.c bigfile.txt bigfile.txt z ft_main.c y ft_put_tail.c | wc -l
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+tail: z: No such file or directory
+tail: y: No such file or directory
+      19
+~/lap_C/c10/c10/ex02 master*                                     17:29:37
+❯ ./a.out -c 10 x y z ft_file.c bigfile.txt bigfile.txt z ft_main.c y ft_put_tail.c | wc -l
+tail: x: No such file or directory
+tail: y: No such file or directory
+tail: z: No such file or directory
+tail: z: No such file or directory
+tail: y: No such file or directory
+      19
+~/lap_C/c10/c10/ex02 master*                                     17:29:53
+❯ gcc *.c
+ft_tail.c:85:6: error: use of undeclared identifier 'flag'
+        if (flag)
+            ^
+ft_tail.c:86:29: error: use of undeclared identifier 'flag'; did you mean
+      'float'?
+                put_file_name(file_name, (flag > 1));
+                                          ^~~~
+                                          float
+ft_tail.c:86:29: error: expected expression
+3 errors generated.
+~/lap_C/c10/c10/ex02 master*                                     17:30:31
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:30:43
+❯ ./a.out 10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: 10: No such file or directory
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+				idx = 1;
+			}
+			while (idx < argc)
+			{
+				do_tail_line(argv[idx++], length, flag);
+			}
+		}
+	}
+	return (0);
+}
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:31:00
+❯ tail -10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+==> ft_file.c <==
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+
+==> ft_main.c <==
+				idx = 1;
+			}
+			while (idx < argc)
+			{
+				do_tail_line(argv[idx++], length, flag);
+			}
+		}
+	}
+	return (0);
+}
+
+==> ft_put_tail.c <==
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+
+==> ft_str_funcs2.c <==
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:31:53
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:32:14
+❯ ./a.out 10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: 10: No such file or directory
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+				idx = 1;
+			}
+			while (idx < argc)
+			{
+				do_tail_line(argv[idx++], length, flag);
+			}
+		}
+	}
+	return (0);
+}
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:32:16
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:32:54
+❯ ./a.out 10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: 10: No such file or directory
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+==> ft_main.c <==
+				length = 10;
+				idx = 1;
+			}
+			flag = argc > 3;
+			while (idx < argc)
+				flag = do_tail_line(argv[idx++], length, flag);
+		}
+	}
+	return (0);
+}
+==> ft_put_tail.c <==
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:32:55
+❯ tail -10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+==> ft_file.c <==
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+
+==> ft_main.c <==
+				length = 10;
+				idx = 1;
+			}
+			flag = argc > 3;
+			while (idx < argc)
+				flag = do_tail_line(argv[idx++], length, flag);
+		}
+	}
+	return (0);
+}
+
+==> ft_put_tail.c <==
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+
+==> ft_str_funcs2.c <==
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:33:11
+❯ ./a.out -c 10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+==> ft_file.c <==
+(size);
+}
+
+==> ft_main.c <==
+rn (0);
+}
+
+==> ft_put_tail.c <==
+ength);
+}
+tail: dfsdafsd: No such file or directory
+
+==> ft_str_funcs2.c <==
+==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:33:37
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:34:04
+❯ ./a.out 10 dfadsfsd dfasdfsda fds afdsa ft_file.c ft_main.c ft_put_tail.c dfsdafsd ft_str_funcs2.c
+tail: 10: No such file or directory
+tail: dfadsfsd: No such file or directory
+tail: dfasdfsda: No such file or directory
+tail: fds: No such file or directory
+tail: afdsa: No such file or directory
+==> ft_file.c <==
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+
+==> ft_main.c <==
+				length = 10;
+				idx = 1;
+			}
+			flag = argc > 3;
+			while (idx < argc)
+				flag += do_tail_line(argv[idx++], length, flag);
+		}
+	}
+	return (0);
+}
+
+==> ft_put_tail.c <==
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+tail: dfsdafsd: No such file or directory
+
+==> ft_str_funcs2.c <==
+}
+
+void	put_file_name(char *file_name, int flag)
+{
+	if (flag)
+		ft_putstr("\n");
+	ft_putstr("==> ");
+	ft_putstr(file_name);
+	ft_putstr(" <==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:34:06
+❯ tail -c 100 ft_main.c x ft_main.c
+==> ft_main.c <==
+3;
+			while (idx < argc)
+				flag += do_tail_line(argv[idx++], length, flag);
+		}
+	}
+	return (0);
+}
+tail: x: No such file or directory
+
+==> ft_main.c <==
+3;
+			while (idx < argc)
+				flag += do_tail_line(argv[idx++], length, flag);
+		}
+	}
+	return (0);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:34:34
+❯ ./a.out
+fdas
+dsfafds
+df
+sadf
+s
+fsa
+d
+fdsa
+fds
+af
+sad
+fsda
+fsa
+fsadda
+sD
+fsa
+d
+fdsa
+fds
+af
+sad
+fsda
+fsa
+fsadda
+~/lap_C/c10/c10/ex02 master*                                  5s 17:35:14
+❯ ./a.out ft_file.c
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:36:44
+❯ ./a.out ft_file.c ft ft_put_tail.c
+==> ft_file.c <==
+	while (1)
+	{
+		read_size = read(fd, buffer, BUF_SIZE);
+		if (read_size <= 0)
+			break ;
+		size += read_size;
+	}
+	close(fd);
+	return (size);
+}
+tail: ft: No such file or directory
+
+==> ft_put_tail.c <==
+			put_lines(lines[idx_line++]);
+	}
+	while (idx_line < num_line)
+		put_lines(lines[idx_line++]);
+}
+
+void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+{
+	ft_put(&buffer[size - length], length);
+}
+~/lap_C/c10/c10/ex02 master*                                     17:36:52
+❯ norm
+ft_file.c: OK!
+ft_main.c: Error!
+Error: NEWLINE_PRECEDES_FUNC (line:  23, col:   1):	Functions must be separated by a newline
+Error: SPACE_EMPTY_LINE     (line:  28, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  63, col:   1):	Function has more than 25 lines
+ft_put_tail.c: OK!
+ft_stdin.c: OK!
+ft_str_funcs.c: OK!
+ft_str_funcs2.c: OK!
+ft_tail.c: Error!
+Error: TOO_MANY_LINES       (line:  92, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 123, col:   1):	Function has more than 25 lines
+~/lap_C/c10/c10/ex02 master*                                     17:36:58
+❯ norm tail.c
+'tail.c' no such file or directory
+~/lap_C/c10/c10/ex02 master*                                     17:45:18
+❯ norm ft_tail.c
+ft_tail.c: Error!
+Error: TOO_MANY_LINES       (line:  92, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 123, col:   1):	Function has more than 25 lines
+~/lap_C/c10/c10/ex02 master*                                     17:45:24
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:51:52
+❯ compile *.c
+ft_put_tail.c:80:63: error: unused parameter 'buffer_size'
+      [-Werror,-Wunused-parameter]
+void    put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+                                                                 ^
+1 error generated.
+~/lap_C/c10/c10/ex02 master*                                     17:51:55
+❯ compile *.c
+ft_tail.c:58:40: error: too many arguments to function call, expected 3,
+      have 4
+        put_tail_by_byte(buffer, length, idx, buffer_size);
+        ~~~~~~~~~~~~~~~~                      ^~~~~~~~~~~
+ft_tail.c:22:1: note: 'put_tail_by_byte' declared here
+void    put_tail_by_byte(char *buffer, t_l length, t_l size);
+^
+ft_tail.c:118:43: error: too many arguments to function call, expected 3,
+      have 4
+        put_tail_by_byte(buffer, len, read_size, buffer_size);
+        ~~~~~~~~~~~~~~~~                         ^~~~~~~~~~~
+ft_tail.c:22:1: note: 'put_tail_by_byte' declared here
+void    put_tail_by_byte(char *buffer, t_l length, t_l size);
+^
+2 errors generated.
+~/lap_C/c10/c10/ex02 master*                                     17:52:38
+❯ norm
+ft_file.c: OK!
+ft_main.c: Error!
+Error: NEWLINE_PRECEDES_FUNC (line:  23, col:   1):	Functions must be separated by a newline
+Error: SPACE_EMPTY_LINE     (line:  28, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  63, col:   1):	Function has more than 25 lines
+ft_put_tail.c: OK!
+ft_stdin.c: OK!
+ft_str_funcs.c: OK!
+ft_str_funcs2.c: OK!
+ft_tail.c: Error!
+Error: TOO_MANY_LINES       (line:  91, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_LINES       (line: 121, col:   1):	Function has more than 25 lines
+~/lap_C/c10/c10/ex02 master*                                     17:53:09
+❯ compile *.c
+ft_put_tail.c:78:63: error: unused parameter 'buffer_size'
+      [-Werror,-Wunused-parameter]
+void    put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+                                                                 ^
+1 error generated.
+~/lap_C/c10/c10/ex02 master*                                     17:54:06
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:54:16
+❯ ./a.out -c 10 ft_file.c x bigfile.txt
+==> ft_file.c <==
+(size);
+}
+tail: x: No such file or directory
+
+==> bigfile.txt <==
+*******)
+
+~/lap_C/c10/c10/ex02 master*                                     17:54:26
+❯ ls
+a.out           ft_file.c       ft_stdin.c      ft_tail.c
+a.out.dSYM      ft_main.c       ft_str_funcs.c
+bigfile.txt     ft_put_tail.c   ft_str_funcs2.c
+~/lap_C/c10/c10/ex02 master*                                     17:58:38
+❯ touch test
+~/lap_C/c10/c10/ex02 master*                                     17:58:45
+❯ tail -c 10 test
+~/lap_C/c10/c10/ex02 master*                                     17:58:52
+❯ ./a.out -c 10 test
+~/lap_C/c10/c10/ex02 master*                                     17:58:58
+❯ gcc *.c
+~/lap_C/c10/c10/ex02 master*                                     17:59:40
+❯ ./a.out -c 10 test
+~/lap_C/c10/c10/ex02 master*                                     17:59:43
+❯ ./a.out -c 10 bigfile.txt
+*******)
+
+~/lap_C/c10/c10/ex02 master*                                     17:59:48
+❯ ./a.out -c 10 bigfile.txt test ft_main.c ft_str_funcs2.c
+==> bigfile.txt <==
+*******)
+
+
+==> test <==
+
+==> ft_main.c <==
+rn (0);
+}
+
+==> ft_str_funcs2.c <==
+==\n");
+}
+~/lap_C/c10/c10/ex02 master*                                     17:59:57
+❯ norm
+ft_file.c: OK!
+ft_main.c: Error!
+Error: NEWLINE_PRECEDES_FUNC (line:  23, col:   1):	Functions must be separated by a newline
+Error: SPACE_EMPTY_LINE     (line:  28, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  63, col:   1):	Function has more than 25 lines
+ft_put_tail.c: OK!
+ft_stdin.c: OK!
+ft_str_funcs.c: OK!
+ft_str_funcs2.c: OK!
+ft_tail.c: OK!
+~/lap_C/c10/c10/ex02 master*                                     18:00:16
+❯ norm
+ft_file.c: OK!
+ft_main.c: Error!
+Error: SPACE_EMPTY_LINE     (line:  27, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  62, col:   1):	Function has more than 25 lines
+ft_put_tail.c: OK!
+ft_stdin.c: OK!
+ft_str_funcs.c: OK!
+ft_str_funcs2.c: OK!
+ft_tail.c: OK!
+~/lap_C/c10/c10/ex02 master*                                     18:00:57
+❯ ls
+a.out           ft_file.c       ft_stdin.c      ft_tail.c
+a.out.dSYM      ft_main.c       ft_str_funcs.c  test
+bigfile.txt     ft_put_tail.c   ft_str_funcs2.c
+~/lap_C/c10/c10/ex02 master*                                     18:01:03
+❯ vim ft_file.c
+~/lap_C/c10/c10/ex02 master*        ~/lap_C/c10/c10/ex02 maste~/lap_C/c10/c10/ex02 master*                         18:01:10
+❯
