@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:13:02 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 17:53:53 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:59:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ int	do_tail_line(char *file_name, t_l len, int flag)
 	buffer_size = get_file_size(file_name);
 	buffer = malloc(buffer_size);
 	if (!buffer)
-	{
-		ft_msg(file_name, errno);
 		return (0);
-	}
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
@@ -101,10 +98,7 @@ int	do_tail_byte(char *file_name, t_l len, int flag)
 	buffer_size = get_file_size(file_name);
 	buffer = malloc(buffer_size);
 	if (!buffer)
-	{
-		ft_msg(file_name, errno);
 		return (0);
-	}
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
