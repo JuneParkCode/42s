@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:25:32 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 17:30:33 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:33:47 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
@@ -45,7 +45,6 @@ void	hexdumpl(char *file_name, char *buf_current, char *buf_prev)
 	g_buf = 16;
 	while (g_buf == 16)
 	{
-		g_buf = 16;
 		print_line(buf_current, buf_prev, &flag);
 		g_buf = 0;
 		g_addr += 16;
@@ -75,7 +74,6 @@ void	hexdump_cl(char *file_name, char *buf_current, char *buf_prev)
 	g_buf = 16;
 	while (g_buf == 16)
 	{
-		g_buf = 16;
 		print_line_c(buf_current, buf_prev, &flag);
 		g_buf = 0;
 		g_addr += 16;

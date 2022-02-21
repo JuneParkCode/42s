@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:54:21 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 17:40:22 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:35:28 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,11 @@ void	ft_print_data_hex2(int i, int size, char *addr_cpy)
 			length--;
 			write(1, " ", 1);
 		}
-		if (j != 15)
+		if (j++ != 15)
 		{
 			length--;
 			write(1, " ", 1);
 		}
-		++j;
 	}
 }
 

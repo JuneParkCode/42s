@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 10:52:00 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 16:08:40 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:01:15 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_l	read_stdin(char *buffer, t_l *idx, t_l buffer_size)
 	t_l	read_size;
 
 	read_size = read(STDIN_FILENO, buffer, buffer_size);
+	if (!read_size)
+		return (1);
 	*idx += read_size;
 	while (read_size > 0)
 	{
