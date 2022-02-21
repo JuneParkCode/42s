@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 16:11:25 by sungjpar          #+#    #+#              #
-#    Updated: 2022/02/21 16:11:37 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/02/21 16:18:23 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(TARGET)	:	ALL
 all	:	$(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-clean	:	$(FILES)
+clean	:
 	rm -f $(OBJS)
 
 fclean	:	clean
