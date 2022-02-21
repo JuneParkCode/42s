@@ -6,14 +6,19 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 21:23:57 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 22:12:01 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:01:21 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 void	ft_putstr(char *str);
-void	ft_print_hex(long n, int length, int depth);
+void	ft_print_hex(long long n, int length, int depth);
+void	ft_print_data_hex(int i, int size, char *addr_cpy);
 void	ft_print_data_hex2(int i, int size, char *addr_cpy);
+void	ft_print_text(int i, int size, char *addr_char);
+
+long	g_addr;
+int		g_buf;
 
 void	bufcpy(char *dest, char *src)
 {
@@ -37,28 +42,58 @@ int	is_equal_buf(char *buf1, char *buf2)
 	return (i == 16);
 }
 
-void	print_line(char *buf_current, char *buf_prev, int *flag, long n)
+void	print_line(char *buf_current, char *buf_prev, int *flag)
 {
-	if (*flag == -1)
+	if (*flag == -1 || is_equal_buf(buf_current, buf_prev) == 0)
 	{
-		ft_print_hex(n, 7, 1);
-		ft_putstr(" ");
-		ft_print_data_hex2(0, 16, buf_current);
+		ft_print_hex(g_addr, 7, 1);
+		ft_putstr("  ");
+		ft_print_data_hex(0, g_buf, buf_current);
+		ft_putstr("\n");
 		bufcpy(buf_prev, buf_current);
-		*flag = 0;
-	}
-	else if (*flag == 0 && is_equal_buf(buf_current, buf_prev))
-	{
-		ft_putstr("*");
 		*flag = 1;
 	}
-	else
+	else if (*flag == 1 && is_equal_buf(buf_current, buf_prev))
 	{
-		ft_print_hex(n, 7, 1);
-		ft_putstr(" ");
-		ft_print_data_hex2(0, 16, buf_current);
-		bufcpy(buf_prev, buf_current);
-		*flag = 0;
+		ft_putstr("*\n");
+		*flag = 2;
 	}
-	ft_putstr("\n");
+	else if (is_equal_buf(buf_current, buf_prev) == 0)
+	{	
+		ft_print_hex(g_addr, 7, 1);
+		ft_putstr("  ");
+		ft_print_data_hex(0, g_buf, buf_current);
+		ft_putstr("\n");
+		bufcpy(buf_prev, buf_current);
+		*flag = 1;
+	}
+}
+
+void	print_line_c(char *buf_current, char *buf_prev, int *flag)
+{
+	if (*flag == -1 || is_equal_buf(buf_current, buf_prev) == 0)
+	{
+		ft_print_hex(g_addr, 8, 1);
+		ft_putstr("  ");
+		ft_print_data_hex2(0, g_buf, buf_current);
+		ft_putstr("  ");
+		ft_print_text(0, g_buf, buf_current);
+		bufcpy(buf_prev, buf_current);
+		*flag = 1;
+	}
+	else if (*flag == 1 && is_equal_buf(buf_current, buf_prev))
+	{
+		ft_putstr("*\n");
+		*flag = 2;
+	}
+	else if (is_equal_buf(buf_current, buf_prev) == 0)
+	{	
+		ft_print_hex(g_addr, 8, 1);
+		ft_putstr("  ");
+		ft_print_data_hex2(0, g_buf, buf_current);
+		ft_putstr("  ");
+		ft_print_text(0, g_buf, buf_current);
+		bufcpy(buf_prev, buf_current);
+		*flag = 1;
+	}
 }

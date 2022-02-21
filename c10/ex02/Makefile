@@ -5,21 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/21 16:11:09 by sungjpar          #+#    #+#              #
-#    Updated: 2022/02/21 16:11:10 by sungjpar         ###   ########.fr        #
+#    Created: 2022/02/21 16:09:54 by sungjpar          #+#    #+#              #
+#    Updated: 2022/02/21 16:10:53 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-NAME=ft_display_file
-FILES=ft_display_file.c
+NAME=ft_tail
+FILES=ft_atoi.c\
+	  ft_file.c\
+	  ft_main.c\
+	  ft_put_tail.c\
+	  ft_stdin.c\
+	  ft_str_funcs.c\
+	  ft_str_funcs2.c\
+	  ft_tail.c\
 OBJS=$(FILES:.c=.o)
 
 $(TARGET)	:	ALL
 
 %.o	: %.c
-	$(CC) $(CFLAGS) -c  $< -o $<
+	$(CC) $(CFLAGS) -c  $< -o $@
 
 all	:	$(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)

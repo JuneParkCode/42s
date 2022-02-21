@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 11:13:02 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 17:59:33 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:48:10 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef long long	t_l;
 
 t_l		read_stdin(char *buffer, t_l *idx, t_l buffer_size);
 void	put_tail_by_line(char *buffer, t_l length, t_l size, t_l buffer_size);
-void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size);
+void	put_tail_by_byte(char *buffer, t_l length, t_l size);
 void	ft_msg(char *file_name, t_l err_code);
 t_l		get_file_size(char *file_name);
 void	put_file_name(char *file_name, int flag);
@@ -55,7 +55,7 @@ void	do_tail_stdin_byte(t_l buffer_size, t_l length)
 		return ;
 	while (!flag)
 		flag = read_stdin(buffer, &idx, buffer_size);
-	put_tail_by_byte(buffer, length, idx, buffer_size);
+	put_tail_by_byte(buffer, length, idx);
 	close(STDIN_FILENO);
 	free(buffer);
 }
@@ -110,7 +110,7 @@ int	do_tail_byte(char *file_name, t_l len, int flag)
 	if (flag)
 		put_file_name(file_name, (flag > 1));
 	if (read_size > 0)
-		put_tail_by_byte(buffer, len, read_size, buffer_size);
+		put_tail_by_byte(buffer, len, read_size);
 	close(fd);
 	free(buffer);
 	return (1);
