@@ -6,11 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:35:53 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 18:37:30 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/22 00:48:36 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_any(char **tab, int(*f)(char*))
+int	ft_any(char **tab, int (*f)(char*))
 {
 	int	idx_tab;
 

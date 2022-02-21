@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_calculation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 18:41:24 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 18:43:02 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/02/21 23:13:57 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/02/22 00:46:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+int	plus(int a, int b)
 {
-	int	val1;
-	int	val2;
-	int	operator;
+	return (a + b);
+}
 
-	if (argc != 4)
-		return (1);
+int	sub(int a, int b)
+{
+	return (a - b);
+}
 
-	return (0);
+int	div(int a, int b)
+{
+	return (a / b);
+}
+
+int	mod(int a, int b)
+{
+	return (a % b);
+}
+
+int	mult(int a, int b)
+{
+	return (a * b);
 }
