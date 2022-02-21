@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 09:43:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 17:09:23 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:26:11 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <libgen.h>
@@ -41,7 +41,7 @@ void	do_tail_mult(int argc, char *argv[], int flag, long long length)
 	idx = 1;
 	if (!ft_strcmp(argv[idx], "-c"))
 	{
-		if(get_length(argv[++idx], &length) == -1)
+		if (get_length(argv[++idx], &length) == -1)
 			return ;
 		if (argc == 3)
 			do_tail_stdin_byte(BUFFER_SIZE, length);
@@ -53,16 +53,6 @@ void	do_tail_mult(int argc, char *argv[], int flag, long long length)
 		}
 		return ;
 	}
-	if(get_length(argv[++idx], &length) == -1)
-		return ;
-	if (!length)
-	{
-		length = 10;
-		idx = 1;
-	}
-	flag = argc > 3;
-	while (idx < argc)
-		flag += do_tail_line(argv[idx++], length, flag);
 }
 
 int	main(int argc, char *argv[])
@@ -73,10 +63,8 @@ int	main(int argc, char *argv[])
 	flag = 0;
 	length = 0;
 	g_bs_name = basename(argv[0]);
-	if (argc == 1)
-		do_tail_stdin_line(BUFFER_SIZE);
-	else if (argc == 2)
-		do_tail_line(argv[1], 10, 0);
+	if (argc < 3)
+		return (1);
 	else
 		do_tail_mult(argc, argv, flag, length);
 	return (0);

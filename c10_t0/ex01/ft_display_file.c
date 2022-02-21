@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:03:11 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 15:12:37 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:30:13 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+
 #define BUFFER_SIZE 30000
 
 void	ft_putstr(char *str);
 void	ft_put(char *str, unsigned int size);
 void	ft_msg(char *file_name, int err_code, char *bs_name);
 
-/*
- *  ft_check_input_error
- *  Description		:	function checks input error
- *	return value	:	1	: Missing file name
- *						2	: Too many arguments
- *						0	: Success
- */
 int	ft_check_input_error(int argc)
 {
 	if (argc <= 1)
@@ -42,13 +36,6 @@ int	ft_check_input_error(int argc)
 	return (0);
 }
 
-/*
- *	ft_display_file
- *	Description		:	function displays content of file
- *	return value	: 0	: success
- *					  1 : fail (arg error)
- *					  2 : fail (file open error)
- */
 int	ft_display_file(char *file_name, char *bs_name)
 {
 	char	buffer[BUFFER_SIZE];

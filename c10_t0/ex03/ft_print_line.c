@@ -6,11 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 21:23:57 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 15:01:21 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:36:21 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
 void	ft_putstr(char *str);
 void	ft_print_hex(long long n, int length, int depth);
 void	ft_print_data_hex(int i, int size, char *addr_cpy);
