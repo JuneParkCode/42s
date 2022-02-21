@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_str_funcs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 18:33:28 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/22 00:48:52 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/02/21 22:54:02 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/02/22 00:32:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int	idx;
-	int	*res;
+#include <unistd.h>
 
-	idx = 0;
-	res = malloc(sizeof(int) * length);
-	if (!res)
-		return (0);
-	while (idx < length)
-	{
-		res[idx] = f(tab[idx]);
-		++idx;
-	}
-	return (res);
+int	ft_strlen(char *str)
+{
+	int	length;
+
+	length = 0;
+	while (str[length])
+		length++;
+	return (length);
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
 }

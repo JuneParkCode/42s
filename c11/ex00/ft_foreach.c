@@ -6,11 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 18:31:39 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 18:33:02 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/22 00:49:12 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void(*f)(int))
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int	idx;
 
