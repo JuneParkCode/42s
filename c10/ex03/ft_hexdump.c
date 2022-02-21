@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:48:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 22:11:21 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 22:16:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
@@ -18,21 +18,19 @@
 void	ft_msg(char *file_name, int err_code);
 void	print_line(char *buf_current, char *buf_prev, int *is_first, long addr);
 
-void	hexdump(char *file_name, char *buf_current, char *buf_prev)
+long	hexdump(char *file_name, char *buf_current, char *buf_prev, long addr)
 {
 	int	fd;
 	int	read_size;
 	int	residue;
 	int	flag;
-	int	addr;
 
 	fd = open(file_name, O_RDONLY);
 	flag = -1;
-	addr = 0;
 	if (fd == -1)
 	{
 		ft_msg(file_name, errno);
-		return ;
+		return (0);
 	}
 	residue = 0;
 	read_size = read(fd, buf_current, 16);
@@ -51,6 +49,7 @@ void	hexdump(char *file_name, char *buf_current, char *buf_prev)
 	addr += 16 - residue;
 	// 남은 buffer 출력 및 hex_address 출력
 	close(fd);
+	return (addr);
 }
 
 void	hexdump_c(char *file_name, char *buf_current, char *buf_prev)

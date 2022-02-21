@@ -6,14 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:25:21 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 21:37:59 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/20 22:17:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define BUFFER_SIZE 16
 
-void	hexdump(char *file_name, char *buf_current, char *buf_prev);
-void	hexdump_c(char *file_name, char *buf_current, char *buf_prev);
+long	hexdump(char *file_name, char *buf_current, char *buf_prev, long addr);
+void	hexdump_c(char *file_name, char *buf_current, char *buf_prev, long addr);
 void	hexdump_stdin(char *buf_current, char *buf_prev);
 
 int	main(int argc, char *argv[])
@@ -21,8 +21,12 @@ int	main(int argc, char *argv[])
 	char	buf_current[16];
 	char	buf_prev[16];
 	int		idx;
+	long	addr;
 
-	hexdump(argv[1], buf_current, buf_prev);
+	idx = 1;
+	addr = 0;
+	while (idx < argc)
+		addr = hexdump(argv[idx++], buf_current, buf_prev, addr);
 /*	
 	if (argc == 1)
 	{
