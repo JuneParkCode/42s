@@ -6,17 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:25:21 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/21 17:54:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 22:48:13 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include <libgen.h>
 #define BUFFER_SIZE 16
 
-void	hexdump(char *file_name, char *buf_current, char *buf_prev);
-void	hexdump_c(char *file_name, char *buf_current, char *buf_prev);
-void	hexdump_c_stdin(char *buf_current, char *buf_prev);
-void	hexdump_stdin(char *buf_current, char *buf_prev);
 void	print_line(char *buf_current, char *buf_prev, int *flag);
 void	print_line_c(char *buf_current, char *buf_prev, int *flag);
 void	ft_print_hex(long long n, int length, int depth);
@@ -29,8 +25,8 @@ char	*g_bs_name;
 
 int	main(int argc, char *argv[])
 {
-	char	buf_current[16];
-	char	buf_prev[16];
+	char	buf_current[BUFFER_SIZE];
+	char	buf_prev[BUFFER_SIZE];
 	int		flag;
 
 	g_addr = 0;
