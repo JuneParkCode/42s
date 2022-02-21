@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 10:51:27 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 17:54:04 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:47:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	put_tail_by_line(char *buffer, t_l length, t_l size, t_l buffer_size)
 		put_lines(lines[idx_line++]);
 }
 
-void	put_tail_by_byte(char *buffer, t_l length, t_l size, t_l buffer_size)
+void	put_tail_by_byte(char *buffer, t_l length, t_l size)
 {
 	ft_put(&buffer[size - length], length);
 }

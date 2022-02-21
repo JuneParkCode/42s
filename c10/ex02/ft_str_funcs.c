@@ -6,12 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 16:31:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/20 13:47:27 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:46:49 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
+char		*g_bs_name;
 
 void	ft_putstr(char *str)
 {
@@ -36,7 +38,8 @@ void	ft_put(char *str, unsigned long long size)
 
 void	ft_msg(char *file_name, long long err_code)
 {
-	ft_puterr("tail: ");
+	ft_puterr(g_bs_name);
+	ft_puterr(": ");
 	ft_puterr(file_name);
 	ft_puterr(": ");
 	ft_puterr(strerror(err_code));

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:03:11 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/02/17 19:32:03 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:58:59 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,7 @@ void	ft_putstr(char *str)
 	while (*str)
 		write(1, str++, 1);
 }
-/*
- *  ft_check_input_error
- *  Description		:	function checks input error
- *	return value	:	1	: Missing file name
- *						2	: Too many arguments
- *						0	: Success
- */
+
 int	ft_check_input_error(int argc)
 {
 	if (argc <= 1)
@@ -40,14 +34,6 @@ int	ft_check_input_error(int argc)
 	return (0);
 }
 
-
-/*
- *	ft_display_file
- *	Description		:	function displays content of file
- *	return value	: 0	: success
- *					  1 : fail (arg error)
- *					  2 : fail (file open error)
- */
 int	ft_display_file(char *file_name)
 {
 	char	buffer[201];
@@ -65,7 +51,7 @@ int	ft_display_file(char *file_name)
 	{
 		read_size = read(fd, buffer, 200);
 		if (read_size < 0)
-			break;
+			break ;
 		buffer[read_size] = 0;
 		ft_putstr(buffer);
 	}
