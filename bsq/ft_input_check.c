@@ -38,7 +38,7 @@ int	is_valid_input(char **strs)
 	idx_strs = 1;
 	if (strs[0] == 0)
 		return (0);
-	rules = get_rule(strs[0]);
+	rules = get_rule(strs[0], strs);
 	if (!rules)
 		return (0);
 	len = ft_strlen(strs[1]);
