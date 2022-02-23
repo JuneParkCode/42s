@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "ft_bsq.h"
+#include <stdio.h>
+
+void	ft_show_strs(char **strs);
 
 void	free_lines(char **strs)
 {
@@ -31,15 +34,19 @@ int	do_program(char **input)
 	t_rules	*rule;
 	int		**map;
 
+	ft_show_strs(input);
 	if (!is_valid_input(input))
+	{
+		ft_puterr("map error\n");
 		return (1);
+	}
 	rule = get_rule(input[0]);
-	map = make_map(input, rule);
-	find_largest_square(map, rule);
-	make_result_map(input, map, rule);
-	print_result(input);
+	// map = make_map(input, rule);
+	// find_largest_square(map, rule);
+	// make_result_map(input, map, rule);
+	// print_result(input);
 	free_lines(input);
-	free_map(map);
+	// free_map(map);
 	free(rule);
 	return (0);
 }
@@ -54,7 +61,7 @@ int	main(int argc, char *argv[])
 	idx_arg = 1;
 	if (argc == 1)
 	{
-		input = get_stdin();
+		// input = get_stdin();
 		return (do_program(input));
 	}
 	else
