@@ -20,7 +20,6 @@ typedef struct s_pair
 }		t_pair;
 typedef	struct s_rules
 {
-	int		size;
 	int		map_row;
 	int		map_col;
 	char	empty;
@@ -32,4 +31,8 @@ char	**read_file(char *file_name);
 int		is_valid_input(char **strs);
 t_rules	*get_rule(char *rule_str);
 int		ft_atoi(char *str, int len);
+int		ft_strlen(char *str);
+int		ft_is_printable(char c);
+void	ft_puterr(char *str);
+int 	ft_atoi(char *str, int len);
 #endif

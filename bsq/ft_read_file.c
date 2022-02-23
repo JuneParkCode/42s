@@ -10,29 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
+#include "ft_bsq.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 #define BUF_SIZE 2000
 
-char	*get_line(char *str, int *idx)
-{
-	char	*line;
-	int		len;
-
-	len = 0;
-	idx = 0;
-	while (str[len] && str[len] != '\n')
-		len++;
-	line = malloc(sizeof(char) * len);
-	while (str[*idx] != '\n')
-	{
-		line[*idx] = str[*idx];
-		(*idx)++;
-	}
-	line[*idx] = 0;
-	return (line);
-}
 
 int	get_file_size(char *file_name)
 {
@@ -43,13 +26,10 @@ int	get_file_size(char *file_name)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_puterr(file_name, errno);
 		return (-1);
-	}
 	while (1)
 	{
-		read_size = read(file_name, buffer, BUF_SIZE);
+		read_size = read(fd, buffer, BUF_SIZE);
 		if (read_size <= 0)
 			break ;
 		file_size += read_size;
@@ -57,14 +37,36 @@ int	get_file_size(char *file_name)
 	return (file_size);
 }
 
-int	get_line_num(char *str)
+int	get_line_num(char *str, long long size)
 {
 	int	line_num;
+	int	idx_str;
 
 	line_num = 0;
-	while (*str)
-		line_num += (*(str++) == '\n');
+	idx_str = 0;
+	while (idx_str < size)
+		line_num += (str[idx_str++] == '\n');
 	return (line_num);
+}
+
+char	*get_line(char *str)
+{
+	char	*line;
+	int		len;
+	int		idx_line;
+
+	len = 0;
+	idx_line = 0;
+	while (str[len] && str[len] != '\n')
+		len++;
+	line = malloc(sizeof(char) * (len + 1));
+	while (idx_line < len)
+	{
+		line[idx_line] = str[idx_line];
+		idx_line++;
+	}
+	line[len] = 0;
+	return (line);
 }
 
 char	**get_lines(char *buffer, int line_num)
@@ -78,7 +80,11 @@ char	**get_lines(char *buffer, int line_num)
 	idx_lines = 0;
 	idx_buffer = 0;
 	while (idx_lines < line_num)
-		lines[idx_lines++] = get_line(&buffer[idx_buffer], &idx_buffer);
+	{
+		lines[idx_lines] = get_line(&buffer[idx_buffer]);
+		idx_buffer += ft_strlen(lines[idx_lines]) + 2;
+		idx_lines++;
+	}
 	lines[line_num] = 0;
 	return (lines);
 }
@@ -95,15 +101,9 @@ char	**read_file(char *file_name)
 	buffer = malloc(file_size);
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_puterr(file_name, errno);
 		return (0);
-	}
-	read_size = read(file_name, buffer, file_size);
+	read_size = read(fd, buffer, file_size);
 	if (read_size < 0)
-	{
-		ft_puterr(file_name, errno);
 		return (0);
-	}
-	return (get_lines(buffer, get_line_num(buffer)));
+	return (get_lines(buffer, get_line_num(buffer, read_size)));
 }
