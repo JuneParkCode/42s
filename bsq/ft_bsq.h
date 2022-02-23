@@ -29,10 +29,14 @@ typedef	struct s_rules
 }		t_rules;
 char	**read_file(char *file_name);
 int		is_valid_input(char **strs);
-t_rules	*get_rule(char *rule_str);
+t_rules	*get_rule(char *rule_str, char **input);
 int		ft_atoi(char *str, int len);
 int		ft_strlen(char *str);
 int		ft_is_printable(char c);
 void	ft_puterr(char *str);
 int 	ft_atoi(char *str, int len);
+char	**get_lines(char *buffer, int line_num);
+int		get_line_num(char *str, long long size);
+char	**get_stdin();
+
 #endif

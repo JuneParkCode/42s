@@ -40,7 +40,7 @@ int	do_program(char **input)
 		ft_puterr("map error\n");
 		return (1);
 	}
-	rule = get_rule(input[0]);
+	rule = get_rule(input[0], input);
 	// map = make_map(input, rule);
 	// find_largest_square(map, rule);
 	// make_result_map(input, map, rule);
@@ -61,7 +61,7 @@ int	main(int argc, char *argv[])
 	idx_arg = 1;
 	if (argc == 1)
 	{
-		// input = get_stdin();
+		input = get_stdin();
 		return (do_program(input));
 	}
 	else
