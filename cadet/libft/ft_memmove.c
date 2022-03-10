@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:53:47 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 03:36:14 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 14:44:05 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /* Function		:	ft_memmove
  * Description	:	copy length byte string to dest
+ * 					(if overlapped, copy is done in a non-destructive manner)
  * Param		
  * 			dst	:	address to copy
  * 			src	:	source of copy bytes 

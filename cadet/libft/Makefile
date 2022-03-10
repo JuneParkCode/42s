@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/10 01:28:56 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/10 15:10:20 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME = libft.a
 
 SRC_FILES = ft_atoi.c\
 			ft_bzero.c\
+			ft_calloc.c\
 			ft_isalnum.c\
 			ft_isalpha.c\
 			ft_isascii.c\
