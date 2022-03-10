@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/10 15:10:20 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/10 17:10:59 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,14 @@ SRC_FILES = ft_atoi.c\
 			ft_memmove.c\
 			ft_memset.c\
 			ft_strchr.c\
+			ft_strdup.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
+			ft_strlcat.c\
 			ft_strncmp.c\
 			ft_strnstr.c\
 			ft_strrchr.c\
+			ft_substr.c\
 			ft_tolower.c\
 			ft_toupper.c
 

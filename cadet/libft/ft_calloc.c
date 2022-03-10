@@ -6,28 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:50:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 15:24:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:50:20 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char	*mem_b;
-	unsigned char	fill_value;
-	size_t			idx_memb;
-
-	mem_b = (unsigned char *) b;
-	fill_value = (unsigned char) c;
-	idx_memb = 0;
-	while (idx_memb < len)
-	{
-		mem_b[idx_memb] = fill_value;
-		++idx_memb;
-	}
-	return (b);
-}
+#include "libft.h"
 
 /* Function		:	ft_calloc
  * Description	:	 contigously allocates enough space for count objects 
@@ -42,7 +26,6 @@ void	*ft_memset(void *b, int c, size_t len)
  */
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	idx_byte;
 	void	*res;
 
 	res = malloc(count * size);

@@ -6,23 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:45:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 14:49:43 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:49:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	length;
-
-	length = 0;
-	while (str[length])
-		length++;
-	return (length);
-}
-
-size_t	ft_strlcat(char *restrict dest, char *restrict src, size_t size)
+size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 {
 	size_t	len_dest;
 	size_t	len_src;
