@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:41:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 02:34:36 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 16:58:54 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while ((s1[idx_byte] || s2[idx_byte]) && idx_byte < n)
 	{
 		if (s1[idx_byte] != s2[idx_byte])
-			return ((unsigned char) s1[idx_byte] - (unsigned char) s2[idx_byte]);
+			return ((unsigned char) s1[idx_byte] - \
+					(unsigned char) s2[idx_byte]);
 		++idx_byte;
 	}
 	return (0);

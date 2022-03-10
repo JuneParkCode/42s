@@ -6,19 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:13:38 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/09 19:10:12 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:48:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	isalpha(int c)
-{
-	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
-}
-
-static int	isdigit(int c)
-{
-	return ('0' <= c && c <= '9');
-}
+#include "libft.h"
 
 /* Function		:	ft_isalnum
  * Description	:	tests for param 'c' that  isalpha or is isdigit is true
@@ -29,5 +21,5 @@ static int	isdigit(int c)
  */
 int	ft_isalnum(int c)
 {
-	return (isalpha(c) || isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

@@ -6,21 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:57:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 03:46:40 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:51:02 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-
-static size_t	strlen(const char *str)
-{
-	size_t	length;
-
-	length = 0;
-	while (str[length])
-		++length;
-	return (length);
-}
+#include "libft.h"
 
 /* Function		:	ft_strlcpy
  * Description	:	size-bounded string copying
@@ -34,11 +25,10 @@ static size_t	strlen(const char *str)
 size_t	ft_strlcpy(char *restrict dst, const char *restrict src, \
 		size_t dst_size)
 {
-	size_t	idx_byte;
-	size_t	len_src;
+	size_t			idx_byte;
+	const size_t	len_src = ft_strlen(src);
 
 	idx_byte = 0;
-	len_src = strlen(src);
 	if (dst_size == 0)
 		return (len_src);
 	while (idx_byte + 1 < dst_size && src[idx_byte])
