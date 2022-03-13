@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:03:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 18:13:55 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/13 23:58:57 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 # include <stddef.h>
 
-typedef	struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -39,7 +39,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 void	ft_bzero(void *s, size_t n);
-void	ft_memcpy(void *s, const void *src, size_t n);
+void	*ft_memcpy(void *s, const void *src, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
 void	*ft_calloc(size_t count, size_t size);

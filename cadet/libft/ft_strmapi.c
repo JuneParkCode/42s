@@ -6,14 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:12:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 16:28:51 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 00:31:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-/* Function		:	ft_atoi
+/* Function		:	ft_mapi
  * Description	:	Applies the function ’f’ to each character of
  * 					the string ’s’ , and passing its index as first
  * 					argument to create a new string (with malloc(3))
@@ -27,13 +27,17 @@
  */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	const size_t	size = ft_strlen(s);
-	size_t			idx_str;
-	char			*res;
+	size_t	size;
+	size_t	idx_str;
+	char	*res;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
+	size = ft_strlen(s);
 	res = malloc(sizeof(char) * (size + 1));
 	if (res == NULL)
 		return (NULL);
+	ft_memset(res, 0, size + 1);
 	idx_str = 0;
 	while (idx_str < size)
 	{

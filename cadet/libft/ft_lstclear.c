@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:44:54 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 18:49:37 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/13 19:34:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@
  * 					the element.
  * Return Value	:	NONE
  */
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*cur_node;
 	t_list	*next_node;
-	
+
 	if (lst == NULL || *lst == NULL)
 		return ;
 	cur_node = *lst;
 	while (cur_node)
 	{
-		next_node = cur_node -> next;	
+		next_node = cur_node -> next;
 		ft_lstdelone(cur_node, del);
 		cur_node = next_node;
 	}
