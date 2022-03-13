@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:07:18 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 17:23:44 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/13 23:54:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 static int	isspace(const char c)
 {
-	return (c < 32 || c == 127);
+	const char	*spaces = "\t\n\r\v\f ";
+
+	while (*spaces)
+	{
+		if (c == *spaces)
+			return (1);
+		++spaces;
+	}
+	return (0);
 }
 
 static int	issign(const char c)
