@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:07:18 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 19:38:36 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/12 17:23:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 {
 	unsigned int	idx_str;
 	unsigned int	res;
-	int		sign;
+	int				sign;
 
 	idx_str = 0;
 	res = 0;
@@ -57,4 +57,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * res);
 }
-

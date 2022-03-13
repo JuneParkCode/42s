@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:34:28 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 19:41:18 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/12 17:23:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strdup(const char *s1)
 	char			*res;
 
 	res = malloc((len_str + 1) * sizeof(char));
-	ft_memset(res ,0, len_str + 1);
+	ft_memset(res, 0, len_str + 1);
 	if (res == NULL)
 	{
 		errno = ENOMEM;
