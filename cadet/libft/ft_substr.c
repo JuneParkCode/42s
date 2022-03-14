@@ -6,11 +6,10 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:43:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/11 16:30:01 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:11:36 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -28,11 +27,14 @@
  */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*res;
-	size_t			idx_str;
-	const size_t	len_str = ft_strlen(s);
-	size_t			size;
+	char	*res;
+	size_t	idx_str;
+	size_t	len_str;
+	size_t	size;
 
+	if (!s)
+		return (0);
+	len_str = ft_strlen(s);
 	if (start >= len_str)
 		size = 0;
 	else if ((len_str - start) < len)

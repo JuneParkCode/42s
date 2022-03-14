@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:50:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 17:50:20 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:57:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*res;
 
 	res = malloc(count * size);
+	if (res == NULL)
+		return (NULL);
 	ft_memset(res, 0, count * size);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:31:02 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 16:36:54 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:13:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	idx_s;
 
+	if (s == NULL)
+		return ;
 	idx_s = 0;
 	while (s[idx_s])
 	{

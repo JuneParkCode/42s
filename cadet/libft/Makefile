@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/13 19:32:42 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/14 18:31:49 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,16 @@ OBJS = ${SRC_FILES:.c=.o}
 
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
+ifdef WITH_BONUS
+    OBJ = $(OBJ_BONUS)
+else
+    OBJ = $(OBJS)
+endif
+
 all 	: $(NAME)
 
-$(NAME)	: $(OBJS)
-	ar r $(NAME) $(OBJS)
+$(NAME)	: $(OBJ)
+	ar rcus $(NAME) $(OBJ)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I . -c $< -o $@
@@ -80,7 +86,7 @@ fclean	: clean
 
 re		: fclean all
 
-bonus	: $(OBJ_BONUS)
-	ar r $(NAME) $(OBJ_BONUS)
+bonus	:
+	@make WITH_BONUS=1 all
 
 .PHONY	: clean fclean re all

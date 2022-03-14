@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:41:42 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 00:29:51 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:07:07 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t			end;
 	size_t			size;
 
+	if (s1 == NULL)
+		return (NULL);
 	idx_res = 0;
 	start = 0;
 	while (is_in_set(s1[start], set) && s1[start])
