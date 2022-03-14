@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:53:47 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 17:29:39 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:18:45 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			++idx_byte;
 		}
 	}
-	else
+	else if (src < dst)
 	{
 		dest = (char *) dst + len - 1;
 		source = (const char *) src + len - 1;

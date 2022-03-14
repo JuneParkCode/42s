@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:54:38 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 19:39:46 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:22:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list			*new_node;
 	t_list			*res;
 
-	if (lst == NULL || f == NULL || del == NULL)
-		return (NULL);
 	cur_node_oldlst = lst;
 	cur_node_newlst = NULL;
 	while (cur_node_oldlst)

@@ -6,11 +6,10 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:33:33 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 00:13:32 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:11:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 /* Function		:	ft_strrchr

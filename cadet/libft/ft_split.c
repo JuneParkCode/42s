@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:09:00 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 17:04:01 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:07:35 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static size_t	get_size(const char *s, char c)
 	size_t	res;
 	size_t	idx_str;
 
-	if (s[0] == 0)
+	if (s == NULL || s[0] == 0)
 		return (0);
 	res = 0;
 	idx_str = 0;

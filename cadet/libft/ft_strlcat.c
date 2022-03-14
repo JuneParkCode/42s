@@ -6,13 +6,28 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:45:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 19:59:37 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:10:50 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
+/* Function		:	ft_strlcat
+ * Description	:	strlcat() appends string src to the end of dst.
+ * 					It will append at most dstsize - strlen(dst) - 1
+ * 					characters.  It will then NUL-terminate, unless
+ * 					dstsize is 0 or the original dst string was
+ * 					longer than dstsize (in practice this should not
+ * 					happen as it means that either dstsize is incorrect
+ * 					or that dst is not a proper string).
+ * 					If the src and dst strings overlap, the behavior
+ * 					is undefined.
+ * Param		
+ * 			s1	:	The prefix string.
+ * 			s2	:	The suffix string.
+ * Return Value	:	address of joined string
+ * 					NULL : Memory allocation error
+ */
 size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
 {
 	size_t	len_dest;
