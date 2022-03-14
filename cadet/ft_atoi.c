@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:07:18 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 19:26:17 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/14 19:20:43 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,15 @@ int	ft_atoi(const char *str)
 		return (-1);
 	else if (checker > 0 && sign == -1)
 		return (0);
-	else if (checker == -2147483648)
+	if (res == 2147483647 && sign == -1)
 		return (-2147483648);
 	return (res);
+}
+
+#include <stdio.h>
+int	main(int argc, char *argv[])
+{
+	if (argc != 2)
+		return (0);
+	printf("%d", ft_atoi(argv[1]));
 }

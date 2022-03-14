@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/14 18:31:49 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/14 18:35:19 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ endif
 all 	: $(NAME)
 
 $(NAME)	: $(OBJ)
-	ar rcus $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I . -c $< -o $@
