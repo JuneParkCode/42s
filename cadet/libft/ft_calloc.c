@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:50:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 15:57:33 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:58:32 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;
 
+	if (!count || !size)
+	{
+		count = 1;
+		size = 1;
+	}
 	res = malloc(count * size);
 	if (res == NULL)
 		return (NULL);

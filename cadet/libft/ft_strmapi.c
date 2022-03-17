@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:12:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 00:31:18 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 20:10:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 /* Function		:	ft_mapi
  * Description	:	Applies the function ’f’ to each character of
@@ -31,8 +31,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	idx_str;
 	char	*res;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
 	size = ft_strlen(s);
 	res = malloc(sizeof(char) * (size + 1));
 	if (res == NULL)

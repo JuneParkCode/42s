@@ -6,19 +6,23 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 20:10:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/10 01:38:16 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:25:21 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 /* Function		:	ft_memcmp
- * Description	:	fill a byte string with a byte value
+ * Description	:	function compares byte string s1 against byte string s2.
+ * 					Both strings are assumed to be n bytes long.
  * Param		
- * 			b	:	address to fill
- * 			c	:	value of byte
- * 			len	:	length of byte to fill
- * Return Value	:	first argument (b)
+ * 			s1	:	address to fill
+ * 			s2	:	value of byte
+ * 			n	:	length of byte to compate
+ * Return Value	:	>  0 : s1 > s2 
+ * 					== 0 : s1 == s2
+ * 					<  0 : s1 < s1
  */
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)

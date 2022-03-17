@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:14:15 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 18:37:34 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 20:09:39 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 /* Function		:	ft_lstnew
  * Description	:	Allocates (with malloc(3)) and returns a new 

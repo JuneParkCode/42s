@@ -6,9 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:10:53 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/09 18:46:12 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:23:31 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /* Function		:	ft_isalpha
  * Description	:	tests for param 'c' is alphabet

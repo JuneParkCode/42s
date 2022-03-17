@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:43:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 18:11:36 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:20:46 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	len_str;
 	size_t	size;
 
-	if (!s)
-		return (0);
 	len_str = ft_strlen(s);
 	if (start >= len_str)
 		size = 0;

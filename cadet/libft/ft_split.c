@@ -6,19 +6,19 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:09:00 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 16:07:35 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 20:10:15 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 static size_t	get_size(const char *s, char c)
 {
 	size_t	res;
 	size_t	idx_str;
 
-	if (s == NULL || s[0] == 0)
+	if (s[0] == 0)
 		return (0);
 	res = 0;
 	idx_str = 0;
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 	size_t			idx_start;
 
 	res = malloc(sizeof(char *) * (get_size(s, c) + 1));
-	if (res == NULL || s == NULL)
+	if (res == NULL)
 		return (do_free(res, 0));
 	idx_res = 0;
 	idx_str = 0;

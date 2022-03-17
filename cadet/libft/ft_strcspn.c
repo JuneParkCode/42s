@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 18:12:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:24:00 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/17 18:35:53 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/17 18:38:34 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
-/* Function		:	ft_isdigit
- * Description	:	tests for param 'c' is digit (ascii)
- * Param		
- * 			c	:	number to test
- * Return Value	:	1 (TRUE) : c is digit
- * 					0 (FALSE) : c is not digit
- */
-int	ft_isdigit(int c)
+size_t ft_strcspn(const char* str, const char* set)
 {
-	return ('0' <= c && c <= '9');
+	size_t	idx_str;
+	
+	idx_str = 0;
+	while (str[idx_str])
+	{
+		if (ft_strchr(set, str[idx_str]))
+			return (idx_str);
+	}
+	return (idx_str);
 }

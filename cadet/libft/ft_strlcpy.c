@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:57:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 18:11:11 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:23:56 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@
  * 		dstsize	:	size of destination size
  * Return Value	:	original value of dst
  */
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, \
-		size_t dst_size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
-	size_t			idx_byte;
 	const size_t	len_src = ft_strlen(src);
+	size_t			idx_byte;
 
 	idx_byte = 0;
 	if (dst_size == 0)
