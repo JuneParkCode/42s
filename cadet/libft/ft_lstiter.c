@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:50:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/13 18:54:30 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:15:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*cur_node;
 
-	if (lst == NULL)
-		return ;
 	cur_node = lst;
 	while (cur_node)
 	{

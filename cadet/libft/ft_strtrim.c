@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:41:42 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 16:07:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/16 13:54:25 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
 int	is_in_set(const char c, const char *set)
 {
@@ -42,16 +42,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t			end;
 	size_t			size;
 
-	if (s1 == NULL)
-		return (NULL);
 	idx_res = 0;
 	start = 0;
 	while (is_in_set(s1[start], set) && s1[start])
 		++start;
-	end = ft_strlen(s1) - 1;
+	end = ft_strlen(s1) - 1 + (ft_strlen(s1) == 0);
 	while (is_in_set(s1[end], set) && start < end)
 		--end;
 	size = end - start + 2;
+	if (end == start)
+		size = 1;
 	res = malloc(sizeof(char) * (size));
 	if (res == NULL)
 		return (NULL);

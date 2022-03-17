@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 18:12:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:24:00 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/17 18:26:49 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/17 18:29:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Function		:	ft_isdigit
- * Description	:	tests for param 'c' is digit (ascii)
- * Param		
- * 			c	:	number to test
- * Return Value	:	1 (TRUE) : c is digit
- * 					0 (FALSE) : c is not digit
- */
-int	ft_isdigit(int c)
+int	ft_isspace(const char c)
 {
-	return ('0' <= c && c <= '9');
+	const char	*spaces = "\t\n\r\v\f ";
+
+	while (*spaces)
+	{
+		if (c == *spaces)
+			return (1);
+		++spaces;
+	}
+	return (0);
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 18:12:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:24:00 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/17 18:29:55 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/17 18:34:25 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Function		:	ft_isdigit
- * Description	:	tests for param 'c' is digit (ascii)
- * Param		
- * 			c	:	number to test
- * Return Value	:	1 (TRUE) : c is digit
- * 					0 (FALSE) : c is not digit
- */
-int	ft_isdigit(int c)
+char	*ft_strpbrk(const char *str, const char *set)
 {
-	return ('0' <= c && c <= '9');
+	char	*res;
+
+	while (*str)
+	{
+		res = ft_strchr(set, *str);
+		if (res)
+			return ((char *)str);
+		++str;
+	}
+	return (NULL);
 }

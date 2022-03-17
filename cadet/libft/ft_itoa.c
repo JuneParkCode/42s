@@ -6,11 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:57 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 17:24:02 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:24:26 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 int	get_size(int n)
 {

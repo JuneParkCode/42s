@@ -6,11 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:39:43 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 17:02:19 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:26:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
 /* Function		:	ft_putnbr_fd
  * Description	:	Outputs the number n to the given file descriptor.

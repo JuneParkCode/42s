@@ -6,11 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:39:43 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/12 17:22:47 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:25:58 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
 /* Function		:	ft_putchar_fd
  * Description	:	Outputs the character ’c’ to the given file descriptor.

@@ -6,12 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 18:54:38 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 16:22:18 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:07:14 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 /* Function		:	ft_lstmap
  * Description	:	Iterates the list ’lst’ and applies the function

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:45:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 18:10:50 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:19:55 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@
  * Return Value	:	address of joined string
  * 					NULL : Memory allocation error
  */
-size_t	ft_strlcat(char *restrict dest, const char *restrict src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	len_dest;
-	size_t	len_src;
-	size_t	i_dest;
-	size_t	i_src;
+	const size_t	len_dest = ft_strlen(dest);
+	const size_t	len_src = ft_strlen(src);
+	size_t			i_dest;
+	size_t			i_src;
 
-	len_dest = ft_strlen(dest);
-	len_src = ft_strlen(src);
 	i_dest = len_dest;
 	i_src = 0;
 	while (i_src < len_src && i_dest + 1 < size)
