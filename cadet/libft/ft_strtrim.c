@@ -6,23 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:41:42 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/16 13:54:25 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:37:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-int	is_in_set(const char c, const char *set)
-{
-	while (*set)
-	{
-		if (*set == c)
-			return (1);
-		++set;
-	}
-	return (0);
-}
 
 /* Function		:	ft_strtrim
  * Description	:	Allocates (with malloc(3)) and returns a copy of ’s1’ with 
@@ -44,10 +33,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	idx_res = 0;
 	start = 0;
-	while (is_in_set(s1[start], set) && s1[start])
+	while (ft_isinset(s1[start], set) && s1[start])
 		++start;
 	end = ft_strlen(s1) - 1 + (ft_strlen(s1) == 0);
-	while (is_in_set(s1[end], set) && start < end)
+	while (ft_isinset(s1[end], set) && start < end)
 		--end;
 	size = end - start + 2;
 	if (end == start)
@@ -56,7 +45,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (res == NULL)
 		return (NULL);
 	ft_memset(res, 0, size);
-	while (idx_res + 1 < size)
-		res[idx_res++] = s1[start++];
+	ft_strlcpy(res, s1 + start, size);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:09:00 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/15 20:10:15 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:31:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 
 	res = malloc(sizeof(char *) * (get_size(s, c) + 1));
 	if (res == NULL)
-		return (do_free(res, 0));
+		return (NULL);
 	idx_res = 0;
 	idx_str = 0;
 	while (s[idx_str] == c && s[idx_str])

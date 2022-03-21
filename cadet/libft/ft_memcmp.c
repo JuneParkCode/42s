@@ -6,12 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 20:10:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:25:21 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:27:54 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
 /* Function		:	ft_memcmp
  * Description	:	function compares byte string s1 against byte string s2.

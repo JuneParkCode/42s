@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_isinset.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 18:26:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 13:53:43 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/21 13:25:04 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/21 13:53:14 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-/* Function		:	ft_isspace
- * Description	:	return true if character c is space
+/* Function		:	ft_isinset
+ * Description	:	return true if character c is in set
  * Param		
  * 			c	:	character to test
- * Return Value	:	true 	: character is space
- * 					false 	: character is not space
+ * 			set	:	char set to test
+ * Return Value	:	true 	: c is in set
+ * 					false	: c is not in set
  */
- int	ft_isspace(const char c)
+int	ft_isinset(const char c, const char *set)
 {
-	const char	*spaces = "\t\n\r\v\f ";
-	return (ft_isinset(c, spaces));
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		++set;
+	}
+	return (0);
 }

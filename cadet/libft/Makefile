@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/15 19:46:30 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/21 13:41:10 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,11 @@ SRC_FILES = ft_atoi.c\
 			ft_strtrim.c\
 			ft_substr.c\
 			ft_tolower.c\
-			ft_toupper.c
+			ft_toupper.c\
+			ft_isinset.c\
+			ft_isspace.c\
+			ft_strcspn.c\
+			ft_strpbrk.c
 
 SRC_BONUS = ft_lstnew.c\
 			ft_lstadd_front.c\

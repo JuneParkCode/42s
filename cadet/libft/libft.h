@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:03:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:38:52 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 14:16:09 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+/* user defined */
 int		ft_isspace(const char c);
 char	*ft_strpbrk(const char *str, const char *set);
-size_t ft_strcspn(const char* str, const char* set);
+size_t	ft_strcspn(const char* str, const char* set);
+int		ft_isinset(const char c, const char *set);
 #endif

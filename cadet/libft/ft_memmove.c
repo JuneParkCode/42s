@@ -6,12 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:53:47 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:25:44 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:28:04 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
 /* Function		:	ft_memmove
  * Description	:	copy length byte string to dest

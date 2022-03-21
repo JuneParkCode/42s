@@ -6,11 +6,9 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 18:12:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:24:00 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:24:00 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /* Function		:	ft_isdigit
  * Description	:	tests for param 'c' is digit (ascii)
