@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:34:28 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/14 18:09:10 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:33:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,11 @@
 char	*ft_strdup(const char *s1)
 {
 	const size_t	len_str = ft_strlen(s1);
-	size_t			idx_str;
 	char			*res;
 
 	res = malloc((len_str + 1) * sizeof(char));
 	if (res == NULL)
 		return (NULL);
-	ft_memset(res, 0, len_str + 1);
-	idx_str = 0;
-	while (idx_str < len_str)
-	{
-		res[idx_str] = s1[idx_str];
-		++idx_str;
-	}
+	ft_strlcpy(res, s1, len_str + 1);
 	return (res);
 }

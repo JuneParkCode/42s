@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:31:46 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/15 20:10:26 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:34:22 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (res == NULL)
 		return (NULL);
-	ft_memset(res, 0, len_s1 + len_s2 + 1);
-	ft_memcpy(res, s1, len_s1);
-	ft_memcpy(res + len_s1, s2, len_s2);
+	ft_strlcpy(res, s1, len_s1 + 1);
+	ft_strlcpy(res + len_s1, s2, len_s2 + 1);
 	return (res);
 }

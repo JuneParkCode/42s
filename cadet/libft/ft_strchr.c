@@ -6,12 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 19:10:00 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:26:10 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:32:15 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
 /* Function		:	ft_strchr
  * Description	:	locate first character c in string

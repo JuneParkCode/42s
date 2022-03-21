@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:43:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/15 18:20:46 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/21 13:38:34 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*res;
-	size_t	idx_str;
 	size_t	len_str;
 	size_t	size;
 
@@ -43,11 +42,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (res == NULL)
 		return (NULL);
 	ft_memset(res, 0, size + 1);
-	idx_str = 0;
-	while (idx_str < len && (start + idx_str) < len_str)
-	{
-		res[idx_str] = s[start + idx_str];
-		++idx_str;
-	}
+	ft_strlcpy(res, s + start, size + 1);
 	return (res);
 }
