@@ -18,7 +18,8 @@ user_event_list = [] # event ids
 def get_event():
     url = 'https://api.intra.42.fr/v2/campus/29/events/?access_token=' + access_token
     res = requests.get(url)
-    print(res.text)
+    data = json.load(res.text)
+    print(data)
     # 현재 상위 이벤트 내용 리스트로 수집
     # register_event 를 통해서 이벤트 등록
     # register_event 에서는 유저의 이벤트 정보를 받아서 해당 내용이 중복되는지 확인함
@@ -28,7 +29,6 @@ def get_event():
 
 def register_event(event_ids):
     # 인자로 전달된 event id에 대해서 register 진행
-    # 
     for event in event_ids :
         url = 'https://api.intra.42.fr/v2/events_users' + event + '?access_token=' + access_token
         requests.post(url)
