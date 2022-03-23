@@ -1,6 +1,0 @@
-[submodule "Cadet/ft_printf"]
-	path = Cadet/ft_printf
-	url = git@vogsphere.42seoul.kr:vogsphere/intra-uuid-e1a9bc76-51c0-4cfe-b4d4-19dfacd880cb-4056938-sungjpar
-[submodule "intra-uuid-e1a9bc76-51c0-4cfe-b4d4-19dfacd880cb-4056938-sungjpar"]
-	path = intra-uuid-e1a9bc76-51c0-4cfe-b4d4-19dfacd880cb-4056938-sungjpar
-	url = git@vogsphere.42seoul.kr:vogsphere/intra-uuid-e1a9bc76-51c0-4cfe-b4d4-19dfacd880cb-4056938-sungjpar
