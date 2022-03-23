@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 15:48:39 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/23 22:27:11 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,18 @@ static int	print_format(const char f, va_list ap)
 	else if (f == 'p')
 		return (ft_putstr("0x") + ft_putaddr(va_arg(ap, void *)));
 	else if (f == 'd' || f == 'i')
-		return (ft_putnbr_base(va_arg(ap, int), "0123456789"));
+		return (ft_putnbr(va_arg(ap, int)));
 	else if (f == 'u')
-		return (ft_putnbr_base(va_arg(ap, unsigned int), "0123456789"));
+		return (ft_putnbr(va_arg(ap, long long)));
 	else if (f == 'x')
-		return (ft_putnbr_base(va_arg(ap, int), "0123456789abcdef"));
+		return (ft_puthex(va_arg(ap, int), 0));
 	else if (f == 'X')
-		return (ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF"));
+		return (ft_puthex(va_arg(ap, int), 1));
 	else if (f == '%')
 		return (ft_putchar(f));
 	else
 		return (0);
+	return (0);
 }
 
 static int	do_print(const char *fmt, va_list ap)
@@ -82,6 +83,8 @@ int	ft_printf(const char *fmt, ...)
 	int		len_str;
 	va_list	ap;
 
+	if (fmt == NULL)
+		return (-1);
 	idx_fmt = 0;
 	va_start(ap, fmt);
 	len_str = do_print(fmt, ap);
