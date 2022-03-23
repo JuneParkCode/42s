@@ -6,35 +6,32 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 16:38:47 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:48:39 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "./include/libft_printf.h"
-#include "./include/libft.h"
+#include "../include/libft_printf.h"
 
 static int	print_format(const char f, va_list ap)
 {
 	if (f == 'c')
-		ft_putchar_fd(va_arg(ap, char), 1);
+		return (ft_putchar(va_arg(ap, int)));
 	else if (f == 's')
-		ft_putstr_fd(va_arg(ap, const char *), 1);
+		return (ft_putstr(va_arg(ap, const char *)));
 	else if (f == 'p')
-		ft_putaddr_fd(va_arg(ap unsigned long long), 1);
+		return (ft_putstr("0x") + ft_putaddr(va_arg(ap, void *)));
 	else if (f == 'd' || f == 'i')
-		ft_putnbr_fd(va_arg(ap, int), 1);
+		return (ft_putnbr_base(va_arg(ap, int), "0123456789"));
 	else if (f == 'u')
-		ft_putnbr_fd(va_arg(ap. unsigned int), 1); // as unsinged
+		return (ft_putnbr_base(va_arg(ap, unsigned int), "0123456789"));
 	else if (f == 'x')
-		ft_putnbr_base_fd(va_arg(ap, int), "0123456789abcdef", 1);
+		return (ft_putnbr_base(va_arg(ap, int), "0123456789abcdef"));
 	else if (f == 'X')
-		ft_putnbr_base_fd(va_arg(ap, int), "0123456789ABCDEF", 1);
+		return (ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF"));
 	else if (f == '%')
-		ft_putchar_fd(f);
+		return (ft_putchar(f));
 	else
 		return (0);
-	return (1);
 }
 
 static int	do_print(const char *fmt, va_list ap)
@@ -53,10 +50,12 @@ static int	do_print(const char *fmt, va_list ap)
 			len_str += print_format(fmt[idx_fmt], ap);
 			flag = 0;
 		}
-		else if (fmt[idx_fmt] = '%')
+		else if (fmt[idx_fmt] == '%')
+			flag = 1;
+		else
 		{
 			++len_str;
-			flag = 1;
+			ft_putchar(fmt[idx_fmt]);
 		}
 		++idx_fmt;
 	}

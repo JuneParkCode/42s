@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 14:22:24 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/21 14:34:00 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/23 16:09:28 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,17 @@ SRC_DIR = ./src/
 
 INC_DIR = ./include/
 
-SRC_FILES = $(SRC_DIR)ft_printf.c
-
+SRC_FILES = $(SRC_DIR)ft_printf.c\
+			$(SRC_DIR)ft_putaddr.c\
+			$(SRC_DIR)ft_putnbr_base.c\
+			$(SRC_DIR)ft_putstr.c\
+			$(SRC_DIR)ft_putchar.c\
+			$(SRC_DIR)ft_strlen.c
+			
 OBJS = ${SRC_FILES:.c=.o}
 
 all		: $(NAME)
+
 $(NAME)	: $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
