@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_printf.h                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 15:10:31 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 16:08:19 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:08:07 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/23 16:08:50 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_PRINTF_H
-# define LIBFT_PRINTF_H
+#include <unistd.h>
+#include "../include/libft_printf.h"
 
-# include <stddef.h>
-# include <stdarg.h>
-int		ft_printf(const char *msg, ...);
-int		ft_putchar(const char c);
-int		ft_putstr(const char *str);
-int		ft_putnbr_base(const int n, const char *base);
-int		ft_putaddr(void *addr);
-size_t	ft_strlen(const char *str);
+int	ft_putstr(const char *str)
+{
+	const size_t	len = ft_strlen(str);
 
-#endif
+	write(1, str, len);
+	return (len);
+}
