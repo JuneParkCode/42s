@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:08:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 10:50:35 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:09:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_putstr(const char *str)
 		ft_putstr("(null)");
 		return (6);
 	}
-	len= ft_strlen(str);
+	len = ft_strlen(str);
 	write(1, str, len);
 	return (len);
 }

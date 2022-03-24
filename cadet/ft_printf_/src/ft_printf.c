@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 11:36:42 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:09:10 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#define ABS(X) (X < 0 ? -X : X)
+
 static int	print_format(const char f, va_list ap)
 {
 	if (f == 'c')
@@ -89,5 +89,5 @@ int	ft_printf(const char *fmt, ...)
 	va_start(ap, fmt);
 	len_str = do_print(fmt, ap);
 	va_end(ap);
-	return (len_str);	
+	return (len_str);
 }

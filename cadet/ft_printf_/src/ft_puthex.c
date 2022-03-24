@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:43:23 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 10:50:16 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:09:25 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	get_size(unsigned long long n)
 int	ft_puthex(unsigned long long n, int flag)
 {
 	const int		len = get_size(n);
-	char			str[len];
+	char			str[20];
 	char			*hex;
 	int				idx;
 
@@ -48,4 +48,3 @@ int	ft_puthex(unsigned long long n, int flag)
 	write(1, str, len);
 	return (len);
 }
-
