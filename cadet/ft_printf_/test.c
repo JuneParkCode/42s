@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:43:41 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 22:01:26 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:17:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,4 +186,8 @@ int	main(void)
 	do_test('X', &x); 
 	x = 0;
 	do_test('X', &x); 
+
+	ft_printf(makeblue("========[TEST : %]==========\n"));
+	do_test('%', NULL); 
+	x = 0;
 }
