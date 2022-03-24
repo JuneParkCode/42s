@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:12:41 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 10:50:23 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:08:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static int	get_size(const long long n)
 
 int	ft_putnbr(const long long n)
 {
-	unsigned int		size = get_size(n);
-	unsigned int		nb;
-	unsigned int		idx;
-	char				str[size];
+	const unsigned int		size = get_size(n);
+	unsigned int			nb;
+	unsigned int			idx;
+	char					str[12];
 
 	idx = size;
 	if (n < 0)
