@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:43:41 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 11:41:31 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 12:38:36 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "include/ft_printf.h"
-#include "../libft/libft.h"
+#include "libft.h"
 
 char	*makered(const char *s)
 {
