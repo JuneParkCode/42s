@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/21 14:22:24 by sungjpar          #+#    #+#              #
-#    Updated: 2022/03/23 20:24:33 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/03/24 12:26:29 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,11 @@ $(NAME)	: $(OBJS)
 
 clean	:
 	rm -f $(OBJS)
+.PHONY	: clean
 
 fclean	: clean
 	rm -f $(NAME)
+.PHONY	: fclean
 
 re		: fclean all
+.PHONY	: re
