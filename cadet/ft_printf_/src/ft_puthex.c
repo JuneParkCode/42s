@@ -6,33 +6,29 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:43:23 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 22:28:09 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:50:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "../include/ft_printf.h"
 
-static int	get_size(const long long n)
+static int	get_size(unsigned long long n)
 {
-	unsigned int	nb;
 	int				size;
 
 	size = (n < 0);
 	if (n == 0)
 		return (1);
-	else if (n < 0)
-		nb = -n;
-	else
-		nb = n;
-	while (nb > 0)
+	while (n > 0)
 	{
-		nb /= 16;
+		n /= 16;
 		++size;
 	}
 	return (size);
 }
 
-int	ft_puthex(unsigned int n, int flag)
+int	ft_puthex(unsigned long long n, int flag)
 {
 	const int		len = get_size(n);
 	char			str[len];

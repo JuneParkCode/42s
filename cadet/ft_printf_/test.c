@@ -6,14 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:43:41 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 10:17:17 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:51:12 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include "include/libft_printf.h"
+#include "include/ft_printf.h"
 #include "../libft/libft.h"
 
 char	*makered(const char *s)
@@ -103,6 +103,12 @@ int	main(void)
 	// do_test p
 	ft_printf(makeblue("========[TEST : p]==========\n"));
 	do_test('p', test);
+	do_test('p', INT_MIN);
+	do_test('p', INT_MAX);
+	do_test('p', ULONG_MAX);
+	do_test('p', LONG_MIN);
+	do_test('p', 1);
+	do_test('p', -1);
 	do_test('p', NULL);
 
 	// do_test c

@@ -6,11 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 22:27:11 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:52:22 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft_printf.h"
+#include "../include/ft_printf.h"
 
 static int	print_format(const char f, va_list ap)
 {
@@ -25,9 +25,9 @@ static int	print_format(const char f, va_list ap)
 	else if (f == 'u')
 		return (ft_putnbr(va_arg(ap, long long)));
 	else if (f == 'x')
-		return (ft_puthex(va_arg(ap, int), 0));
+		return (ft_puthex((unsigned int) va_arg(ap, int), 0));
 	else if (f == 'X')
-		return (ft_puthex(va_arg(ap, int), 1));
+		return (ft_puthex((unsigned int) va_arg(ap, int), 1));
 	else if (f == '%')
 		return (ft_putchar(f));
 	else

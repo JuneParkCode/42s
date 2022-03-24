@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:12:41 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 21:18:45 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:50:23 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "../include/libft_printf.h"
+#include "../include/ft_printf.h"
 
 static int	get_size(const long long n)
 {
