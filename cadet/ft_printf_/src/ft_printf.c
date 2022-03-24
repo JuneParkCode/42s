@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 15:09:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 10:52:22 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 11:36:42 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-
+#define ABS(X) (X < 0 ? -X : X)
 static int	print_format(const char f, va_list ap)
 {
 	if (f == 'c')
@@ -23,7 +23,7 @@ static int	print_format(const char f, va_list ap)
 	else if (f == 'd' || f == 'i')
 		return (ft_putnbr(va_arg(ap, int)));
 	else if (f == 'u')
-		return (ft_putnbr(va_arg(ap, long long)));
+		return (ft_putnbr((va_arg(ap, unsigned int))));
 	else if (f == 'x')
 		return (ft_puthex((unsigned int) va_arg(ap, int), 0));
 	else if (f == 'X')
