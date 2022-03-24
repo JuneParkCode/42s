@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:08:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/23 21:56:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:50:35 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "../include/libft_printf.h"
+#include "../include/ft_printf.h"
 
 int	ft_putstr(const char *str)
 {
