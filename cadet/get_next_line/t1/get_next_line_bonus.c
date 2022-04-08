@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 17:40:43 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/04 22:02:00 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:44:28 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*get_next_line(int fd)
 	char			*res;
 	char			buf[BUFFER_SIZE + 1];
 	t_list			*node;
-	int				read_size;
+	ssize_t			read_size;
 
 	if (fd < 0)
 		return (NULL);
