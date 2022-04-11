@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:03:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 14:16:09 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/11 16:04:07 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+size_t	ft_putchar_fd(char c, int fd);
+size_t	ft_putstr_fd(char *s, int fd);
+size_t	ft_putendl_fd(char *s, int fd);
+size_t	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -66,6 +66,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* user defined */
 int		ft_isspace(const char c);
 char	*ft_strpbrk(const char *str, const char *set);
-size_t	ft_strcspn(const char* str, const char* set);
+size_t	ft_strcspn(const char *str, const char *set);
 int		ft_isinset(const char c, const char *set);
+size_t	ft_puthex_fd(unsigned long long n, int flag, int fd);
+size_t	ft_putaddr_fd(void *addr, int fd);
 #endif

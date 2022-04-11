@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 18:26:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 13:53:43 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/21 15:10:31 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/11 16:06:46 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-/* Function		:	ft_isspace
- * Description	:	return true if character c is space
- * Param		
- * 			c	:	character to test
- * Return Value	:	true 	: character is space
- * 					false 	: character is not space
- */
- int	ft_isspace(const char c)
-{
-	const char	*spaces = "\t\n\r\v\f ";
-	return (ft_isinset(c, spaces));
-}
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stddef.h>
+# include <stdarg.h>
+# include "libft.h"
+int		ft_printf(const char *msg, ...);
+#endif
