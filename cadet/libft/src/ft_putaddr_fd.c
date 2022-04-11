@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 16:39:43 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/15 18:17:00 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:41:15 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/11 16:04:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-/* Function		:	ft_putstr_fd
- * Description	:	Outputs the string s to the given file descriptor.
- * Param		
- * 			s	:	The string to output.
- * 			fd	:	The file descriptor on which to write.
- * Return Value	:	NONE
- */
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putaddr(void *addr, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (addr == 0)
+	{
+		ft_putchar_fd('0', fd);
+		return (1);
+	}
+	return (ft_puthex_fd((unsigned long long) addr, 0, fd));
 }

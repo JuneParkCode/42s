@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 18:28:01 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/17 18:26:17 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/12 16:39:43 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/11 15:59:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 #include "libft.h"
 
-/* Function 	: 	ft_strlen
- * Description	:	computes length of string s
- * Param		:
- * 			s	:	address of first character of string to test
- * return value	:	characters that precede the terminating NUL charcter
+/* Function		:	ft_putstr_fd
+ * Description	:	Outputs the string s to the given file descriptor.
+ * Param		
+ * 			s	:	The string to output.
+ * 			fd	:	The file descriptor on which to write.
+ * Return Value	:	NONE
  */
-size_t	ft_strlen(const char *s)
+size_t	ft_putstr_fd(char *s, int fd)
 {
-	size_t	length;
+	size_t	len;
 
-	length = 0;
-	while (s[length])
-		length++;
-	return (length);
+	if (s == NULL)
+		return (ft_putstr_fd("(null)", fd));
+	len = ft_strlen(s);
+	write(fd, s, len);
+	return (len);
 }
