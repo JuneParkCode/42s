@@ -6,19 +6,23 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:03:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/11 16:04:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/15 15:03:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef int	t_bool;
+
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -70,4 +74,8 @@ size_t	ft_strcspn(const char *str, const char *set);
 int		ft_isinset(const char c, const char *set);
 size_t	ft_puthex_fd(unsigned long long n, int flag, int fd);
 size_t	ft_putaddr_fd(void *addr, int fd);
+int		ft_printf(const char *msg, ...);
+void	ft_set_print_color(const char *color);
+char	*ft_get_next_line(int fd);
+
 #endif

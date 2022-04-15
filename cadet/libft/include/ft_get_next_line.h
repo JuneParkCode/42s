@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 14:18:47 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/11 15:44:28 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:58:21 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@
 #  define OPEN_MAX 256
 # endif
 
-# include <stddef.h>
-# include "libft.h"
-
 /* get_next_line.c */
-char		*ft_get_next_line(int fd);
 static char	*get_line(char *str);
 static char	*read_file(int fd, char *store[]);
 static char	*get_residue(char *str);

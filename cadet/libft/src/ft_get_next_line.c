@@ -6,13 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:17:46 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/11 15:43:28 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:59:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "ft_get_next_line.h"
+#include "libft.h"
 
 char	*ft_get_next_line(int fd)
 {
