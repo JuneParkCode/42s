@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/04/11 16:12:43 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/04/15 14:59:48 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ SRC_FILES = $(SRC_DIR)ft_atoi.c\
 			$(SRC_DIR)ft_get_next_line.c\
 			$(SRC_DIR)ft_printf.c\
 			$(SRC_DIR)ft_putaddr_fd.c\
-			$(SRC_DIR)ft_puthex_fd.c
+			$(SRC_DIR)ft_puthex_fd.c\
+			$(SRC_DIR)ft_set_print_color.c
 			
 
 SRC_BONUS = $(SRC_DIR)ft_lstnew.c\
