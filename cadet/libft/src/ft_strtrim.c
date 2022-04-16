@@ -26,12 +26,10 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*res;
-	size_t			idx_res;
 	size_t			start;
 	size_t			end;
 	size_t			size;
 
-	idx_res = 0;
 	start = 0;
 	while (ft_isinset(s1[start], set) && s1[start])
 		++start;

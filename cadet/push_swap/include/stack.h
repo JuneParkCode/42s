@@ -26,9 +26,21 @@ typedef int	t_elem;
 /* stack struct definition */
 typedef struct s_stack
 {
-	t_clist	*top;
+	t_clist	*lst;
 	size_t	size;
 	t_bool	(*cmp)();
-}				t_stack
+}				t_stack;
+
+int	swap_a(t_stack *stack_a);
+int	swap_b(t_stack *stack_b);
+int	swap_ab(t_stack *stack_a, t_stack *stack_b);
+int	push_a(t_stack *stack_a, t_stack *stack_b);
+int	push_b(t_stack *stack_a, t_stack *stack_b);
+int	rotate_a(t_stack *stack_a);
+int	rotate_b(t_stack *stack_b);
+int	rotate_ab(t_stack *stack_a, t_stack *stack_b);
+int	rev_rotate_a(t_stack *stack_a);
+int	rev_rotate_b(t_stack *stack_b);
+int	rev_rotate_ab(t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -17,11 +17,14 @@ size_t	clst_get_length(t_clist *lst)
 	size_t	length;
 	t_dnode	*node;
 
-	length = 0;
 	node = lst -> head;
-	while (node)
+	if (lst -> head -> prev == lst -> head)
+		return (1);
+	length = 0;
+	while (node -> next != lst -> head)
 	{
 		node = node -> next;
+		++length;
 	}
 	return (length);
 }
