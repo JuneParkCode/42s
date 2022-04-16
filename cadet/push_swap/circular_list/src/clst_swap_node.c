@@ -20,10 +20,6 @@ void	clst_swap_node(t_clist *lst, t_dnode *node_a, t_dnode *node_b)
 	temp = &tmp;
 	if (node_a == NULL || node_b == NULL || node_a == node_b)
 		return ;
-	if (node_a == lst -> head)
-		lst -> head = node_b;
-	else if (node_b == lst -> head)
-		lst -> head = node_a;
 	node_a -> prev -> next = temp;
 	node_a -> next -> prev = temp;
 	temp -> prev = node_a -> prev;
@@ -36,4 +32,8 @@ void	clst_swap_node(t_clist *lst, t_dnode *node_a, t_dnode *node_b)
 	temp -> next -> prev = node_b;
 	node_b -> prev = temp -> prev;
 	node_b -> next = temp -> next;
+	if (node_a == lst -> head)
+		lst -> head = node_b;
+	else if (node_b == lst -> head)
+		lst -> head = node_a;
 }

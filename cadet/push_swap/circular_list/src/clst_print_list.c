@@ -14,17 +14,41 @@
 #include "circular_list.h"
 #include "libft.h"
 
-void	clst_print_list(t_clist *lst)
+void	clst_print_list(t_clist *lst, void (*f_print)(void *))
 {
 	t_dnode	*node;
 
 	node = lst -> head;
 	while (node)
 	{
-		ft_putnbr_fd(*((int *) (node -> content)), 1);
+		f_print(node -> content);
 		ft_putchar_fd('\n', 1);
 		node = node -> next;
 		if (node == lst -> head)
 			break ;
 	}
+}
+
+void	f_print_nbr(void *content)
+{
+	int	*n;
+	
+	n = (int *) content;
+	ft_putnbr_fd(*n, 1);
+}
+
+void	f_print_str(void *content)
+{
+	char	*str;
+
+	str = (char *)content;
+	ft_putstr_fd(str, 1);
+}
+
+void	f_print_chr(void *content)
+{
+	char	*c;
+	
+	c = (char *)content;
+	ft_putchar_fd(*c, 1);
 }

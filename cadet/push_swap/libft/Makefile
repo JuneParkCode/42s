@@ -19,6 +19,8 @@ INC_DIR = ./include/
 
 SRC_DIR = ./src/
 
+LIB_DIR = ../library/
+
 SRC_FILES = $(SRC_DIR)ft_atoi.c\
 			$(SRC_DIR)ft_bzero.c\
 			$(SRC_DIR)ft_calloc.c\
@@ -87,7 +89,7 @@ endif
 all 	: $(NAME)
 
 $(NAME)	: $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $(LIB_DIR)/$(NAME) $(OBJ)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
@@ -96,7 +98,7 @@ clean	:
 	rm -f $(OBJS) $(OBJ_BONUS)
 
 fclean	: clean
-	rm -f $(NAME)
+	rm -f $(LIB_DIR)$(NAME)
 
 re		: fclean all
 

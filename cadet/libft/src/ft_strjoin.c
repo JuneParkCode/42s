@@ -26,12 +26,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	const size_t	len_s1 = ft_strlen(s1);
 	const size_t	len_s2 = ft_strlen(s2);
-	size_t			idx_s1;
-	size_t			idx_s2;
 	char			*res;
 
-	idx_s1 = 0;
-	idx_s2 = 0;
 	res = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (res == NULL)
 		return (NULL);

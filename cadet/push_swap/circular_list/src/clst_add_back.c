@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clst_addback.c                                     :+:      :+:    :+:   */
+/*   clst_add_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "circular_list.h"
 
-void	clst_addback(t_clist *lst, t_dnode *node)
+void	clst_add_back(t_clist *lst, t_dnode *node)
 {
 	t_dnode	*last_node;
 
@@ -27,6 +27,7 @@ void	clst_addback(t_clist *lst, t_dnode *node)
 	else
 		last_node = clst_last(lst);
 	last_node -> next = node;
+	lst -> head -> prev = node;
 	node -> prev = last_node;
-	node -> next = lst -> head -> prev;
+	node -> next = lst -> head;
 }

@@ -30,11 +30,8 @@ typedef struct	s_clist
 /* insert node */
 t_clist	clst_insert(t_clist *lst, t_dnode *insert_point, t_dnode *node); 
 
-/* add back */
-void	clst_add_back(t_clist *lst, t_dnode *node);
-
-/* add front */
-void	clst_add_front(t_clist *lst, t_dnode *node);
+/* addback */
+void	clst_addback(t_clist *lst, t_dnode *node);
 
 /* make new node */
 t_dnode	*clst_get_new_node(void *content);
@@ -65,15 +62,6 @@ t_dnode	*clst_last(t_clist *lst);
 
 /* print list */
 void	clst_print_list(t_clist *lst, void (*f_print)(void *));
-
-/* pop front */
-t_dnode	*clst_pop_front(t_clist *lst);
-
-/* pop back */
-t_dnode	*clst_pop_back(t_clist *lst);
-
-/* check list length is 1 or not*/
-int		clst_check_alone(t_clist *lst);
 
 /* print functions... */
 void	f_print_nbr(void *content);

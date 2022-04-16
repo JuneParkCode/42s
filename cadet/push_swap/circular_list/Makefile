@@ -19,20 +19,32 @@ INC_DIR = ./include/
 
 SRC_DIR = ./src/
 
-SRC_FILES = $(SRC_DIR)clst_addback.c\
+LIB_DIR = ../library/
+
+SRC_FILES = $(SRC_DIR)clst_add_back.c\
+			$(SRC_DIR)clst_add_front.c\
+			$(SRC_DIR)clst_check_alone.c\
+			$(SRC_DIR)clst_clear.c\
+			$(SRC_DIR)clst_cmp_funcs.c\
+			$(SRC_DIR)clst_del_node.c\
+			$(SRC_DIR)clst_find_node.c\
 			$(SRC_DIR)clst_get_length.c\
 			$(SRC_DIR)clst_get_new_node.c\
 			$(SRC_DIR)clst_is_empty.c\
 			$(SRC_DIR)clst_last.c\
+			$(SRC_DIR)clst_pop_back.c\
+			$(SRC_DIR)clst_pop_front.c\
 			$(SRC_DIR)clst_print_list.c\
 			$(SRC_DIR)clst_swap_node.c
+			
 
 OBJS = ${SRC_FILES:.c=.o}
+
 
 all 	: $(NAME)
 
 $(NAME)	: $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $(LIB_DIR)$(NAME) $(OBJS)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
@@ -41,7 +53,7 @@ clean	:
 	rm -f $(OBJS) $(OBJ_BONUS)
 
 fclean	: clean
-	rm -f $(NAME)
+	rm -f $(LIB_DIR)$(NAME)
 
 re		: fclean all
 
