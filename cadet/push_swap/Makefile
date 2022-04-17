@@ -27,6 +27,7 @@ all 	: $(NAME)
 
 $(NAME)	: $(OBJ)
 	@make -C ./libft
+	@make -C ./circular_list
 	ar rcs $(NAME) $(OBJ)
 
 %.o 	: %.c

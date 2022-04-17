@@ -46,7 +46,7 @@ void	clst_del_node(t_dnode *node, void (*f_del)(void *));
 void	clst_clear(t_clist *lst, void(*f_del)(void *));
 
 /* find node that matches content */
-t_dnode *clst_find_node(t_clist *lst, void *content, int (*f_cmp)());
+t_dnode *clst_find_node(t_clist *lst, void *content, int (*f_cmp)(void *, void *));
 
 /* swap node */
 void	clst_swap_node(t_clist *lst, t_dnode *node_a, t_dnode *node_b);
