@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrlst_get_size.c                                  :+:      :+:    :+:   */
+/*   stack_find_item.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 14:36:15 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:36:16 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/04/18 14:37:05 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/18 14:37:06 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "stack_arrlst.h"
 
-int	arrlst_get_size(t_arrlist *lst)
+ssize_t	stack_find_item(t_stack *_stack, t_item item, \
+		int (*cmp)(t_item, t_item))
 {
-	return (lst -> size);
+	return (arrlst_find_item(_stack -> lst, item, cmp));
 }

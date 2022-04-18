@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arrlst_swap.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/18 14:36:32 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/18 14:43:48 by sungjpar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "array_list.h"
 
-int	arrlst_swap(t_arrlist *lst, t_item item_a, t_item item_b, int(*cmp)(t_item, t_item))
+int	arrlst_swap(t_arrlist *lst, t_item item_a, t_item item_b, \
+		int (*cmp)(t_item, t_item))
 {
 	ssize_t	pos_a;
 	ssize_t	pos_b;

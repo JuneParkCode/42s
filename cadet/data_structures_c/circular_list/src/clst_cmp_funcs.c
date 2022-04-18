@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clst_cmp_funcs.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/18 14:36:44 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/18 14:54:31 by sungjpar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 #include "circular_list.h"
@@ -10,7 +21,7 @@ int	f_ptr_strcmp(void *s1, void *s2)
 int	f_ptr_intcmp(void *a, void *b)
 {
 	int	*x;
-	int *y;
+	int	*y;
 
 	x = (int *)a;
 	y = (int *)b;

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:43:23 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/24 13:09:25 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:16:31 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	get_size(unsigned long long n)
 {
 	int				size;
-
+	
 	size = (n < 0);
 	if (n == 0)
 		return (1);

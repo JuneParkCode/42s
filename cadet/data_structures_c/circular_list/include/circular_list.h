@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:03:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/15 18:36:04 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/04/18 14:59:26 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 # include <stddef.h>
 /* node for double linked link struct definition */
-typedef struct	s_dnode
+typedef struct s_dnode
 {
 	void			*content;
 	struct s_dnode	*prev;
 	struct s_dnode	*next;
 }	t_dnode;
 
-typedef struct	s_clist
+typedef struct s_clist
 {
 	t_dnode	*head;
 }	t_clist;
 
 /* insert node */
-t_clist	clst_insert(t_clist *lst, t_dnode *insert_point, t_dnode *node); 
+t_clist	clst_insert(t_clist *lst, t_dnode *insert_point, t_dnode *node);
 
 /* add back */
 void	clst_add_back(t_clist *lst, t_dnode *node);
@@ -43,10 +43,11 @@ t_dnode	*clst_get_new_node(void *content);
 void	clst_del_node(t_dnode *node, void (*f_del)(void *));
 
 /* clear list */
-void	clst_clear(t_clist *lst, void(*f_del)(void *));
+void	clst_clear(t_clist *lst, void (*f_del)(void *));
 
 /* find node that matches content */
-t_dnode *clst_find_node(t_clist *lst, void *content, int (*f_cmp)(void *, void *));
+t_dnode	*clst_find_node(t_clist *lst, void *content, \
+		int (*f_cmp)(void *, void *));
 
 /* swap node */
 void	clst_swap_node(t_clist *lst, t_dnode *node_a, t_dnode *node_b);

@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrlst_push_back.c                                 :+:      :+:    :+:   */
+/*   stack_swap_top.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 14:41:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:42:00 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/04/18 14:37:19 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/18 14:37:20 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "stack_arrlst.h"
 
-int	arrlst_push_back(t_arrlist *lst, t_item item)
+int	stack_swap_top(t_stack *_stack, int (*cmp)(t_item, t_item))
 {
+	t_item	temp;
+	t_item	*item_a;
+	t_item	*item_b;
 	ssize_t	pos;
 
-	if (arrlst_is_full(lst))
+	if (stack_get_size(_stack) <= 1)
 		return (FUNC_ERR);
-	if (arrlst_is_empty(lst))
-	{
-		if (lst -> front == -1)
-			pos = 0;
-		else
-			pos = lst -> front;
-		lst -> front = pos;
-		lst -> rear = pos;
-	}
-	else
-	{
-		pos = lst -> rear + 1;
-		if (pos >= lst -> max_size)
-			pos = pos % lst -> max_size;
-		lst -> rear = pos;
-	}
-	lst -> items[pos] = item;
-	++(lst -> size);
+	pos = _stack -> lst -> rear - 1;
+	if (pos < 0)
+		pos = pos + _stack -> max_size;
+	item_a = &(_stack -> lst -> items[_stack -> lst -> rear]);
+	item_b = &(_stack -> lst -> items[pos]);
+	temp = *item_a;
+	*item_a = *item_b;
+	*item_b = temp;
 	return (SUCCESS);
 }
