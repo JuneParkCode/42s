@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrlst_get_size.c                                  :+:      :+:    :+:   */
+/*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 14:36:15 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:36:16 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/04/18 14:37:18 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/18 14:37:19 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array_list.h"
+#include "stack_arrlst.h"
 
-int	arrlst_get_size(t_arrlist *lst)
+int	stack_swap(t_stack *_stack, t_item item_a, t_item item_b, \
+		int (*cmp)(t_item, t_item))
 {
-	return (lst -> size);
+	if (arrlst_swap(_stack -> lst, item_a, item_b, cmp) == FUNC_ERR)
+		return (FUNC_ERR);
+	else
+		return (SUCCESS);
 }
