@@ -1,6 +1,8 @@
 #include "ft_printf.h"
+#include "limits.h"
 
 int main(void)
 {
-  ft_printf("%p", -1);
+  long long  x = (long long) INT_MAX + 1;
+  ft_printf("%d", x);
 }
