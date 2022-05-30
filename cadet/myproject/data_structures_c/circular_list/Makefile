@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
+#    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/04/15 18:10:49 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/05/30 10:43:48 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,14 +36,14 @@ SRC_FILES = $(SRC_DIR)clst_add_back.c\
 			$(SRC_DIR)clst_pop_front.c\
 			$(SRC_DIR)clst_print_list.c\
 			$(SRC_DIR)clst_swap_node.c
-			
+
 
 OBJS = ${SRC_FILES:.c=.o}
 
 all 	: $(NAME)
 
 $(NAME)	: $(OBJS)
-	ar rcs $(LIB_DIR)$(NAME) $(OBJS) $(LIB_DIR)libft.a
+	ar rcs $(LIB_DIR)$(NAME) $(OBJS)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
@@ -54,9 +54,8 @@ clean	:
 fclean	: clean
 	rm -f $(LIB_DIR)$(NAME)
 
-re		: fclean all
-
-bonus	:
-	@make WITH_BONUS=1 all
+re		:
+	@make fclean
+	@make all
 
 .PHONY	: clean fclean re all

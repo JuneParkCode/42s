@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   circular_list.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 16:03:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:59:26 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:42:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,6 @@ t_clist	*clst_merge_list(t_clist *front, t_clist *back);
 /* get last node of list */
 t_dnode	*clst_last(t_clist *lst);
 
-/* print list */
-void	clst_print_list(t_clist *lst, void (*f_print)(void *));
-
 /* pop front */
 t_dnode	*clst_pop_front(t_clist *lst);
 
@@ -75,10 +72,4 @@ t_dnode	*clst_pop_back(t_clist *lst);
 
 /* check list length is 1 or not*/
 int		clst_check_alone(t_clist *lst);
-
-/* ptr compare functions */
-int		f_ptr_strcmp(void *s1, void *s2);
-int		f_ptr_intcmp(void *s1, void *s2);
-int		f_ptr_llcmp(void *s1, void *s2);
-
-#endif 
+#endif

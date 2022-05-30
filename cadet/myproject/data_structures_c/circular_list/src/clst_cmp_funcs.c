@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   clst_cmp_funcs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 14:36:44 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:54:31 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:37:32 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "circular_list.h"
+
+static int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	idx_byte;
+
+	idx_byte = 0;
+	while ((s1[idx_byte] || s2[idx_byte]) && idx_byte < n)
+	{
+		if (s1[idx_byte] != s2[idx_byte])
+			return ((unsigned char) s1[idx_byte] - \
+					(unsigned char) s2[idx_byte]);
+		++idx_byte;
+	}
+	return (0);
+}
 
 int	f_ptr_strcmp(void *s1, void *s2)
 {

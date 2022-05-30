@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_item.c                                      :+:      :+:    :+:   */
+/*   bst_insert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:19:48 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:35:18 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:27:55 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "tree.h"
+#include "bst.h"
 
-static void	insert(t_tree_node **node, void *item, int (*cmp)(void *, void *))
+static void	insert(t_bst_node **node, void *item, int (*cmp)(void *, void *))
 {
-	t_tree_node	*new_node;
+	t_bst_node	*new_node;
 	int			cmp_res;
 
 	if (node == NULL)
@@ -31,7 +31,7 @@ static void	insert(t_tree_node **node, void *item, int (*cmp)(void *, void *))
 		insert(&((*node)->left), item, cmp);
 }
 
-void	insert_item(t_tree *tree, void *item)
+void	bst_insert(t_bst *tree, void *item)
 {
 	insert(&(tree->root), item, tree->cmp);
 }

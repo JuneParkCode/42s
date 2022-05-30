@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_item.c                                      :+:      :+:    :+:   */
+/*   bst_new_tree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 20:35:24 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:42:42 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/05/29 20:01:51 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/05/30 10:27:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "tree.h"
+#include "bst.h"
 
-void	delete_item(t_tree *tree, void *item)
+t_bst	*bst_new_tree(t_bst_node *root, int (*cmp)(void *, void *))
 {
-	t_tree_node	*node;
+	t_bst	*new_tree;
 
-	node = find_node(tree, item);
-	if (node == NULL)
-		return ;
-	// delete process.......
+	new_tree = malloc(sizeof(t_bst));
+	new_tree->root = root;
+	new_tree->cmp = cmp;
+	return (new_tree);
 }

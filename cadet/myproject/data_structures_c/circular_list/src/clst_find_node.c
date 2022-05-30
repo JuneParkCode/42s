@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   clst_find_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 14:36:48 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/18 14:57:09 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:37:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "circular_list.h"
-#include "libft.h"
 
 t_dnode	*clst_find_node(t_clist *lst, void *content, \
 		int (*f_cmp)(void *, void *))

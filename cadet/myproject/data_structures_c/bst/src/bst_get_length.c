@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   length.c                                           :+:      :+:    :+:   */
+/*   bst_get_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:06:13 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:12:20 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:27:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tree.h"
+#include "bst.h"
 
-static	size_t	count_length(t_tree_node *node)
+static	size_t	count_length(t_bst_node *node)
 {
 	if (node == NULL)
 		return (0);
@@ -20,7 +20,7 @@ static	size_t	count_length(t_tree_node *node)
 		return (count_length(node->left) + count_length(node->right) + 1);
 }
 
-size_t	length(t_tree *tree)
+size_t	bst_get_length(t_bst *tree)
 {
 	return (count_length(tree->root));
 }

@@ -3,6 +3,8 @@
 		"__string": "c",
 		"string_view": "c",
 		"stdlib.h": "c",
-		"stack_arrlst.h": "c"
+		"stack_arrlst.h": "c",
+		"bst.h": "c",
+		"tree.h": "c"
 	}
 }

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_node.c                                        :+:      :+:    :+:   */
+/*   bst_delete_item.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 20:01:42 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:01:46 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/05/29 20:35:24 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/05/30 10:29:57 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "tree.h"
+#include "bst.h"
 
-t_tree_node	*make_node(void *content)
+void	bst_delete_item(t_bst *tree, void *item)
 {
-	t_tree_node	*new_node;
-	
-	new_node = malloc(sizeof(t_tree_node));
-	new_node->left = NULL;
-	new_node->right = NULL;
-	new_node->content = content;
-	return (new_node);
+	t_bst_node	*node;
+
+	node = find_node(tree, item);
+	if (node == NULL)
+		return ;
 }

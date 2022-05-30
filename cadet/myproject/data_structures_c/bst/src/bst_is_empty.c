@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_empty.c                                         :+:      :+:    :+:   */
+/*   bst_is_empty.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 20:04:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:07:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/05/30 10:28:04 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tree.h"
+#include "bst.h"
 
-bool	is_empty(t_tree *tree)
+bool	bst_is_empty(t_bst *tree)
 {
 	return (tree->root == NULL);
 }

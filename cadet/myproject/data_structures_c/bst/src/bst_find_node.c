@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   retrieve_item.c                                    :+:      :+:    :+:   */
+/*   bst_find_node.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 20:13:29 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/05/29 20:19:36 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/05/29 20:40:29 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/05/30 10:27:40 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tree.h"
-#define false 0
-#define true 1
+#include "bst.h"
 
-bool	retrieve_item(t_tree *tree, void *item)
+t_bst_node	*bst_find_node(t_bst *tree, void *item)
 {
 	int			(*cmp)(void *, void *);
 	bool		found;
-	t_tree_node	*node;
+	t_bst_node	*node;
 	int			cmp_res;
 
 	cmp = tree->cmp;
@@ -29,7 +27,7 @@ bool	retrieve_item(t_tree *tree, void *item)
 		cmp_res = cmp(node->content, item);
 		if (cmp_res == 0)
 		{
-			return (true);
+			return (node);
 		}
 		else if (cmp_res < 0)
 		{
@@ -40,5 +38,5 @@ bool	retrieve_item(t_tree *tree, void *item)
 			node = node->right;
 		}
 	}
-	return (false);
+	return (NULL);
 }
