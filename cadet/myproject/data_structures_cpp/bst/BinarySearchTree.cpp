@@ -46,6 +46,11 @@ void BST<ItemType>::insertItem(const ItemType item)
 		throw (FULL_BST());
 	if (this->findItem(item))
 		return ; // DISTINCT!!
+	if ((this->root) == nullptr)
+	{
+		TreeNode<ItemType> *newNode = new TreeNode<ItemType>(item);
+		(this->root) = newNode;
+	}
 	// Find Position
 	TreeNode<ItemType> *node = (this->root);
 	TreeNode<ItemType> *parentNode;
@@ -62,7 +67,7 @@ void BST<ItemType>::insertItem(const ItemType item)
 		}
 	}
 	// Insert
-	TreeNode<ItemType> *newNode = new TreeNode<ItemType>(item, parentNode);
+	TreeNode<ItemType> *newNode = new TreeNode<ItemType>(item);
 	if (parentNode->data < item)
 	{
 		parentNode->right = newNode;
@@ -176,7 +181,7 @@ bool BST<ItemType>::isFull() const
 {
 	try
 	{
-		TreeNode<ItemType> tmp = new TreeNode<ItemType>;
+		TreeNode<ItemType> *tmp = new TreeNode<ItemType>(0);
 		delete tmp;
     	return (false);
 	}
@@ -185,6 +190,32 @@ bool BST<ItemType>::isFull() const
 		return (true);
 	}
 }
+
+template<class ItemType>
+static void fillPreOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+{
+
+	que.push(tree.data);
+	fillPreOrderQueue(tree.left, que);
+	fillPreOrderQueue(tree.right, que);
+}
+
+template<class ItemType>
+static void fillInOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+{
+	fillInOrderQueue(tree.left, que);
+	que.push(tree.data);
+	fillInOrderQueue(tree.right, que);
+}
+
+template<class ItemType>
+static void fillPostOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+{
+	fillPostOrderQueue(tree.left, que);
+	fillPostOrderQueue(tree.right, que);
+	que.push(tree.data);
+}
+
 
 template<class ItemType>
 void BST<ItemType>::resetQueue(Orders order)
@@ -197,55 +228,22 @@ void BST<ItemType>::resetQueue(Orders order)
 		{
 			(this->preQueue).pop();
 		}
-		fillPreOrderQueue((this->root), (this->preQueue));
+		fillPreOrderQueue(*(this->root), (this->preQueue));
 		break;
 	case IN_ORDER:
 		while(!(this->inQueue).empty())
 		{
 			(this->inQueue).pop();
 		}
-		fillInOrderQueue((this->root), (this->inQueue));
+		fillInOrderQueue(*(this->root), (this->inQueue));
 		break;
 	case POST_ORDER:
 		while(!(this->postQueue).empty())
 		{
 			(this->postQueue).pop();
 		}
-		fillPostOrderQueue((this->root), (this->postQueue));
+		fillPostOrderQueue(*(this->root), (this->postQueue));
 		break;
-	}
-}
-
-template<class ItemType>
-void fillPreOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> que)
-{
-	if (tree != nullptr)
-	{
-		que.push(tree->data);
-		fillPreOrderQueue(tree->left, que);
-		fillPreOrderQueue(tree->right, que);
-	}
-}
-
-template<class ItemType>
-void fillInOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> que)
-{
-	if (tree != nullptr)
-	{
-		fillInOrderQueue(tree->left, que);
-		que.push(tree->data);
-		fillInOrderQueue(tree->right, que);
-	}
-}
-
-template<class ItemType>
-void fillPostOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> que)
-{
-	if (tree != nullptr)
-	{
-		fillInOrderQueue(tree->left, que);
-		fillInOrderQueue(tree->right, que);
-		que.push(tree->data);
 	}
 }
 
@@ -255,17 +253,20 @@ bool BST<ItemType>::getNextItem(Orders order, ItemType &item)
 	switch (order)
 	{
 	case PRE_ORDER:
-		item = (this->preQueue).pop();
+		item = (this->preQueue).front();
+		(this->preQueue).pop();
 		if ((this->preQueue).empty())
 			return (true);
 		break;
 	case IN_ORDER:
-		item = (this->inQueue).pop();
+		item = (this->inQueue).front();
+		(this->inQueue).pop();
 		if ((this->inQueue).empty())
 			return (true);
 		break;
 	case POST_ORDER:
-		item = (this->postQueue).pop();
+		item = (this->postQueue).front();
+		(this->postQueue).pop();
 		if ((this->postQueue).empty())
 			return (true);
 		break;
@@ -299,5 +300,32 @@ void copyTree(const BST<ItemType> &dstTree, const BST<ItemType> &srcTree)
 	while (!srcTree.getNextItem(PRE_ORDER, item))
 	{
 		dstTree.insertItem(item);
+	}
+}
+
+// #include "BinarySearchTree.hpp"
+#include <random>
+#include <iostream>
+
+using namespace std;
+
+int	main(void)
+{
+	BST<int> myBST;
+	const int TEST_SIZE = 10;
+
+	for (int i = 0; i < TEST_SIZE; ++i)
+	{
+		int n =	rand() % 100000;
+		myBST.insertItem(n);
+		cout << n << endl;
+	}
+
+	cout << "POST ORDER TEST";
+	int item;
+	myBST.resetQueue(POST_ORDER);
+	while (!myBST.getNextItem(POST_ORDER,item))
+	{
+		cout << item << endl;
 	}
 }
