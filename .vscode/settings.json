@@ -5,6 +5,9 @@
 		"stdlib.h": "c",
 		"stack_arrlst.h": "c",
 		"bst.h": "c",
-		"tree.h": "c"
+		"tree.h": "c",
+		"array": "cpp",
+		"string": "cpp",
+		"vector": "cpp"
 	}
 }
