@@ -1,27 +1,36 @@
+#include <queue>
+
 class FULL_BST{};
 class EMPTY_BST{};
 
 template<class ItemType>
-struct Node
+struct TreeNode
 {
 	ItemType data;
-	unsigned int nodeIdx;
-	bool isMarked;
-	Node(ItemType item, unsigned int idx, bool booleanValue) :
-		data{item}, nodeIdx{idx},isMarked{booleanValue}{}
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(ItemType d) :
+		data(d), left(nullptr), right(nullptr) {}
+};
+
+enum Orders
+{
+	PRE_ORDER,
+	IN_ORDER,
+	POST_ORDER
 };
 
 template<class ItemType>
 class BST
 {
 private:
-	int	maxSizeOfTree;
-	Node *treeData;
+	TreeNode<ItemType> *root;
 	int numberOfItemsInTree;
-	int currentNumberOfItem;
+	std::queue<ItemType> preQueue;
+	std::queue<ItemType> inQueue;
+	std::queue<ItemType> postQueue;
 public:
 	BST();
-	BST(const unsigned int size);
 	BST(const BST<ItemType> &targetBST);
 	~BST();
 	void insertItem(const ItemType item);
@@ -29,11 +38,11 @@ public:
 	bool findItem(const ItemType item) const;
 	bool isEmpty() const;
 	bool isFull() const;
-	ItemType getNextItem() const;
-	void printTree() const;
-	void resetIterator();
-	void copy(const BST<ItemType> &targetTree);
+	void resetQueue(Orders order);
+	bool getNextItem(Orders order, ItemType &item);
+	unsigned int getLength() const;
 	BST<ItemType> operator=(BST<ItemType> &targetTree);
+	friend void copyTree(const BST<ItemType> &dstTree, const BST<ItemType> &srcTree);
 	// // ITERATOR FOR CONTAINER...
 	// class iterator
 	// {
