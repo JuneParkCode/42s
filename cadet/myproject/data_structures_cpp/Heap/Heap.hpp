@@ -148,7 +148,7 @@ void Heap<ItemType>::reHeapUp(const unsigned int root, const unsigned int bottom
 template<class ItemType>
 void Heap<ItemType>::reHeapDown(const unsigned int root, const unsigned int bottom)
 {
-	if (root >= bottom)
+	if (root > bottom)
 		return ;
 	const int LEFT_IDX = root * 2;
 	const int RIGHT_IDX = root * 2 + 1;
