@@ -34,7 +34,7 @@ private:
 	std::queue<ItemType> postQueue;
 public:
 	BST();
-	BST(const BST<ItemType> &srcBST);
+	BST(BST<ItemType> &srcBST);
 	~BST();
 	void insertItem(const ItemType item);
 	void deleteItem(const ItemType item);
@@ -48,7 +48,8 @@ public:
 	friend void copyTree(const BST<ItemType> &dstTree, const BST<ItemType> &srcTree);
 };
 
-
+template<class ItemType>
+void copyTree(BST<ItemType> &dstTree, BST<ItemType> &srcTree);
 
 template<class ItemType>
 BST<ItemType>::BST()
@@ -58,9 +59,11 @@ BST<ItemType>::BST()
 }
 
 template<class ItemType>
-BST<ItemType>::BST(const BST<ItemType> &srcBST)
+BST<ItemType>::BST(BST<ItemType> &srcBST)
 {
-	this->copy(srcBST);
+	(this->root) = nullptr;
+	(this->numberOfItemsInTree) = 0;
+	copyTree(*this, srcBST);
 }
 
 /* FOR DESTRUCTOR */
@@ -242,28 +245,33 @@ bool BST<ItemType>::isFull() const
 }
 
 template<class ItemType>
-static void fillPreOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+static void fillPreOrderQueue(TreeNode<ItemType>* &tree, std::queue<ItemType> &que)
 {
-
-	que.push(tree.data);
-	fillPreOrderQueue(tree.left, que);
-	fillPreOrderQueue(tree.right, que);
+	if (tree == nullptr)
+		return ;
+	que.push(tree->data);
+	fillPreOrderQueue((tree->left), que);
+	fillPreOrderQueue((tree->right), que);
 }
 
 template<class ItemType>
-static void fillInOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+static void fillInOrderQueue(TreeNode<ItemType>* &tree, std::queue<ItemType> &que)
 {
-	fillInOrderQueue(tree.left, que);
-	que.push(tree.data);
-	fillInOrderQueue(tree.right, que);
+	if (tree == nullptr)
+		return ;
+	fillInOrderQueue((tree->left), que);
+	que.push(tree->data);
+	fillInOrderQueue((tree->right), que);
 }
 
 template<class ItemType>
-static void fillPostOrderQueue(TreeNode<ItemType> &tree, std::queue<ItemType> &que)
+static void fillPostOrderQueue(TreeNode<ItemType>* &tree, std::queue<ItemType> &que)
 {
-	fillPostOrderQueue(tree.left, que);
-	fillPostOrderQueue(tree.right, que);
-	que.push(tree.data);
+	if (tree == nullptr)
+		return ;
+	fillPostOrderQueue((tree->left), que);
+	fillPostOrderQueue((tree->right), que);
+	que.push(tree->data);
 }
 
 
@@ -278,21 +286,21 @@ void BST<ItemType>::resetQueue(Orders order)
 		{
 			(this->preQueue).pop();
 		}
-		fillPreOrderQueue(*(this->root), (this->preQueue));
+		fillPreOrderQueue((this->root), (this->preQueue));
 		break;
 	case IN_ORDER:
 		while(!(this->inQueue).empty())
 		{
 			(this->inQueue).pop();
 		}
-		fillInOrderQueue(*(this->root), (this->inQueue));
+		fillInOrderQueue((this->root), (this->inQueue));
 		break;
 	case POST_ORDER:
 		while(!(this->postQueue).empty())
 		{
 			(this->postQueue).pop();
 		}
-		fillPostOrderQueue(*(this->root), (this->postQueue));
+		fillPostOrderQueue((this->root), (this->postQueue));
 		break;
 	}
 }
@@ -303,20 +311,41 @@ bool BST<ItemType>::getNextItem(Orders order, ItemType &item)
 	switch (order)
 	{
 	case PRE_ORDER:
-		item = (this->preQueue).front();
-		(this->preQueue).pop();
+		if (!(this->preQueue.empty()))
+		{
+			item = (this->preQueue).front();
+			(this->preQueue).pop();
+		}
+		else
+		{
+			return (true);
+		}
 		if ((this->preQueue).empty())
 			return (true);
 		break;
 	case IN_ORDER:
-		item = (this->inQueue).front();
-		(this->inQueue).pop();
+		if (!(this->inQueue.empty()))
+		{
+			item = (this->inQueue).front();
+			(this->inQueue).pop();
+		}
+		else
+		{
+			return (true);
+		}
 		if ((this->inQueue).empty())
 			return (true);
 		break;
 	case POST_ORDER:
-		item = (this->postQueue).front();
-		(this->postQueue).pop();
+		if (!(this->postQueue.empty()))
+		{
+			item = (this->postQueue).front();
+			(this->postQueue).pop();
+		}
+		else
+		{
+			return (true);
+		}
 		if ((this->postQueue).empty())
 			return (true);
 		break;
@@ -328,7 +357,7 @@ bool BST<ItemType>::getNextItem(Orders order, ItemType &item)
 template<class ItemType>
 BST<ItemType> BST<ItemType>::operator=(BST<ItemType> &srcTree)
 {
-	copyTree(this, srcTree);
+	copyTree(*this, srcTree);
 }
 
 template<class ItemType>
@@ -338,17 +367,18 @@ unsigned int BST<ItemType>::getLength() const
 }
 
 template<class ItemType>
-void copyTree(const BST<ItemType> &dstTree, const BST<ItemType> &srcTree)
+void copyTree(BST<ItemType> &dstTree, BST<ItemType> &srcTree)
 {
 	ItemType item;
-
+	bool isFinished = false;
 	if (dstTree.getLength() != 0)
 	{
 		return ; // COPY FAILED
 	}
 	srcTree.resetQueue(PRE_ORDER);
-	while (!srcTree.getNextItem(PRE_ORDER, item))
+	while (!isFinished)
 	{
+		isFinished = srcTree.getNextItem(PRE_ORDER, item);
 		dstTree.insertItem(item);
 	}
 }

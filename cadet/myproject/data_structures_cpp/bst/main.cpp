@@ -14,11 +14,21 @@ int	main(void)
 		std::cout << n << std::endl;
 	}
 
-	std::cout << "POST ORDER TEST\n";
+	std::cout << "IN_ORDER TEST\n";
 	int item;
-	myBST.resetQueue(POST_ORDER);
-	while (!myBST.getNextItem(POST_ORDER,item))
+	myBST.resetQueue(IN_ORDER);
+	std::cout << "RESET OK\n";
+	while (!myBST.getNextItem(IN_ORDER,item))
 	{
 		std::cout << item << std::endl;
 	}
+	std::cout << item << std::endl;
+	BST<int> newBST = myBST;
+	newBST.resetQueue(IN_ORDER);
+	std::cout << "RESET OK\n";
+	while (!newBST.getNextItem(IN_ORDER,item))
+	{
+		std::cout << item << std::endl;
+	}
+	std::cout << item << std::endl;
 }
