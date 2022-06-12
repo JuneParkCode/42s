@@ -37,9 +37,9 @@ public:
 	void deleteVertex(const ItemType vertex);
 	void deleteEdge(const ItemType fromVertex, const ItemType toVertex);
 	int getWeightOfEdge(const ItemType fromVertex, const ItemType toVertex) const;
-	void searchGraphDFS() const;
+	void searchGraphDFS(void *f()) const;
 	void printGrpahDFS() const;
-	void searchGraphBFS() const;
+	void searchGraphBFS(void *f()) const;
 	void printGraphBFS() const;
 };
 
@@ -176,11 +176,11 @@ int graph<ItemType>::getWeightOfEdge(const ItemType fromVertex, const ItemType t
 template<class ItemType>
 void graph<ItemType>::resetVisitPlace()
 {
-
+	bzero((this->visitedVertex), numberOfVertices, 0);
 }
 
 template<class ItemType>
-void graph<ItemType>::searchGraphDFS() const
+void graph<ItemType>::searchGraphDFS(void *f()) const
 {
 
 }
@@ -192,7 +192,7 @@ void graph<ItemType>::printGrpahDFS() const
 }
 
 template<class ItemType>
-void graph<ItemType>::searchGraphBFS() const
+void graph<ItemType>::searchGraphBFS(void *f()) const
 {
 
 }
