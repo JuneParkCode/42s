@@ -8,9 +8,10 @@
  * DESCRIPTION
  * Array based Graph Data structure
 */
-#include <string.h>
-#include <stack>
-#include <queue>
+#include <string.h> // memset
+#include <iostream> // cout
+#include <stack> // DFS
+#include <queue> // BFS
 
 class EMPTY_GRAPH{};
 class FULL_GRAPH{};
@@ -37,10 +38,8 @@ public:
 	void deleteVertex(const ItemType vertex);
 	void deleteEdge(const ItemType fromVertex, const ItemType toVertex);
 	int getWeightOfEdge(const ItemType fromVertex, const ItemType toVertex) const;
-	void searchGraphDFS(void *f()) const;
-	void printGrpahDFS() const;
-	void searchGraphBFS(void *f()) const;
-	void printGraphBFS() const;
+	void printGrpahDFS();
+	void printGraphBFS();
 };
 
 template<class ItemType>
@@ -54,10 +53,9 @@ int graph<ItemType>::getIdxOfVertex(const ItemType vertex) const
 	return (-1);
 }
 
-template<class ItemType>
-static void bzero(ItemType *arr, unsigned int size)
+static void initzero(int *arr, unsigned int size)
 {
-	for (int i = 0; i < size; ++i)
+	for (unsigned int i = 0; i < size; ++i)
 	{
 		arr[i] = 0;
 	}
@@ -69,14 +67,19 @@ graph<ItemType>::graph()
 	const int MAX_SIZE = 50;
 	(this->maxNumberOfVertices) = MAX_SIZE;
 	(this->vertices) = new ItemType [maxNumberOfVertices];
-	(this->edges) = new int [maxNumberOfVertices][maxNumberOfVertices];
+	(this->edges) = new int* [maxNumberOfVertices];
 	(this->visitedVertex) = new int [maxNumberOfVertices];
 	(this->numberOfVertices) = 0;
 	// init
-	bzero(this->vertices, maxNumberOfVertices);
-	bzero(this->visitedVertex, maxNumberOfVertices);
+	initzero(this->visitedVertex, maxNumberOfVertices);
 	for (int i = 0; i < maxNumberOfVertices; ++i)
-		bzero((this->edges)[i], maxNumberOfVertices);
+	{
+		(this->edges)[i] = new int [maxNumberOfVertices];
+	}
+	for (int i = 0; i < maxNumberOfVertices; ++i)
+	{
+		initzero((this->edges)[i], maxNumberOfVertices);
+	}
 }
 
 template<class ItemType>
@@ -84,14 +87,19 @@ graph<ItemType>::graph(int maxSize)
 {
 	(this->maxNumberOfVertices) = maxSize;
 	(this->vertices) = new ItemType [maxNumberOfVertices];
-	(this->edges) = new int [maxNumberOfVertices][maxNumberOfVertices];
+	(this->edges) = new int* [maxNumberOfVertices];
 	(this->visitedVertex) = new int [maxNumberOfVertices];
 	(this->numberOfVertices) = 0;
 	// init
-	bzero(this->vertices, maxNumberOfVertices);
-	bzero(this->visitedVertex, maxNumberOfVertices);
+	initzero(this->visitedVertex, maxNumberOfVertices);
 	for (int i = 0; i < maxNumberOfVertices; ++i)
-		bzero((this->edges)[i], maxNumberOfVertices);
+	{
+		(this->edges)[i] = new int [maxNumberOfVertices];
+	}
+	for (int i = 0; i < maxNumberOfVertices; ++i)
+	{
+		initzero((this->edges)[i], maxNumberOfVertices);
+	}
 }
 
 
@@ -99,6 +107,10 @@ template<class ItemType>
 graph<ItemType>::~graph()
 {
 	delete [] (this->vertices);
+	for (int i = 0; i < maxNumberOfVertices; ++i)
+	{
+		delete [] (this->edges)[i];
+	}
 	delete [] (this->edges);
 	delete [] (this->visitedVertex);
 }
@@ -131,7 +143,7 @@ void graph<ItemType>::addEdge(const ItemType fromVertex, const ItemType toVertex
 	const int idxOfToVertex = getIdxOfVertex(toVertex);
 	if (idxOfFromVertex < 0 || idxOfToVertex < 0)
 		return ;
-	const int &edge = (this->edges)[idxOfFromVertex][idxOfToVertex];
+	int &edge = (this->edges)[idxOfFromVertex][idxOfToVertex];
 	edge = weight;
 }
 
@@ -176,31 +188,65 @@ int graph<ItemType>::getWeightOfEdge(const ItemType fromVertex, const ItemType t
 template<class ItemType>
 void graph<ItemType>::resetVisitPlace()
 {
-	bzero((this->visitedVertex), numberOfVertices, 0);
+	initzero((this->visitedVertex), numberOfVertices);
 }
 
 template<class ItemType>
-void graph<ItemType>::searchGraphDFS(void *f()) const
+void graph<ItemType>::printGrpahDFS()
 {
-
+	if (this->isEmpty())
+		return ;
+	resetVisitPlace();
+	std::stack<int> pathStack;
+	pathStack.push(0); // ROOT
+	while (!pathStack.empty())
+	{
+		const int fromVtx = pathStack.top();
+		pathStack.pop();
+		if (visitedVertex[fromVtx])
+			continue;
+		else
+			visitedVertex[fromVtx] = true;
+		// print current path and weight
+		std::cout << vertices[fromVtx] << '\n';
+		// traverse tree
+		for (int toVtx = 0; toVtx < numberOfVertices; ++toVtx)
+		{
+			if (edges[fromVtx][toVtx])
+			{
+				pathStack.push(toVtx);
+			}
+		}
+	}
 }
 
 template<class ItemType>
-void graph<ItemType>::printGrpahDFS() const
+void graph<ItemType>::printGraphBFS()
 {
-
-}
-
-template<class ItemType>
-void graph<ItemType>::searchGraphBFS(void *f()) const
-{
-
-}
-
-template<class ItemType>
-void graph<ItemType>::printGraphBFS() const
-{
-
+	if (this->isEmpty())
+		return ;
+	resetVisitPlace();
+	std::queue<int> pathQue;
+	pathQue.push(0); // ROOT
+	while (!pathQue.empty())
+	{
+		const int fromVtx = pathQue.front();
+		pathQue.pop();
+		if (visitedVertex[fromVtx])
+			continue;
+		else
+			visitedVertex[fromVtx] = true;
+		// print current path and weight
+		std::cout << vertices[fromVtx] << '\n';
+		// traverse tree
+		for (int toVtx = 0; toVtx < numberOfVertices; ++toVtx)
+		{
+			if (edges[fromVtx][toVtx])
+			{
+				pathQue.push(toVtx);
+			}
+		}
+	}
 }
 
 
