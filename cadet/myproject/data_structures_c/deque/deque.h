@@ -3,6 +3,7 @@
 
 typedef int t_item;
 
+/* for using (pseudo) methods, I used function pointer*/
 typedef struct s_deque
 {
   int		current_size;
