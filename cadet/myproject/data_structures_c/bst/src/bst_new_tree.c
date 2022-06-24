@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "bst.h"
+#include "../include/bst.h"
 
 t_bst	*bst_new_tree(t_bst_node *root, int (*cmp)(void *, void *))
 {
