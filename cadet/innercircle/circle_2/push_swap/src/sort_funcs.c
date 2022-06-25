@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:24:34 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/26 05:01:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/26 05:24:36 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,19 @@ void	merge(t_deque *a, t_deque *b, int start, int mid, int end)
 	n = size;
 	while (n--)
 	{
-		if (a_searched == (size - pivot))
-		{
-			command_rb(b);
-		}
-		else if (b_searched == pivot)
-		{
+		if (b_searched == pivot)
 			command_pb(a, b);
-			command_rb(b);
-		}
-		else
+		else if (a_searched != (size - pivot))
 		{
 			if (a->get_back(a) > b->get_back(b))
 			{
 				command_pb(a, b);
-				command_rb(b);
 				++a_searched;
 			}
 			else
-			{
-				command_rb(b);
 				++b_searched;
-			}
 		}
+		command_rb(b);
 	};
 	n = size;
 	while (n--)
