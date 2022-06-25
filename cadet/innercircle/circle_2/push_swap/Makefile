@@ -24,11 +24,11 @@ SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
 			$(SRC_DIR)deque_pop_funcs.c\
 			$(SRC_DIR)deque_push_funcs.c\
 			$(SRC_DIR)deque_utils.c\
-			$(SRC_DIR)sort_funcs.c\
 			$(SRC_DIR)command_push.c\
 			$(SRC_DIR)command_rotation.c\
 			$(SRC_DIR)command_rotation_reverse.c\
 			$(SRC_DIR)command_swap.c\
+			$(SRC_DIR)merge_sort_slow.c\
 			$(SRC_DIR)main.c
 
 OBJS = ${SRC_FILES:.c=.o}

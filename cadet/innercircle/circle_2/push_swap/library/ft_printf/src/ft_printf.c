@@ -79,13 +79,11 @@ static int	do_print(const char *fmt, va_list ap)
  */
 int	ft_printf(const char *fmt, ...)
 {
-	int		idx_fmt;
 	int		len_str;
 	va_list	ap;
 
 	if (fmt == NULL)
 		return (-1);
-	idx_fmt = 0;
 	va_start(ap, fmt);
 	len_str = do_print(fmt, ap);
 	va_end(ap);

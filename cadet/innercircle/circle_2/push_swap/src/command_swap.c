@@ -18,7 +18,7 @@ void	swap(t_item	*a, t_item *b)
 
 	tmp = *a;
 	*a = *b;
-	*b = *a;
+	*b = tmp;
 }
 
 void	command_swap(t_deque *dq)
