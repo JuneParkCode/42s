@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deque_get_funcs.c                                  :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 13:52:30 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/26 03:56:03 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:11:56 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/24 10:49:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include <unistd.h>
+#include "../include/ft_printf.h"
 
-t_item  f_dq_get_front(t_deque *self)
+int	ft_putchar(const char c)
 {
-	return ((self->datas)[self->front_idx]);
-}
-
-t_item  f_dq_get_back(t_deque *self)
-{
-	return ((self->datas)[self->back_idx]);
+	write(1, &c, 1);
+	return (1);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deque_get_funcs.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 13:52:30 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/26 03:56:03 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:08:07 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/24 13:09:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include <unistd.h>
+#include "../include/ft_printf.h"
 
-t_item  f_dq_get_front(t_deque *self)
+int	ft_putstr(const char *str)
 {
-	return ((self->datas)[self->front_idx]);
-}
+	size_t	len;
 
-t_item  f_dq_get_back(t_deque *self)
-{
-	return ((self->datas)[self->back_idx]);
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }

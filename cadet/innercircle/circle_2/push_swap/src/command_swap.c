@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_swaps.c                                    :+:      :+:    :+:   */
+/*   command_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:48:24 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 18:01:11 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 18:16:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,18 @@ void	command_swap(t_deque *dq)
 void	command_sa(t_deque *a)
 {
 	command_swap(a);
+	ft_printf("sa\n");
 }
 
 void	command_sb(t_deque *b)
 {
 	command_swap(b);
+	ft_printf("sb\n");
 }
 
 void	command_ss(t_deque *a, t_deque *b)
 {
 	command_swap(a);
 	command_swap(b);
+	ft_printf("ss\n");
 }

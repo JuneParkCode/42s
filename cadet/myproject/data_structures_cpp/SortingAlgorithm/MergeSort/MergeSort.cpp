@@ -43,6 +43,7 @@ void mergeSort(int arr[], int first, int last)
 		int mid = (first + last) / 2;
 		mergeSort(arr, first, mid);
 		mergeSort(arr, mid + 1, last);
+		cout << "MID : " << mid << " SIZE : " << last - first + 1 << endl;
 		merge(arr, first, mid, mid + 1, last);
 	}
 }

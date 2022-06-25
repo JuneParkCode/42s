@@ -1,42 +1,32 @@
 /* ************************************************************************** */
-
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_rotation.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 18:01:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 18:03:27 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/26 04:55:42 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h> // for atoi
 #include "../include/push_swap.h"
 
-void	command_rotation(t_deque *dq)
+int	main(int argc, char *argv[])
 {
-	t_item	top_item;
+	const int SIZE = argc - 1;
+	t_deque	*a = make_deque(SIZE);
+	t_deque	*b = make_deque(SIZE);
+	int	i;
 
-	top_item = dq->get_back(dq);
-	dq->pop_back(dq);
-	dq->push_front(dq, top_item);
-}
-
-void	command_ra(t_deque *a)
-{
-	command_rotation(a);
-	ft_printf("ra\n");
-}
-
-void	command_rb(t_deque *b)
-{
-	command_rotation(b);
-	ft_printf("rb\n");
-}
-
-void	command_rr(t_deque *a, t_deque *b)
-{
-	command_rotation(a);
-	command_rotation(b);
-	ft_printf("rr\n");
+	i = 1;
+	while (!(a->is_full_deque(a)))
+	{
+		a->push_front(a, atoi(argv[i++]));
+	}
+	sort(a, b, 0, SIZE - 1);
+	int n = SIZE;
+	while (n--)
+		command_pa(a, b);
 }

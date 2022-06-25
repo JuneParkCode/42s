@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/04/15 15:15:06 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/06/25 20:03:07 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,26 +19,38 @@ INC_DIR = ./include/
 
 SRC_DIR = ./src/
 
-SRC_FILES = $(SRC_DIR)main.c
+SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
+			$(SRC_DIR)deque_idx_funcs.c\
+			$(SRC_DIR)deque_pop_funcs.c\
+			$(SRC_DIR)deque_push_funcs.c\
+			$(SRC_DIR)deque_utils.c\
+			$(SRC_DIR)sort_funcs.c\
+			$(SRC_DIR)command_push.c\
+			$(SRC_DIR)command_rotation.c\
+			$(SRC_DIR)command_rotation_reverse.c\
+			$(SRC_DIR)command_swap.c\
+			$(SRC_DIR)main.c
 
 OBJS = ${SRC_FILES:.c=.o}
 
 all 	: $(NAME)
 
-$(NAME)	: $(OBJ)
-	@make -C ./libft
-	@make -C ./circular_list
-	ar rcs $(NAME) $(OBJ)
+$(NAME)	: $(OBJS)
+	@make -C ./library/ft_printf
+	$(CC) $(CFLAGS) $(OBJS) -L ./library/ft_printf -lftprintf -o $(NAME) -I $(INC_DIR)
 
 %.o 	: %.c
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@ 
 
 clean	:
-	rm -f $(OBJS) $(OBJ_BONUS)
+	rm -f $(OBJS)
+	@make -C ./library/ft_printf clean
 
 fclean	: clean
 	rm -f $(NAME)
+	@make -C ./library/ft_printf fclean
 
-re		: fclean all
+re		: fclean
+	@make all
 
 .PHONY	: clean fclean re all

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deque_get_funcs.c                                  :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 13:52:30 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/26 03:56:03 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:41:15 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/03/24 10:49:35 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include <unistd.h>
+#include "../include/ft_printf.h"
 
-t_item  f_dq_get_front(t_deque *self)
+int	ft_putaddr(void *addr)
 {
-	return ((self->datas)[self->front_idx]);
-}
-
-t_item  f_dq_get_back(t_deque *self)
-{
-	return ((self->datas)[self->back_idx]);
+	if (addr == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
+	return (ft_puthex((unsigned long long) addr, 0));
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:03:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 18:05:24 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 18:15:52 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ void	command_rotation_reverse(t_deque *dq)
 void	command_rra(t_deque *a)
 {
 	command_rotation_reverse(a);
+	ft_printf("rra\n");
 }
 
 void	command_rrb(t_deque *b)
 {
 	command_rotation_reverse(b);
+	ft_printf("rrb\n");
 }
 
 void	command_rrr(t_deque *a, t_deque *b)
 {
 	command_rotation_reverse(a);
 	command_rotation_reverse(b);
+	ft_printf("rrr\n");
 }
