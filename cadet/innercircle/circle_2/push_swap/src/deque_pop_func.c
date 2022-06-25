@@ -6,13 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:53:03 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 16:38:49 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:32:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include "../include/deque.h"
 
-void  f_dq_pop_front(t_deque *self)
+void	f_dq_pop_front(t_deque *self)
 {
 	if (self->is_empty_deque(self))
 		return ;
@@ -22,7 +22,7 @@ void  f_dq_pop_front(t_deque *self)
 		self->back_idx = self->front_idx;
 }
 
-void  f_dq_pop_back(t_deque *self)
+void	f_dq_pop_back(t_deque *self)
 {
 	if (self->is_empty_deque(self))
 		return ;

@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deque_get_funcs.c                                  :+:      :+:    :+:   */
+/*   command_rotation_reverse.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 13:52:30 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 16:31:51 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/25 18:03:45 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/25 18:05:24 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include "../include/push_swap.h"
 
-t_item  f_dq_get_front(t_deque *self)
+void	command_rotation_reverse(t_deque *dq)
 {
-	return ((self->datas)[self->get_prev_front_idx(self)]);
+	t_item	bottom_item;
+
+	bottom_item = dq->get_front(dq);
+	dq->pop_front(dq);
+	dq->push_back(dq, bottom_item);
 }
 
-t_item  f_dq_get_back(t_deque *self)
+void	command_rra(t_deque *a)
 {
-	return ((self->datas)[self->get_prev_back_idx(self)]);
+	command_rotation_reverse(a);
+}
+
+void	command_rrb(t_deque *b)
+{
+	command_rotation_reverse(b);
+}
+
+void	command_rrr(t_deque *a, t_deque *b)
+{
+	command_rotation_reverse(a);
+	command_rotation_reverse(b);
 }

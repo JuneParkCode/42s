@@ -6,25 +6,23 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:52:53 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 17:07:04 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:34:20 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "deque.h"
+#include "../include/deque.h"
 
-t_deque *make_deque(const int size)
+t_deque	*make_deque(const unsigned int size)
 {
-	t_deque *dq;
+	t_deque	*dq;
 
-	if (size <= 0)
-	    return (NULL);
 	dq = (t_deque *)malloc(sizeof(t_deque));
 	if (dq == NULL)
-	  return (NULL);
+		return (NULL);
 	dq->datas = (t_item *)malloc(sizeof(t_item));
 	if (dq->datas == NULL)
-	  return (NULL);
+		return (NULL);
 	dq->current_size = 0;
 	dq->max_size = size;
 	dq->front_idx = 0;
@@ -59,4 +57,3 @@ int	f_dq_is_empty_deque(t_deque *self)
 {
 	return (self->current_size == 0);
 }
-

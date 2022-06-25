@@ -6,12 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:53:05 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 17:01:56 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:32:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "deque.h"
+#include "../include/deque.h"
 
 void	f_dq_push_back(t_deque *self, t_item item)
 {

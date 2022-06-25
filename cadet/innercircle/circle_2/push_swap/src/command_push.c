@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   deque_get_funcs.c                                  :+:      :+:    :+:   */
+/*   command_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 13:52:30 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 16:31:51 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/25 17:54:44 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/25 17:57:02 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "deque.h"
+#include "../include/push_swap.h"
 
-t_item  f_dq_get_front(t_deque *self)
+void	command_push(t_deque *to, t_deque *from)
 {
-	return ((self->datas)[self->get_prev_front_idx(self)]);
+	t_item	item;
+
+	item = from->get_back(from);
+	from->pop_back(from);
+	to->push_back(to, item);
 }
 
-t_item  f_dq_get_back(t_deque *self)
+void	command_pa(t_deque *a, t_deque *b)
 {
-	return ((self->datas)[self->get_prev_back_idx(self)]);
+	command_push(a, b);
+}
+
+void	command_pb(t_deque *a, t_deque *b)
+{
+	command_push(b, a);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:01:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 16:29:43 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:34:05 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_deque
 } t_deque;
 
 /* C,D Funcs for deque */
-t_deque	*make_deque(const int size);
+t_deque	*make_deque(const unsigned int size);
 void	delete_deque(t_deque *dq);
 
 /* method functions... */
