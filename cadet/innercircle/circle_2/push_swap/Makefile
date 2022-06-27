@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/06/25 20:03:07 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/06/27 21:32:40 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
 			$(SRC_DIR)command_rotation.c\
 			$(SRC_DIR)command_rotation_reverse.c\
 			$(SRC_DIR)command_swap.c\
-			$(SRC_DIR)merge_sort_slow.c\
+			$(SRC_DIR)radix_sort.c\
 			$(SRC_DIR)main.c
 
 OBJS = ${SRC_FILES:.c=.o}
