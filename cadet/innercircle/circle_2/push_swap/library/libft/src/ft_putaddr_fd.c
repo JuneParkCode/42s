@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putaddr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:13:54 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/03/23 14:41:15 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/15 14:46:55 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include <unistd.h>
+#include "libft.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_putaddr_fd(void *addr, int fd)
 {
-	if (is_valid_input(argc, argv) == FALSE)
+	if (addr == 0)
 	{
-		ft_printf("Error\n");
-		return (0);
+		ft_putchar_fd('0', fd);
+		return (1);
 	}
-	else
-	{
-		push_swap(argc, argv);
-	}
-	return (0);
+	return (ft_puthex_fd((unsigned long long) addr, 0, fd));
 }

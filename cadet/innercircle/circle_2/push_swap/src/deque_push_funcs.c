@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:53:05 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/26 04:14:27 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:51:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	f_dq_push_back(t_deque *self, t_item item)
 	else
 	{
 		self->back_idx = self->get_next_back_idx(self);
-		self->datas[self->back_idx] = item;	
+		self->datas[self->back_idx] = item;
 	}
 	++(self->current_size);
 }
@@ -39,7 +39,7 @@ void	f_dq_push_front(t_deque *self, t_item item)
 	else
 	{
 		self->front_idx = self->get_next_front_idx(self);
-		self->datas[self->front_idx] = item;	
+		self->datas[self->front_idx] = item;
 	}
 	++(self->current_size);
 }

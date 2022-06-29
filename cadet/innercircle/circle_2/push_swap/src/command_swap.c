@@ -6,10 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:48:24 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 18:16:18 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:48:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft.h"
 #include "../include/push_swap.h"
 
 void	swap(t_item	*a, t_item *b)

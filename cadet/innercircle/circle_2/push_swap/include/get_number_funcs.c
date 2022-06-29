@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_rotation_reverse.c                         :+:      :+:    :+:   */
+/*   get_number_funcs.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 18:03:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:48:41 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/29 22:10:50 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/29 22:45:09 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../include/libft.h"
 #include "../include/push_swap.h"
 
-void	command_rotation_reverse(t_deque *dq)
+t_item	*convert_inputs_to_numbers(int argc, char *argv[], int *size)
 {
-	t_item	bottom_item;
+	t_item	**result;
+	char	**strs;
+	int		idx;
 
-	bottom_item = dq->get_front(dq);
-	dq->pop_front(dq);
-	dq->push_back(dq, bottom_item);
-}
+	idx = 1;
+	*size = 0;
+	result = malloc(sizeof(t_item *) * (argc + 1));
+	while (idx <= argc)
+	{
+		strs = ft_split(argv[idx], ' ');
 
-void	command_rra(t_deque *a)
-{
-	command_rotation_reverse(a);
-	ft_printf("rra\n");
-}
-
-void	command_rrb(t_deque *b)
-{
-	command_rotation_reverse(b);
-	ft_printf("rrb\n");
-}
-
-void	command_rrr(t_deque *a, t_deque *b)
-{
-	command_rotation_reverse(a);
-	command_rotation_reverse(b);
-	ft_printf("rrr\n");
+		while (*strs)
+			free(*(strs++));
+		free(strs);
+	}
+	numbers[argc] = NULL;
 }

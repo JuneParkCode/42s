@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_set_print_color.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:13:54 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/04/15 14:52:11 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/04/15 15:04:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "ft_set_print_color.h"
 
-int	main(int argc, char *argv[])
+void	ft_set_print_color(const char *color)
 {
-	if (is_valid_input(argc, argv) == FALSE)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
-	else
-	{
-		push_swap(argc, argv);
-	}
-	return (0);
+	ft_printf(color);
 }

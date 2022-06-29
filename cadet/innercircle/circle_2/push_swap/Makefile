@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/06/27 21:32:40 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/06/29 21:54:52 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
 			$(SRC_DIR)command_rotation_reverse.c\
 			$(SRC_DIR)command_swap.c\
 			$(SRC_DIR)radix_sort.c\
+			$(SRC_DIR)is_valid_input.c\
+			$(SRC_DIR)push_swap.c\
 			$(SRC_DIR)main.c
 
 OBJS = ${SRC_FILES:.c=.o}
@@ -36,19 +38,19 @@ OBJS = ${SRC_FILES:.c=.o}
 all 	: $(NAME)
 
 $(NAME)	: $(OBJS)
-	@make -C ./library/ft_printf
-	$(CC) $(CFLAGS) $(OBJS) -L ./library/ft_printf -lftprintf -o $(NAME) -I $(INC_DIR)
+	@make -C ./library/libft
+	$(CC) $(CFLAGS) $(OBJS) -L ./library/libft -lft -o $(NAME) -I $(INC_DIR)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@ 
 
 clean	:
 	rm -f $(OBJS)
-	@make -C ./library/ft_printf clean
+	@make -C ./library/libft clean
 
 fclean	: clean
 	rm -f $(NAME)
-	@make -C ./library/ft_printf fclean
+	@make -C ./library/libft fclean
 
 re		: fclean
 	@make all

@@ -1,5 +1,4 @@
 /* ************************************************************************** */
-
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   command_rotation.c                                 :+:      :+:    :+:   */
@@ -7,10 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:01:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/25 18:03:27 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:53:58 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft.h"
 #include "../include/push_swap.h"
 
 void	command_rotation(t_deque *dq)

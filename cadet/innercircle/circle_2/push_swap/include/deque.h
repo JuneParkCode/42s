@@ -6,14 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:01:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/27 20:57:38 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:41:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEQUE_H
 # define DEQUE_H
 
-typedef long long	t_item;
+typedef int	t_item;
 
 /* for using (pseudo) methods, I used function pointer*/
 typedef struct s_deque
