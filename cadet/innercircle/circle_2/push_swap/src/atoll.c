@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   atoll.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 19:44:50 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/29 19:41:39 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/29 19:44:28 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char *argv[])
+static int	convert_char_to_int(const char c)
 {
-	const int SIZE = argc - 1;
-	t_deque	*a = make_deque(SIZE);
-	t_deque	*b = make_deque(SIZE);
-	int	i;
+	return (c - '0');
+}
 
-	i = 1;
-	while (!(a->is_full_deque(a)))
+long long	atoll(const char *str)
+{
+	long long	result;
+	int			idx;
+
+	idx = 0;
+	result = 0;
+	while (str + idx)
 	{
-		a->push_front(a, atoll(argv[i++]));
+		result *= 10;
+		result += convert_char_to_int(str[idx]);
+		++idx;
 	}
-	radix_sort(a, b, SIZE);
+	return (result);
 }

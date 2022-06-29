@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 19:44:50 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/06/29 19:36:07 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/06/29 19:41:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	main(int argc, char *argv[])
+int	check_input(const int argc, const char *argv[])
 {
-	const int SIZE = argc - 1;
-	t_deque	*a = make_deque(SIZE);
-	t_deque	*b = make_deque(SIZE);
-	int	i;
+	int	idx = 1;
 
-	i = 1;
-	while (!(a->is_full_deque(a)))
+	if (argc == 0)
+		return (FALSE);
+	while (idx <= argc)
 	{
-		a->push_front(a, atoll(argv[i++]));
+
 	}
-	radix_sort(a, b, SIZE);
+	return (TRUE);
 }
