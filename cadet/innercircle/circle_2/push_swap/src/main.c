@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:13:54 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 10:23:28 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 int	main(int argc, char *argv[])
 {
-	if (is_valid_input(argc, argv) == FALSE)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
-	else
-	{
-		push_swap(argc, argv);
-	}
+	push_swap(argc, argv);
 	return (0);
 }

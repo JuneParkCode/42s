@@ -6,12 +6,13 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/06/29 21:54:52 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/02 11:42:29 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 
@@ -29,7 +30,9 @@ SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
 			$(SRC_DIR)command_rotation_reverse.c\
 			$(SRC_DIR)command_swap.c\
 			$(SRC_DIR)radix_sort.c\
-			$(SRC_DIR)is_valid_input.c\
+			$(SRC_DIR)get_input.c\
+			$(SRC_DIR)simplify_numbers.c\
+			$(SRC_DIR)has_duplicate_number.c\
 			$(SRC_DIR)push_swap.c\
 			$(SRC_DIR)main.c
 

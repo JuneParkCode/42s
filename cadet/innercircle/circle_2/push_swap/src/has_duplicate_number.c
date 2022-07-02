@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_number_funcs.c                                 :+:      :+:    :+:   */
+/*   has_duplicate_number.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 22:10:50 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 22:45:09 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/02 10:07:03 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/02 11:16:00 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../include/libft.h"
 #include "../include/push_swap.h"
 
-t_item	*convert_inputs_to_numbers(int argc, char *argv[], int *size)
+/* INPUT DEQUE MUST CURRENT SIZE == MAX_SIZE */
+
+t_bool	has_duplicate_number(t_deque *dq)
 {
-	t_item	**result;
-	char	**strs;
-	int		idx;
+	int	idx;
+	int	inner_idx;
 
-	idx = 1;
-	*size = 0;
-	result = malloc(sizeof(t_item *) * (argc + 1));
-	while (idx <= argc)
+	idx = 0;
+	while (idx < dq->max_size)
 	{
-		strs = ft_split(argv[idx], ' ');
-
-		while (*strs)
-			free(*(strs++));
-		free(strs);
+		inner_idx = 0;
+		while (inner_idx < idx)
+		{
+			if (dq->datas[inner_idx] == dq->datas[idx])
+				return (TRUE);
+			++inner_idx;
+		}
+		idx++;
 	}
-	numbers[argc] = NULL;
+	return (FALSE);
 }

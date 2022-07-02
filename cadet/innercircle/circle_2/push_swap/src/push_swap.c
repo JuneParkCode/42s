@@ -3,44 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:25:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 22:40:12 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:38:54 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../include/libft.h"
 #include "../include/push_swap.h"
-
-static void	push_inputs_to_stack(t_item *numbers, int size, t_deque *stack)
-{
-	int	idx;
-
-	idx = 0;
-	while (idx < size)
-	{
-		stack->push_front(stack, numbers[idx]);
-		++idx;
-	}
-}
 
 void	push_swap(const int argc, char **argv)
 {
-	t_deque	*stack_a;
-	t_deque	*stack_b;
-	t_item	*numbers;
-	t_item	*simplified_numbers;
-	int		size;
+	t_deque	*tmp;
+	t_deque	*a;
+	t_deque	*b;
+	t_bool	is_valid_input;
 
-	numbers = convert_inputs_to_number_array(argc, argv, size);
-	simplified_numbers = simplify_numbers(numbers);
-	stack_a = make_deque(size);
-	stack_b = make_deque(size);
-	push_inputs_to_stack(simplified_numbers, size, stack_a);
-	radix_sort(stack_a, stack_b, size);
-	delete_deque(stack_a);
-	delete_deque(stack_b);
-	free(numbers);
-	free(simplified_numbers);
+	tmp = make_deque(10000);
+	is_valid_input = get_input(argc, argv, tmp);
+	if (is_valid_input == FALSE)
+	{
+		ft_printf("Error\n");
+		return ;
+	}
+	a = make_deque(tmp->current_size);
+	b = make_deque(tmp->current_size);
+	simplify_numbers(tmp, a);
+	delete_deque(tmp);
+	if (has_duplicate_number(a) == TRUE)
+	{
+		ft_printf("Error\n");
+		return ;
+	}
+	radix_sort(a, b, a->max_size);
+	delete_deque(a);
+	delete_deque(b);
+	return ;
 }

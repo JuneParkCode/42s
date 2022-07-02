@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 16:48:48 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/27 19:43:47 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:23:39 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/push_swap.h"
 
 #include "../include/push_swap.h"
 
@@ -22,16 +24,6 @@ static int	get_next_idx(t_deque *dq, const int idx)
 	return (result);
 }
 
-static int	get_negative_element_idx(t_deque *dq)
-{
-	int	idx;
-
-	idx = dq->back_idx;
-	while (dq->datas[idx] >= 0)
-		idx = get_next_idx(dq, idx);
-	return (idx);
-}
-
 static int	is_sorted(t_deque *dq)
 {
 	int	idx;
@@ -39,10 +31,7 @@ static int	is_sorted(t_deque *dq)
 	int	cur;
 	int	next;
 
-	if (dq->get_front(dq) < 0)
-		idx = get_negative_element_idx(dq);
-	else
-		idx = dq->back_idx;
+	idx = dq->back_idx;
 	n = dq->max_size;
 	while (--n)
 	{
@@ -59,12 +48,6 @@ static void	move_all_elements_of_b_to_a(t_deque *a, t_deque *b)
 {
 	while (b->current_size != 0)
 		command_pa(a, b);
-}
-
-static void	sort_negatives(t_deque *a)
-{
-	while (a->get_front(a) < 0)
-		command_rra(a);
 }
 
 static void	split(t_deque *a, t_deque *b, const int place, const int size)
@@ -96,6 +79,4 @@ void	radix_sort(t_deque *a, t_deque *b, const int size)
 		move_all_elements_of_b_to_a(a, b);
 		++place;
 	}
-	if (a->get_front(a) < a->get_back(a))
-		sort_negatives(a);
 }

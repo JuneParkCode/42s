@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 14:01:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:41:33 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:07:02 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ typedef struct s_deque
 	int		(*get_prev_front_idx)(struct s_deque *self);
 	int		(*get_next_back_idx)(struct s_deque *self);
 	int		(*get_prev_back_idx)(struct s_deque *self);
+	void	(*resize_deque)(struct s_deque *self, const int size);
 }	t_deque;
 
 /* C,D Funcs for deque */
-t_deque	*make_deque(const unsigned int size);
+t_deque	*make_deque(const int size);
 void	delete_deque(t_deque *dq);
 
 /* method functions... */
+void	f_dq_resize_deque(t_deque *self, const int size);
 int		f_dq_get_next_front_idx(t_deque *self);
 int		f_dq_get_next_back_idx(t_deque *self);
 int		f_dq_get_prev_front_idx(t_deque *self);

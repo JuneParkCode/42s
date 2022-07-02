@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 01:03:51 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:08:15 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 09:47:26 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-typedef int	t_bool;
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);

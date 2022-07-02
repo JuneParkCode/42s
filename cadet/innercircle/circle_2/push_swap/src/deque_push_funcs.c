@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deque_push_funcs.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 13:53:05 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:51:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:08:19 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	f_dq_push_back(t_deque *self, t_item item)
 {
 	if (self->is_full_deque(self))
-		return ;
+		self->resize_deque(self, self->max_size * 2);
 	if (self->back_idx == self->front_idx && self->current_size == 0)
 	{
 		self->datas[self->back_idx] = item;
@@ -31,7 +31,7 @@ void	f_dq_push_back(t_deque *self, t_item item)
 void	f_dq_push_front(t_deque *self, t_item item)
 {
 	if (self->is_full_deque(self))
-		return ;
+		self->resize_deque(self, self->max_size * 2);
 	if (self->back_idx == self->front_idx && self->current_size == 0)
 	{
 		self->datas[self->front_idx] = item;
