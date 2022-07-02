@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:25:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 13:38:54 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:20:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_swap(const int argc, char **argv)
 		ft_printf("Error\n");
 		return ;
 	}
-	radix_sort(a, b, a->max_size);
+	sort(a, b, a->max_size);
 	delete_deque(a);
 	delete_deque(b);
 	return ;

@@ -6,43 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 16:48:48 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 13:23:39 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:28:00 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-#include "../include/push_swap.h"
-
-static int	get_next_idx(t_deque *dq, const int idx)
-{
-	int	result;
-
-	result = idx - 1;
-	if (result < 0)
-		result += dq->max_size;
-	return (result);
-}
-
-static int	is_sorted(t_deque *dq)
-{
-	int	idx;
-	int	n;
-	int	cur;
-	int	next;
-
-	idx = dq->back_idx;
-	n = dq->max_size;
-	while (--n)
-	{
-		cur = dq->datas[idx];
-		idx = get_next_idx(dq, idx);
-		next = dq->datas[idx];
-		if (cur > next)
-			return (0);
-	}
-	return (1);
-}
 
 static void	move_all_elements_of_b_to_a(t_deque *a, t_deque *b)
 {

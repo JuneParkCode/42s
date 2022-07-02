@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:44:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 13:58:53 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 16:02:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef int	t_bool;
 /* MAIN PUSH_SWAP FUNCTION */
 void		push_swap(const int argc, char *argv[]);
 
+/* UTILS */
+t_bool		is_sorted(t_deque *dq);
+
 /* INPUT PROCESSING FUNCTIONS */
 t_bool		get_input(const int argc, char *argv[], t_deque *dq);
 t_bool		has_duplicate_number(t_deque *dq);
@@ -30,7 +33,10 @@ void		simplify_numbers(t_deque *from, t_deque *to);
 long long	atoll(const char *str);
 
 /* SORTING FUNCTIONS */
+void		sort(t_deque *a, t_deque *b, const int size);
 void		radix_sort(t_deque *a, t_deque *b, const int size);
+void		sort_under_five(t_deque *a, t_deque *b, const int size);
+void		sort_three(t_deque *a);
 
 /* PUSH_SWAP COMMANDS */
 void		command_swap(t_deque *dq);
