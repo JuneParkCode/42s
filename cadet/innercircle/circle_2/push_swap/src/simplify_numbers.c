@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 09:49:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 13:22:46 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:14:13 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,6 @@ void	simplify_numbers(t_deque *from, t_deque *to)
 	ft_bzero(idx_arr, sizeof(t_item) * size);
 	index_numbers(arr, idx_arr, size);
 	move_element_arr_to_deque(idx_arr, to, size);
+	free(arr);
+	free(idx_arr);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:57:29 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 13:57:43 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:22:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_bool	get_input(const int argc, char **argv, t_deque *dq)
 	result = TRUE;
 	while (arg < argc && result)
 	{
-		if (argc <= 1 || ft_strlen(argv[arg]) == 0)
+		if (ft_strlen(argv[arg]) == 0)
 			return (FALSE);
 		strs = ft_split(argv[arg], ' ');
 		result = is_valid_string(strs);
