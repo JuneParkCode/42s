@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:40:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/04 10:14:36 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:21:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	main(int argc, char *argv[])
 {
-	if (argc > 1)
-		push_swap(argc, argv);
+	if (argc <= 1)
+		return (0);
+	if (push_swap(argc, argv) == FAILED)
+		ft_printf("Error\n");
 	return (0);
 }

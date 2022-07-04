@@ -6,11 +6,10 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:25:25 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 20:23:34 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:23:35 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../include/libft.h"
 #include "../include/push_swap.h"
 
@@ -20,7 +19,7 @@ static void	delete_dqs(t_deque *a, t_deque *b)
 	delete_deque(b);
 }
 
-void	push_swap(const int argc, char **argv)
+int	push_swap(const int argc, char **argv)
 {
 	t_deque	*tmp;
 	t_deque	*a;
@@ -32,8 +31,7 @@ void	push_swap(const int argc, char **argv)
 	if (is_valid_input == FALSE)
 	{
 		delete_deque(tmp);
-		ft_printf("Error\n");
-		return ;
+		return (FAILED);
 	}
 	a = make_deque(tmp->current_size);
 	b = make_deque(tmp->current_size);
@@ -41,10 +39,10 @@ void	push_swap(const int argc, char **argv)
 	delete_deque(tmp);
 	if (has_duplicate_number(a) == TRUE)
 	{
-		ft_printf("Error\n");
-		return ;
+		delete_dqs(a, b);
+		return (FAILED);
 	}
 	sort(a, b, a->max_size);
 	delete_dqs(a, b);
-	return ;
+	return (SUCCESS);
 }

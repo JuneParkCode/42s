@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:44:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/04 10:08:09 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:19:04 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 
 # define TRUE 1
 # define FALSE 0
+# define SUCCESS 0
+# define FAILED -1
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
 typedef int	t_bool;
 
 /* MAIN PUSH_SWAP FUNCTION */
-void		push_swap(const int argc, char *argv[]);
+int			push_swap(const int argc, char *argv[]);
 
 /* UTILS */
 t_bool		is_sorted(t_deque *dq);
