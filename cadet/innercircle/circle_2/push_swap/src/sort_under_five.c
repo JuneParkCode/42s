@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 14:24:54 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 16:25:13 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:27:10 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 static int	get_next_top_idx(const int idx, const int size)
 {
@@ -59,16 +59,17 @@ static void	pb_over_pivot(t_deque *a, t_deque *b, const int size)
 	}
 }
 
+void	sort_two(t_deque *a)
+{
+	if (a->get_back(a) > a->get_front(a))
+		command_sa(a);
+}
+
 void	sort_under_five(t_deque *a, t_deque *b, const int size)
 {
-	int			top;
-	int			top_next;
+	int	top;
+	int	top_next;
 
-	if (size == 3)
-	{
-		sort_three(a);
-		return ;
-	}
 	pb_over_pivot(a, b, size);
 	sort_three(a);
 	top = b->get_back(b);

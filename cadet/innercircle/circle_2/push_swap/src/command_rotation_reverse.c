@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   command_rotation_reverse.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:03:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:48:41 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:16:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 void	command_rotation_reverse(t_deque *dq)
 {
@@ -25,18 +25,18 @@ void	command_rotation_reverse(t_deque *dq)
 void	command_rra(t_deque *a)
 {
 	command_rotation_reverse(a);
-	ft_printf("rra\n");
+	ft_putstr_fd("rra\n", FD_STDIN);
 }
 
 void	command_rrb(t_deque *b)
 {
 	command_rotation_reverse(b);
-	ft_printf("rrb\n");
+	ft_putstr_fd("rrb\n", FD_STDIN);
 }
 
 void	command_rrr(t_deque *a, t_deque *b)
 {
 	command_rotation_reverse(a);
 	command_rotation_reverse(b);
-	ft_printf("rrr\n");
+	ft_putstr_fd("rrr\n", FD_STDIN);
 }

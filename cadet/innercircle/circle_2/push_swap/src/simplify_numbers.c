@@ -6,13 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 09:49:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 20:14:13 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 14:34:32 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 static void	move_element_deque_to_array(t_deque *from, t_item arr[])
 {

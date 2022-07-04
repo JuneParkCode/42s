@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:45:56 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 16:25:29 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:29:28 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 static int	get_pattern(t_deque *a)
 {
@@ -34,7 +34,7 @@ static int	get_pattern(t_deque *a)
 			return (pattern_idx);
 		++pattern_idx;
 	}
-	return (-1);
+	return (FAILED);
 }
 
 void	sort_three(t_deque *a)

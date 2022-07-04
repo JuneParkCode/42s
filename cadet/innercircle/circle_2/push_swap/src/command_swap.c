@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:48:24 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:48:44 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:16:06 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 void	swap(t_item	*a, t_item *b)
 {
@@ -39,18 +39,18 @@ void	command_swap(t_deque *dq)
 void	command_sa(t_deque *a)
 {
 	command_swap(a);
-	ft_printf("sa\n");
+	ft_putstr_fd("sa\n", FD_STDIN);
 }
 
 void	command_sb(t_deque *b)
 {
 	command_swap(b);
-	ft_printf("sb\n");
+	ft_putstr_fd("sb\n", FD_STDIN);
 }
 
 void	command_ss(t_deque *a, t_deque *b)
 {
 	command_swap(a);
 	command_swap(b);
-	ft_printf("ss\n");
+	ft_putstr_fd("ss\n", FD_STDIN);
 }

@@ -6,12 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:55:21 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/04 09:47:44 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:17:32 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 static int	isspace(const char c)
 {
@@ -39,6 +39,11 @@ static int	get_sign(const char c)
 		return (1);
 }
 
+static char	char_to_int(const char c)
+{
+	return (c - '0');
+}
+
 long long	ft_atoll(const char *str)
 {
 	unsigned int	idx_str;
@@ -56,7 +61,7 @@ long long	ft_atoll(const char *str)
 	while (ft_isdigit(str[idx_str]))
 	{
 		prev = res;
-		res = res * 10 + sign * (str[idx_str] - '0');
+		res = res * 10 + sign * char_to_int(str[idx_str]);
 		++idx_str;
 	}
 	return (res);

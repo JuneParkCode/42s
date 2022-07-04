@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:44:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/04 10:19:04 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:23:05 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,34 @@
 # define FAILED -1
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define FD_STDIN 1
+# define FD_STDERR 2
 
 typedef int	t_bool;
+typedef int	t_status;
 
 /* MAIN PUSH_SWAP FUNCTION */
-int			push_swap(const int argc, char *argv[]);
+t_status	push_swap(const int argc, char *argv[]);
 
 /* UTILS */
 t_bool		is_sorted(t_deque *dq);
 
 /* INPUT PROCESSING FUNCTIONS */
-t_bool		get_input(const int argc, char *argv[], t_deque *dq);
+t_status	get_input(const int argc, char *argv[], t_deque *dq);
 t_bool		has_duplicate_number(t_deque *dq);
 void		simplify_numbers(t_deque *from, t_deque *to);
 long long	ft_atoll(const char *str);
+t_bool		is_all_digit(const char *str);
+t_bool		is_valid_number(const char *str);
+t_bool		is_valid_string(char **strs);
+void		push_strings_to_deque(char **strs, t_deque *dq);
 
 /* SORTING FUNCTIONS */
 void		sort(t_deque *a, t_deque *b, const int size);
 void		radix_sort(t_deque *a, t_deque *b, const int size);
 void		sort_under_five(t_deque *a, t_deque *b, const int size);
 void		sort_three(t_deque *a);
+void		sort_two(t_deque *a);
 
 /* PUSH_SWAP COMMANDS */
 void		command_swap(t_deque *dq);

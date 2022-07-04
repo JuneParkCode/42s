@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   command_rotation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 18:01:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/06/29 21:53:58 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:16:12 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 void	command_rotation(t_deque *dq)
 {
@@ -25,18 +25,18 @@ void	command_rotation(t_deque *dq)
 void	command_ra(t_deque *a)
 {
 	command_rotation(a);
-	ft_printf("ra\n");
+	ft_putstr_fd("ra\n", FD_STDIN);
 }
 
 void	command_rb(t_deque *b)
 {
 	command_rotation(b);
-	ft_printf("rb\n");
+	ft_putstr_fd("rb\n", FD_STDIN);
 }
 
 void	command_rr(t_deque *a, t_deque *b)
 {
 	command_rotation(a);
 	command_rotation(b);
-	ft_printf("rr\n");
+	ft_putstr_fd("rr\n", FD_STDIN);
 }

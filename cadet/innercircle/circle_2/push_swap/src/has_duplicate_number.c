@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   has_duplicate_number.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 10:07:03 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 11:16:00 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:07:02 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
-#include "../include/push_swap.h"
+#include "libft.h"
+#include "push_swap.h"
 
 /* INPUT DEQUE MUST CURRENT SIZE == MAX_SIZE */
 
