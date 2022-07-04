@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/04 16:45:13 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/04 18:31:49 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ OBJS = ${SRC_FILES:.c=.o}
 all 	: $(NAME)
 
 subsystem :
-	$(MAKE) -C $(LFT_DIR)
+	$(MAKE) -C $(LFT_DIR) all
 
 $(NAME)	: subsystem $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIB_FLAG) -o $(NAME) $(INC_FLAG)
@@ -68,9 +68,9 @@ clean	:
 
 fclean	: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LFT_DIR) clean
+	$(MAKE) -C $(LFT_DIR) fclean
 
 re		: fclean
-	@make all
+	$(MAKE) all
 
 .PHONY	: clean fclean re all

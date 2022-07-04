@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
+#    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/04/15 14:59:48 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/04 18:32:15 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,75 +19,66 @@ INC_DIR = ./include/
 
 SRC_DIR = ./src/
 
-SRC_FILES = $(SRC_DIR)ft_atoi.c\
-			$(SRC_DIR)ft_bzero.c\
-			$(SRC_DIR)ft_calloc.c\
-			$(SRC_DIR)ft_isalnum.c\
-			$(SRC_DIR)ft_isalpha.c\
-			$(SRC_DIR)ft_isascii.c\
-			$(SRC_DIR)ft_isdigit.c\
-			$(SRC_DIR)ft_isprint.c\
-			$(SRC_DIR)ft_itoa.c\
-			$(SRC_DIR)ft_memchr.c\
-			$(SRC_DIR)ft_memcmp.c\
-			$(SRC_DIR)ft_memcpy.c\
-			$(SRC_DIR)ft_memmove.c\
-			$(SRC_DIR)ft_memset.c\
-			$(SRC_DIR)ft_putchar_fd.c\
-			$(SRC_DIR)ft_putendl_fd.c\
-			$(SRC_DIR)ft_putnbr_fd.c\
-			$(SRC_DIR)ft_putstr_fd.c\
-			$(SRC_DIR)ft_split.c\
-			$(SRC_DIR)ft_strchr.c\
-			$(SRC_DIR)ft_strdup.c\
-			$(SRC_DIR)ft_striteri.c\
-			$(SRC_DIR)ft_strjoin.c\
-			$(SRC_DIR)ft_strlcpy.c\
-			$(SRC_DIR)ft_strlen.c\
-			$(SRC_DIR)ft_strlcat.c\
-			$(SRC_DIR)ft_strncmp.c\
-			$(SRC_DIR)ft_strnstr.c\
-			$(SRC_DIR)ft_strmapi.c\
-			$(SRC_DIR)ft_strrchr.c\
-			$(SRC_DIR)ft_strtrim.c\
-			$(SRC_DIR)ft_substr.c\
-			$(SRC_DIR)ft_tolower.c\
-			$(SRC_DIR)ft_toupper.c\
-			$(SRC_DIR)ft_isinset.c\
-			$(SRC_DIR)ft_isspace.c\
-			$(SRC_DIR)ft_strcspn.c\
-			$(SRC_DIR)ft_strpbrk.c\
-			$(SRC_DIR)ft_get_next_line.c\
-			$(SRC_DIR)ft_printf.c\
-			$(SRC_DIR)ft_putaddr_fd.c\
-			$(SRC_DIR)ft_puthex_fd.c\
-			$(SRC_DIR)ft_set_print_color.c
-			
-
-SRC_BONUS = $(SRC_DIR)ft_lstnew.c\
-			$(SRC_DIR)ft_lstadd_front.c\
-			$(SRC_DIR)ft_lstsize.c\
-			$(SRC_DIR)ft_lstlast.c\
-			$(SRC_DIR)ft_lstadd_back.c\
-			$(SRC_DIR)ft_lstclear.c\
-			$(SRC_DIR)ft_lstdelone.c\
-			$(SRC_DIR)ft_lstiter.c\
-			$(SRC_DIR)ft_lstmap.c
+SRC_FILES = $(addprefix $(SRC_DIR), ft_atoi.c\
+			ft_bzero.c\
+			ft_calloc.c\
+			ft_isalnum.c\
+			ft_isalpha.c\
+			ft_isascii.c\
+			ft_isdigit.c\
+			ft_isprint.c\
+			ft_itoa.c\
+			ft_memchr.c\
+			ft_memcmp.c\
+			ft_memcpy.c\
+			ft_memmove.c\
+			ft_memset.c\
+			ft_putchar_fd.c\
+			ft_putendl_fd.c\
+			ft_putnbr_fd.c\
+			ft_putstr_fd.c\
+			ft_split.c\
+			ft_strchr.c\
+			ft_strdup.c\
+			ft_striteri.c\
+			ft_strjoin.c\
+			ft_strlcpy.c\
+			ft_strlen.c\
+			ft_strlcat.c\
+			ft_strncmp.c\
+			ft_strnstr.c\
+			ft_strmapi.c\
+			ft_strrchr.c\
+			ft_strtrim.c\
+			ft_substr.c\
+			ft_tolower.c\
+			ft_toupper.c\
+			ft_isinset.c\
+			ft_isspace.c\
+			ft_strcspn.c\
+			ft_strpbrk.c\
+			ft_get_next_line.c\
+			ft_printf.c\
+			ft_putaddr_fd.c\
+			ft_puthex_fd.c\
+			ft_set_print_color.c\
+			ft_lstnew.c\
+			ft_lstadd_front.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstadd_back.c\
+			ft_lstclear.c\
+			ft_lstdelone.c\
+			ft_lstiter.c\
+			ft_lstmap.c\
+		)
 
 OBJS = ${SRC_FILES:.c=.o}
 
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
-
-ifdef WITH_BONUS
-    OBJ = $(OBJ_BONUS)
-else
-    OBJ = $(OBJS)
-endif
-
 all 	: $(NAME)
 
-$(NAME)	: $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME)	: $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o 	: %.c
 	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
@@ -99,8 +90,5 @@ fclean	: clean
 	rm -f $(NAME)
 
 re		: fclean all
-
-bonus	:
-	@make WITH_BONUS=1 all
 
 .PHONY	: clean fclean re all
