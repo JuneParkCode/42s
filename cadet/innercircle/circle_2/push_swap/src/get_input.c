@@ -6,16 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 20:57:29 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 20:22:41 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:07:40 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../include/libft.h"
 #include "../include/push_swap.h"
-
-#define INT_MIN -2147483648
-#define INT_MAX 2147483647
 
 static t_bool	is_all_digit(const char *str)
 {
@@ -39,7 +36,7 @@ static t_bool	is_valid_number(const char *str)
 		|| ft_strlen(str) >= 15
 		|| is_all_digit(str) == FALSE)
 		return (FALSE);
-	atoll_res = atoll(str);
+	atoll_res = ft_atoll(str);
 	if (atoll_res < INT_MIN || atoll_res > INT_MAX)
 		return (FALSE);
 	return (TRUE);

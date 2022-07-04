@@ -6,17 +6,19 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:44:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/02 16:02:53 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/04 10:08:09 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "deque.h"
+
 # define TRUE 1
 # define FALSE 0
-
-# include "deque.h"
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 typedef int	t_bool;
 
@@ -30,7 +32,7 @@ t_bool		is_sorted(t_deque *dq);
 t_bool		get_input(const int argc, char *argv[], t_deque *dq);
 t_bool		has_duplicate_number(t_deque *dq);
 void		simplify_numbers(t_deque *from, t_deque *to);
-long long	atoll(const char *str);
+long long	ft_atoll(const char *str);
 
 /* SORTING FUNCTIONS */
 void		sort(t_deque *a, t_deque *b, const int size);

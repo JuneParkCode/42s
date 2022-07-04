@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/02 16:03:12 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/04 10:11:58 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC_FILES = $(SRC_DIR)deque_get_funcs.c\
 			$(SRC_DIR)sort.c\
 			$(SRC_DIR)utils.c\
 			$(SRC_DIR)sort_under_five.c\
+			$(SRC_DIR)atoll.c\
 			$(SRC_DIR)sort_three.c\
 			$(SRC_DIR)main.c
 
