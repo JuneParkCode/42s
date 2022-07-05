@@ -6,19 +6,20 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 11:36:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/05 11:37:45 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:11:14 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 #include "fdf.h"
 
-t_bool	is_all_digit(const char *str)
+static t_bool	is_all_digit(const char *str)
 {
 	int	idx;
 
 	idx = (str[0] == '+' || str[0] == '-');
-	while (str[idx])
+	while (str[idx] != 0 && str[idx] != '\n')
 	{
 		if (ft_isdigit(str[idx]) == FALSE)
 			return (FALSE);
@@ -27,7 +28,7 @@ t_bool	is_all_digit(const char *str)
 	return (TRUE);
 }
 
-t_bool	is_valid_number(const char *str)
+static t_bool	is_valid_number(const char *str)
 {
 	const int	int_word_length_max = 12;
 	long long	atoll_res;
@@ -42,7 +43,7 @@ t_bool	is_valid_number(const char *str)
 	return (TRUE);
 }
 
-t_bool	is_valid_string(char **strs)
+static t_bool	is_valid_string(char **strs)
 {
 	int	idx;
 
@@ -58,4 +59,25 @@ t_bool	is_valid_string(char **strs)
 	return (TRUE);
 }
 
+t_bool	is_valid_map_data(char **string_map_data)
+{
+	int		idx;
+	char	**splited_strings;
 
+	if (string_map_data == NULL)
+		return (FALSE);
+	idx = 0;
+	while (string_map_data[idx] != NULL)
+	{
+
+		splited_strings = ft_split(string_map_data[idx], ' ');
+		if (is_valid_string(splited_strings) == FALSE)
+		{
+			free(splited_strings);
+			return (FALSE);
+		}
+		free(splited_strings);
+		++idx;
+	}
+	return (TRUE);
+}

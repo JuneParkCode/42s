@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:27:32 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/05 11:57:24 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:51:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,24 @@ static t_bool	free_raw_map(char **raw_map)
 	free(raw_map);
 	return (TRUE);
 }
-
+/*
 static t_bool	free_map_data(int **map_data)
 {
 	int	idx;
 
 	idx = 0;
-	if (raw_map == NULL)
+	if (map_data == NULL)
 		return (TRUE);
-	while (raw_map[idx] != NULL)
+	while (map_data[idx] != NULL)
 	{
-		free(raw_map[idx]);
+		free(map_data[idx]);
 		++idx;
 	}
 	free(map_data);
 	return (TRUE);
 }
-
-static int	get_number_of_line(const char *file_name)
+*/
+static int	get_number_of_line_of_file(const char *file_name)
 {
 	const int	fd = open(file_name, O_RDONLY);
 	int			number;
@@ -60,39 +60,50 @@ static int	get_number_of_line(const char *file_name)
 	return (number);
 }
 
-char	**read_file(const char *file_name)
+static char	**read_file(const char *file_name)
 {
 	const int	fd = open(file_name, O_RDONLY);
-	const int	size = get_number_of_line(file_name);
-	t_bool		is_eof;
+	const int	size = get_number_of_line_of_file(file_name) + 1;
 	char		**result;
 	int			idx;
 
-	is_eof = FALSE;
-	result = malloc(sizeof(char *) * (size + 1));
+	result = malloc(sizeof(char *) * size);
 	idx = 0;
-	while (!is_eof)
+	while (idx < size)
 	{
 		result[idx] = ft_get_next_line(fd);
-		is_eof = (result[idx] == NULL);
 		++idx;
 	}
 	return (result);
 }
 
+t_map_info	*create_map_info(int **map_data, const int row, const int col)
+{
+	t_map_info	*map;
+
+	map = malloc(sizeof(t_map_info));
+	map->data = map_data;
+	map->row = row;
+	map->col = col;
+	return (map);
+}
+
 t_status	read_and_check_file(const char *file_name, t_map_info **map_info)
 {
-	char	**raw_string_file_data;
+	char	**string_map_data;
 	int		**map_data;
+	int		row;
+	int		col;
 
-	raw_string_file_data = read_file(file_name);
-	if (is_valid_string(raw_string_file_data) == FALSE)
+	string_map_data = read_file(file_name);
+	if (is_valid_map_data(string_map_data) == FALSE)
 	{
-		free_raw_map(raw_string_file_data);
+		ft_putstr_fd("Invalid map data!\n", FD_STDERR);
+		free_raw_map(string_map_data);
 		return (FAILED);
 	}
-	map_data = convert_into_int(raw_string_file_data);
-	(*map_info) \
-		= get_map_data(map_data, get_map_row(map_data), get_map_col(map_data));
+	map_data \
+		= convert_string_map_data_to_int_arrs(string_map_data, &row, &col);
+	(*map_info) = create_map_info(map_data, row, col);
 	return (SUCCESS);
 }
