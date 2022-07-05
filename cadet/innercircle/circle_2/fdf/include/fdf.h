@@ -37,7 +37,7 @@ t_status	run_fdf(const char *file_name);
 /* CHECKK AND GET INPUT FUNCTINOS*/
 long long	ft_atoll(const char *str);
 t_status	read_and_check_file(const char *file_name, t_map_info **map_info);
-int			**convert_string_map_data_to_int_arrs\
+int			**convert_string_data_to_int_data\
 				(char **string_map_data, int *row, int *col);
 t_bool		is_valid_map_data(char **string_map_data);
 /* MLX CONTROL FUNCTINOS  */

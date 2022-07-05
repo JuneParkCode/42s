@@ -48,7 +48,6 @@ long long	ft_atoll(const char *str)
 {
 	unsigned int	idx_str;
 	long long		res;
-	long long		prev;
 	int				sign;
 
 	idx_str = 0;
@@ -60,7 +59,6 @@ long long	ft_atoll(const char *str)
 			++idx_str;
 	while (ft_isdigit(str[idx_str]))
 	{
-		prev = res;
 		res = res * 10 + sign * char_to_int(str[idx_str]);
 		++idx_str;
 	}

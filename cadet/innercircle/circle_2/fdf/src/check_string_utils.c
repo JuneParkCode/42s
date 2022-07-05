@@ -19,7 +19,7 @@ static t_bool	is_all_digit(const char *str)
 	int	idx;
 
 	idx = (str[0] == '+' || str[0] == '-');
-	while (str[idx] != 0 && str[idx] != '\n')
+	while (str[idx])
 	{
 		if (ft_isdigit(str[idx]) == FALSE)
 			return (FALSE);
@@ -63,20 +63,23 @@ t_bool	is_valid_map_data(char **string_map_data)
 {
 	int		idx;
 	char	**splited_strings;
+	char	*trimmed_string;
 
 	if (string_map_data == NULL)
 		return (FALSE);
 	idx = 0;
 	while (string_map_data[idx] != NULL)
 	{
-
-		splited_strings = ft_split(string_map_data[idx], ' ');
+		trimmed_string = ft_strtrim(string_map_data[idx], "\n ");
+		splited_strings = ft_split(trimmed_string, ' ');
 		if (is_valid_string(splited_strings) == FALSE)
 		{
 			free(splited_strings);
+			free(trimmed_string);
 			return (FALSE);
 		}
 		free(splited_strings);
+		free(trimmed_string);
 		++idx;
 	}
 	return (TRUE);

@@ -12,7 +12,7 @@
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = fdf
 
@@ -30,7 +30,7 @@ SRC_FILES = $(addprefix $(SRC_DIR), run_fdf.c\
 			main.c\
 			atoll.c\
 			check_string_utils.c\
-			convert_into_int.c\
+			convert_string_data_to_int_data.c\
 			read_and_check_file.c\
 )
 

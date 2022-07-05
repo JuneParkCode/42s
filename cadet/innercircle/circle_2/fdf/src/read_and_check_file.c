@@ -32,23 +32,7 @@ static t_bool	free_raw_map(char **raw_map)
 	free(raw_map);
 	return (TRUE);
 }
-/*
-static t_bool	free_map_data(int **map_data)
-{
-	int	idx;
 
-	idx = 0;
-	if (map_data == NULL)
-		return (TRUE);
-	while (map_data[idx] != NULL)
-	{
-		free(map_data[idx]);
-		++idx;
-	}
-	free(map_data);
-	return (TRUE);
-}
-*/
 static int	get_number_of_line_of_file(const char *file_name)
 {
 	const int	fd = open(file_name, O_RDONLY);
@@ -102,8 +86,7 @@ t_status	read_and_check_file(const char *file_name, t_map_info **map_info)
 		free_raw_map(string_map_data);
 		return (FAILED);
 	}
-	map_data \
-		= convert_string_map_data_to_int_arrs(string_map_data, &row, &col);
-	(*map_info) = create_map_info(map_data, row, col);
+	map_data = convert_string_data_to_int_data(string_map_data, &row, &col);
+	*map_info = create_map_info(map_data, row, col);
 	return (SUCCESS);
 }
