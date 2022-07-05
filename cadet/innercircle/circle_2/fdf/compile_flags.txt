@@ -1,4 +1,4 @@
 -I
-./include
+./library/libft/include/
 -I
-./library/libft/include
+./include/
