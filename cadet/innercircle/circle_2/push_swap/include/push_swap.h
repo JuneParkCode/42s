@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:44:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/04 17:23:05 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/06 09:52:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define FAILED -1
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
-# define FD_STDIN 1
+# define FD_STDOUT 1
 # define FD_STDERR 2
 
 typedef int	t_bool;
