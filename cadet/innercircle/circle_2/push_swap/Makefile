@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/04 18:33:23 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/06 09:42:09 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ LFT_DIR = ./library/libft
 LIB_FLAG = -L $(LFT_DIR) -lft
 
 INC_FLAG = -I$(INC_DIR) -I$(LFT_DIR)/include
+
+MAKE_SUBSYSTEM = $(MAKE) -C $(LFT_DIR)
 
 SRC_FILES = $(addprefix $(SRC_DIR), deque_get_funcs.c\
 			deque_idx_funcs.c\
@@ -63,12 +65,12 @@ $(NAME)	: subsystem $(OBJS)
 	$(CC) $(CFLAGS) $(INC_FLAG) -c $< -o $@
 
 clean	:
+	$(MAKE_SUBSYSTEM) clean
 	rm -f $(OBJS)
-	$(MAKE) -C $(LFT_DIR) clean
 
 fclean	: clean
+	$(MAKE_SUBSYSTEM) clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LFT_DIR) fclean
 
 re		: fclean
 	$(MAKE) all
