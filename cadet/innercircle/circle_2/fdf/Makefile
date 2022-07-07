@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/05 13:48:01 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/07 19:18:09 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,17 @@ SRC_DIR = ./src/
 
 LFT_DIR = ./library/libft
 
-LIB_FLAG = -L $(LFT_DIR) -lft
+MLX_DIR = ./library/minilibx_macos
 
-INC_FLAG = -I$(INC_DIR) -I$(LFT_DIR)/include
+LIB_FLAG = -L $(LFT_DIR) -lft\
+		   -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
-SRC_FILES = $(addprefix $(SRC_DIR), run_fdf.c\
+INC_FLAG = -I$(INC_DIR)\
+		   -I$(LFT_DIR)/include\
+		   -I$(MLX_DIR)
+
+SRC_FILES = $(addprefix $(SRC_DIR),\
+			get_map_info.c\
 			main.c\
 			atoll.c\
 			check_string_utils.c\
@@ -39,7 +45,8 @@ OBJS = ${SRC_FILES:.c=.o}
 all 	: $(NAME)
 
 subsystem :
-	$(MAKE) -C $(LFT_DIR) all
+	$(MAKE) -C $(LFT_DIR)
+	$(MAKE) -C $(MLX_DIR)
 
 $(NAME)	: subsystem $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIB_FLAG) -o $(NAME) $(INC_FLAG)
