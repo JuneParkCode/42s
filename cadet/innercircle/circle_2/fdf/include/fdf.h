@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:44:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/08 18:25:20 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:36:50 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@
 
 typedef int	t_bool;
 typedef int	t_status;
+
+typedef struct	s_vector
+{
+	double	x;
+	double	y;
+	double	z;
+}	t_vector;
 
 typedef struct	s_map_info
 {
