@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:20:10 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/07 19:35:31 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:27:26 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char *argv[])
 	t_mlx_info	mlx_info;
 	t_map_info	*map_info;
 
-	if (argc != 2)
+	if (argc != 2 || is_valid_file_name(argv[1]) == FALSE)
 		return (FAILED);
 	map_info = get_map_info(argv[1]);
 	open_window(&mlx_info);

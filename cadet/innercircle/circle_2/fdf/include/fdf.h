@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:44:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/07 18:39:16 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:25:20 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_mlx_info
 
 /* MAIN FDF FUNCTION */
 /* CHECKK AND GET INPUT FUNCTINOS*/
+t_bool		is_valid_file_name(const char *file_name);
 t_map_info	*get_map_info(const char *file_name);
 long long	ft_atoll(const char *str);
 t_status	read_and_check_file(const char *file_name, t_map_info **map_info);

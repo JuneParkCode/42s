@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/07 19:18:09 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/08 18:22:45 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_FILES = $(addprefix $(SRC_DIR),\
 			main.c\
 			atoll.c\
 			check_string_utils.c\
+			check_file_name.c\
 			convert_string_data_to_int_data.c\
 			read_and_check_file.c\
 )
