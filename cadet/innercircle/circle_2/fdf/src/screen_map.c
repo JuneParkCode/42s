@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 12:51:35 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 15:23:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:52:08 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static void	upate_column_pixels\
 		target_vector = get_new_vector(col, row, color);
 		rotated_vector = rotate_vector(target_vector, cam);
 		*pixel = vector_projection_to_pixel(rotated_vector, color);
+		pixel->x = pixel->x * cam->zoom + cam->margin_x;
+		pixel->y = pixel->y * cam->zoom + cam->margin_y;
 		++col;
 	}
 }

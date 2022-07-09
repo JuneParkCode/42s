@@ -6,14 +6,14 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 11:36:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/05 14:11:14 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/09 20:20:49 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 #include "fdf.h"
-
+/*
 static t_bool	is_all_digit(const char *str)
 {
 	int	idx;
@@ -27,16 +27,17 @@ static t_bool	is_all_digit(const char *str)
 	}
 	return (TRUE);
 }
-
+*/
 static t_bool	is_valid_number(const char *str)
 {
-	const int	int_word_length_max = 12;
+	//const int	int_word_length_max = 12;
 	long long	atoll_res;
-
+	/*
 	if (ft_strlen(str) == 0
 		|| ft_strlen(str) >= int_word_length_max
 		|| is_all_digit(str) == FALSE)
 		return (FALSE);
+	*/
 	atoll_res = ft_atoll(str);
 	if (atoll_res < INT_MIN || atoll_res > INT_MAX)
 		return (FALSE);
