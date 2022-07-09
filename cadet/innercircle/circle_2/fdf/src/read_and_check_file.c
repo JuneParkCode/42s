@@ -6,13 +6,12 @@
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:27:32 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/05 13:51:16 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/09 13:34:15 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <fcntl.h>
-#include <sys/fcntl.h>
 #include <unistd.h>
 #include "fdf.h"
 #include "libft.h"

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation_matrix.c                                  :+:      :+:    :+:   */
+/*   rotate_matrix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:47:52 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/08 19:04:53 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/09 12:29:24 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "fdf.h"
 
-t_vector	rotate_x_axis(t_vector v, const double theta)
+t_vector	rotate_x_axis(const t_vector v, const double theta)
 {
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
@@ -30,7 +30,7 @@ t_vector	rotate_x_axis(t_vector v, const double theta)
 	return (result_vector);
 }
 
-t_vector	rotate_y_axis(t_vector v, const double theta)
+t_vector	rotate_y_axis(const t_vector v, const double theta)
 {
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
@@ -47,7 +47,7 @@ t_vector	rotate_y_axis(t_vector v, const double theta)
 	return (result_vector);
 }
 
-t_vector	rotate_z_axis(t_vector v, const double theta)
+t_vector	rotate_z_axis(const t_vector v, const double theta)
 {
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
