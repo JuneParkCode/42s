@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   projection.c                                       :+:      :+:    :+:   */
+/*   camera_control.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 12:38:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/10 15:31:03 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/10 17:51:23 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/10 19:01:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "fdf.h"
 
-t_pixel	vector_projection_to_pixel(const t_vector vector, const int color)
+void	init_cam(t_camera *camera)
 {
-	t_pixel	result_pixel;
+	camera->x_axis_angle = 0;
+	camera->y_axis_angle = 0;
+	camera->z_axis_angle = 0;
+	camera->zoom = 1;
+}
 
-	result_pixel.x = round(vector.x);
-	result_pixel.y = round(vector.y);
-	result_pixel.color = color;
-	return (result_pixel);
+void	set_isometric_cam(t_camera *camera)
+{
+	camera->x_axis_angle = M_PI / 4;
+	camera->y_axis_angle = M_PI / 6;
+	camera->z_axis_angle = M_PI / 6;
+}
+
+void	set_parallel_cam(t_camera *camera)
+{
+	camera->x_axis_angle = M_PI_2;
+	camera->y_axis_angle = 0;
+	camera->z_axis_angle = 0;
 }

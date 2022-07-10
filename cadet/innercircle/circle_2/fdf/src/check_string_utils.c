@@ -3,41 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   check_string_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 11:36:45 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 20:20:49 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 18:13:42 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 #include "fdf.h"
-/*
-static t_bool	is_all_digit(const char *str)
-{
-	int	idx;
 
-	idx = (str[0] == '+' || str[0] == '-');
-	while (str[idx])
-	{
-		if (ft_isdigit(str[idx]) == FALSE)
-			return (FALSE);
-		++idx;
-	}
-	return (TRUE);
-}
-*/
 static t_bool	is_valid_number(const char *str)
 {
-	//const int	int_word_length_max = 12;
 	long long	atoll_res;
-	/*
-	if (ft_strlen(str) == 0
-		|| ft_strlen(str) >= int_word_length_max
-		|| is_all_digit(str) == FALSE)
-		return (FALSE);
-	*/
+
 	atoll_res = ft_atoll(str);
 	if (atoll_res < INT_MIN || atoll_res > INT_MAX)
 		return (FALSE);
@@ -75,11 +55,11 @@ t_bool	is_valid_map_data(char **string_map_data)
 		splited_strings = ft_split(trimmed_string, ' ');
 		if (is_valid_string(splited_strings) == FALSE)
 		{
-			free(splited_strings);
+			free_splited_string(splited_strings);
 			free(trimmed_string);
 			return (FALSE);
 		}
-		free(splited_strings);
+		free_splited_string(splited_strings);
 		free(trimmed_string);
 		++idx;
 	}

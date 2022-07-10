@@ -3,45 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   screen_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 12:51:35 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 17:52:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 18:02:09 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fdf.h"
-#include "libft.h"
 
 static t_screen_data	init_screen_datas(t_map_info *original_map)
 {
 	const size_t	size = sizeof(t_pixel *) * original_map->row;
-	t_screen_data	new_data;
+	t_screen_data	new_screen;
 	int				row;
 	int				col;
 
-	new_data = malloc(size);
+	new_screen = malloc(size);
 	row = 0;
 	while (row < original_map->row)
 	{
 		col = 0;
-		new_data[row] = malloc(sizeof(t_pixel) * original_map->col);
+		new_screen[row] = malloc(sizeof(t_pixel) * original_map->col);
 		while (col < original_map->col)
 		{
-			new_data[row][col].x = col;
-			new_data[row][col].y = row;
-			new_data[row][col].color = original_map->data[row][col];
+			new_screen[row][col].x = col;
+			new_screen[row][col].y = row;
+			new_screen[row][col].color \
+			= get_color(original_map->data[row][col]);
 			++col;
 		}
 		++row;
 	}
-	return (new_data);
+	return (new_screen);
 }
 
 static t_vector	get_new_vector(const double x, const double y, const double z)
 {
-	t_vector new_vector;
+	t_vector	new_vector;
 
 	new_vector.x = x;
 	new_vector.y = y;
@@ -49,16 +49,14 @@ static t_vector	get_new_vector(const double x, const double y, const double z)
 	return (new_vector);
 }
 
-static void	upate_column_pixels\
-	(\
-	 const int row,\
-	 t_screen_data screen_datas,\
-	 t_map_info *original_map,\
-	 t_camera *cam\
-	 )
+static void	upate_column_pixels(\
+	const int row, \
+	t_screen_data screen_datas, \
+	t_map_info *original_map, \
+	t_camera *cam)
 {
-	int			color;
-	int 		col;
+	int			z_value;
+	int			col;
 	t_vector	target_vector;
 	t_vector	rotated_vector;
 	t_pixel		*pixel;
@@ -66,30 +64,28 @@ static void	upate_column_pixels\
 	col = 0;
 	while (col < original_map->col)
 	{
-		color = original_map->data[row][col];
+		z_value = original_map->data[row][col];
 		pixel = &screen_datas[row][col];
-		target_vector = get_new_vector(col, row, color);
+		target_vector = \
+		get_new_vector(col * cam->zoom, row * cam->zoom, z_value * cam->zoom);
 		rotated_vector = rotate_vector(target_vector, cam);
-		*pixel = vector_projection_to_pixel(rotated_vector, color);
-		pixel->x = pixel->x * cam->zoom + cam->margin_x;
-		pixel->y = pixel->y * cam->zoom + cam->margin_y;
+		*pixel = vector_projection_to_pixel(rotated_vector, get_color(z_value));
 		++col;
 	}
 }
 
-void	update_screen_data_in_new_cam\
-	(\
-	 t_screen_data screen_datas,\
-	 t_map_info *original_map,\
-	 t_camera *cam\
-	 )
+void	update_screen_data_in_new_cam(t_vars *vars)
 {
 	int	row;
 
 	row = 0;
-	while (row < original_map->row)
+	while (row < vars->original_map->row)
 	{
-		upate_column_pixels(row, screen_datas, original_map, cam);
+		upate_column_pixels(\
+		row, \
+		vars->screen_data, \
+		vars->original_map, \
+		vars->camera);
 		++row;
 	}
 }

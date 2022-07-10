@@ -6,13 +6,13 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/09 19:28:08 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/10 19:34:31 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = fdf
 
@@ -44,6 +44,12 @@ SRC_FILES = $(addprefix $(SRC_DIR),\
 			rotate_vector.c\
 			rotate_matrix.c\
 			draw_line.c\
+			draw_pixel.c\
+			draw_screen.c\
+			get_color.c\
+			key_hooks.c\
+			camera_control.c\
+			free_and_exit.c\
 )
 
 OBJS = ${SRC_FILES:.c=.o}

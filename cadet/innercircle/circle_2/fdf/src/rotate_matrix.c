@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_matrix.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:47:52 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 12:29:24 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:04:19 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_vector	rotate_x_axis(const t_vector v, const double theta)
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
 	const double	matrix[3][3] = {
-		{1, 0 ,0},
-		{0, cos_value, -sin_value},
-		{0, sin_value, cos_value},
+	{1, 0, 0},
+	{0, cos_value, -sin_value},
+	{0, sin_value, cos_value},
 	};
 	t_vector		result_vector;
 
@@ -35,9 +35,9 @@ t_vector	rotate_y_axis(const t_vector v, const double theta)
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
 	const double	matrix[3][3] = {
-		{cos_value, 0 ,sin_value},
-		{0, 1, 0},
-		{-sin_value, 0, cos_value},
+	{cos_value, 0, sin_value},
+	{0, 1, 0},
+	{-sin_value, 0, cos_value},
 	};
 	t_vector		result_vector;
 
@@ -52,9 +52,9 @@ t_vector	rotate_z_axis(const t_vector v, const double theta)
 	const double	cos_value = cos(theta);
 	const double	sin_value = sin(theta);
 	const double	matrix[3][3] = {
-		{cos_value, sin_value ,0},
-		{-sin_value, cos_value, 0},
-		{0, 0, 1},
+	{cos_value, sin_value, 0},
+	{-sin_value, cos_value, 0},
+	{0, 0, 1},
 	};
 	t_vector		result_vector;
 

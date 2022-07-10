@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_check_file.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:27:32 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 13:34:15 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 18:06:45 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,17 @@ static t_bool	free_raw_map(char **raw_map)
 static int	get_number_of_line_of_file(const char *file_name)
 {
 	const int	fd = open(file_name, O_RDONLY);
+	char		*line;
 	int			number;
 
 	number = 0;
-	while (ft_get_next_line(fd) != NULL)
+	line = ft_get_next_line(fd);
+	while (line != NULL)
+	{
 		++number;
+		free(line);
+		line = ft_get_next_line(fd);
+	}
 	return (number);
 }
 
@@ -87,5 +93,6 @@ t_status	read_and_check_file(const char *file_name, t_map_info **map_info)
 	}
 	map_data = convert_string_data_to_int_data(string_map_data, &row, &col);
 	*map_info = create_map_info(map_data, row, col);
+	free_raw_map(string_map_data);
 	return (SUCCESS);
 }

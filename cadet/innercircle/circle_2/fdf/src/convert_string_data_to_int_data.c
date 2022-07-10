@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_string_data_to_int_data.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 13:02:18 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/05 14:06:33 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 18:13:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	*convert_string_to_int_arr(const char *str)
 		result_arr[idx] = ft_atoi(splited_strings[idx]);
 		++idx;
 	}
-	free(splited_strings);
+	free_splited_string(splited_strings);
 	free(trimmed_string);
 	return (result_arr);
 }
@@ -56,13 +56,13 @@ static int	get_map_col(char **string_map_data)
 	trimmed_string = ft_strtrim(string_map_data[0], "\n ");
 	splited_strings = ft_split(trimmed_string, ' ');
 	result = get_number_of_strings(splited_strings);
-	free(splited_strings);
+	free_splited_string(splited_strings);
 	free(trimmed_string);
 	return (result);
 }
 
-int	**convert_string_data_to_int_data\
-		(char **string_map_data, int *row, int *col)
+int	**convert_string_data_to_int_data(\
+	char **string_map_data, int *row, int *col)
 {
 	const int	malloc_size = get_number_of_strings(string_map_data) + 1;
 	int			**result;

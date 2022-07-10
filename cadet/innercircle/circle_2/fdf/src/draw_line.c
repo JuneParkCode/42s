@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 19:00:23 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/09 20:06:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/10 19:29:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <math.h>
 #include "mlx.h"
 #include "fdf.h"
-
-#define LINE_COLOR 0xff0000
 
 static int	get_df(int a, int b)
 {
@@ -24,30 +22,52 @@ static int	get_df(int a, int b)
 		return (1);
 }
 
-void	draw_line(const t_pixel pixel1, const t_pixel pixel2, const t_vars *vars)
+static int	get_larger_color(const t_pixel *p1, const t_pixel *p2)
+{
+	int	color1;
+	int	color2;
+
+	if (p1->color < 0)
+		color1 = -(p1->color);
+	else
+		color1 = p1->color;
+	if (p2->color < 0)
+		color2 = -(p2->color);
+	else
+		color2 = p2->color;
+	if (color1 > color2)
+		return (p1->color);
+	else
+		return (p2->color);
+}
+
+void	draw_line(\
+		const t_pixel pixel1, \
+		const t_pixel pixel2, \
+		const t_vars *vars)
 {
 	const int		dx = get_df(pixel1.x, pixel2.x);
 	const int		dy = get_df(pixel1.y, pixel2.y);
-	const double	dy_dx = ((double)pixel2.y - pixel1.y) / ((double)pixel2.x - pixel1.x);
-	const double	dx_dy = ((double)pixel2.x - pixel1.x) / ((double)pixel2.y - pixel1.y);
-	t_pixel		pixel_pos;
+	const double	dy_dx = \
+		((double)pixel2.y - pixel1.y) / ((double)pixel2.x - pixel1.x);
+	const double	dx_dy = \
+		((double)pixel2.x - pixel1.x) / ((double)pixel2.y - pixel1.y);
+	t_pixel			line_pixel;
 
-	pixel_pos.x = pixel1.x;
-	pixel_pos.y = pixel1.y;
-	while (pixel_pos.x != pixel2.x)
+	line_pixel = pixel1;
+	line_pixel.color = get_larger_color(&pixel1, &pixel2);
+	while (line_pixel.x != pixel2.x)
 	{
-		mlx_pixel_put(vars->mlx_info->mlx_ptr, vars->mlx_info->win_ptr,\
-						pixel_pos.x, pixel_pos.y, (0xffffff >> (pixel2.color % 32)));
-		pixel_pos.x += dx;
-		pixel_pos.y = dy_dx * (pixel_pos.x - pixel1.x) + pixel1.y;
+		draw_pixel(&line_pixel, vars);
+		line_pixel.x += dx;
+		line_pixel.y = round(dy_dx * (line_pixel.x - pixel1.x) + pixel1.y);
 	}
-	pixel_pos.x = pixel1.x;
-	pixel_pos.y = pixel1.y;
-	while (pixel_pos.y != pixel2.y)
+	line_pixel = pixel1;
+	line_pixel.color = get_larger_color(&pixel1, &pixel2);
+	while (line_pixel.y != pixel2.y)
 	{
-		mlx_pixel_put(vars->mlx_info->mlx_ptr, vars->mlx_info->win_ptr,\
-						pixel_pos.x, pixel_pos.y, (0xffffff >> (pixel2.color % 32)));
-		pixel_pos.y += dy;
-		pixel_pos.x = dx_dy * (pixel_pos.y - pixel1.y) + pixel1.x;
+		draw_pixel(&line_pixel, vars);
+		line_pixel.y += dy;
+		line_pixel.x = round(dx_dy * (line_pixel.y - pixel1.y) + pixel1.x);
 	}
 }
