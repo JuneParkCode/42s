@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/08 18:22:45 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/09 19:28:08 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,11 @@ SRC_FILES = $(addprefix $(SRC_DIR),\
 			check_file_name.c\
 			convert_string_data_to_int_data.c\
 			read_and_check_file.c\
+			screen_map.c\
+			projection.c\
+			rotate_vector.c\
+			rotate_matrix.c\
+			draw_line.c\
 )
 
 OBJS = ${SRC_FILES:.c=.o}
