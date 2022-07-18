@@ -6,12 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:09:05 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 17:49:13 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:38:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "pipex.h"
 
 static void	set_pipe(const pid_t pid, const int pipe_fds[2])
@@ -32,6 +33,16 @@ static void	set_pipe(const pid_t pid, const int pipe_fds[2])
 			put_error_and_exit();
 		close(pipe_fds[PIPE_INDEX_WRITE]);
 	}
+}
+
+void	set_outlet_pipe(char *outfile_name)
+{
+	const int	fd = open(outfile_name, O_WRONLY | O_TRUNC | O_CREAT, S_IRWXU);
+
+	if (fd == FAILED)
+		put_error_and_exit();
+	if (dup2(fd, STDOUT_FILENO) == FAILED)
+		put_error_and_exit();
 }
 
 static pid_t	fork_process(void)

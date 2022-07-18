@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 19:24:44 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:35:47 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef int		t_bool;
 typedef int		t_status;
 /* pipe functions */
 int			build_pipe_and_fork_process(void);
+void		set_outlet_pipe(char *outfile_name);
 /* check argument functions */
 t_bool		is_valid_argument(const int argc, char *argv[]);
 /* main functions */

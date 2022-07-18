@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:04:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 19:23:19 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:34:57 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_status	do_command(const int argc, char **argv, const int no_cmd)
 	if (no_cmd == 2)
 	{
 		new_argv = get_inlet_argv(argv);
+		// ACCESS VERIFY CODE
 		execve(new_argv[0], new_argv, NULL);
 		free_splitted_array(new_argv);
 		free(new_argv);
@@ -56,9 +57,10 @@ t_status	do_command(const int argc, char **argv, const int no_cmd)
 		else
 		{
 			new_argv = get_command_option(argv[no_cmd]);
+			// ACCESS VERIFY CODE
 			execve(new_argv[0], new_argv, NULL);
-			free_splitted_array(new_argv);
 			wait(NULL);
+			free_splitted_array(new_argv);
 			free(new_argv);
 		}
 	}
