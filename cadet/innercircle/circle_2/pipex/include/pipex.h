@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 16:43:57 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:24:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,15 @@ t_bool		is_valid_argument(const int argc, char *argv[]);
 t_status	run_pipex(const int argc, char *argv[]);
 t_status	heredoc_mode(const int argc, char *argv[]);
 t_status	do_command_from_infile(const int argc, char *argv[]);
+t_status	do_command(const int argc, char *argv[], const int no_cmd);
+/* parsing functions  */
+char		**get_command_option(char *command);
 /* create new arguments */
 char		**get_new_argv(char **argv);
 /* error control functions */
 void		put_error_and_exit(void);
 void		*error_exit_malloc(const size_t malloc_size);
+/* free splitted array */
+void		free_splitted_array(char **ptr);
 
 #endif
