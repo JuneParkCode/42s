@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_control_functions.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 08:51:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 11:11:59 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/18 09:03:59 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/18 10:57:11 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "pipex.h"
 
-int	main(const int argc, char *argv[])
+void	put_error_and_exit(void)
 {
-	if (is_valid_argument(argc, argv) == FALSE)
-	{
-		perror("Invalid arguments");
-		return (FAILED);
-	}
-	else
-		return (run_pipex(argc, argv));
+	perror(strerror(errno));
+	exit(errno);
+}
+
+void	*error_exit_malloc(const size_t malloc_size)
+{
+	void	*ptr;
+
+	ptr = malloc(malloc_size);
+	if (ptr == NULL)
+		put_error_and_exit();
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:25:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 13:53:14 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:20:00 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@
  */
 int	ft_isinset(const char c, const char *set)
 {
-	while (*set)
+	int	idx;
+
+	idx = 0;
+	while (set[idx])
 	{
-		if (c == *set)
+		if (c == set[idx])
 			return (1);
-		++set;
+		++idx;
 	}
 	return (0);
 }

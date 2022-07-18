@@ -6,11 +6,11 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/04 18:32:15 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/18 15:40:56 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a

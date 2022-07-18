@@ -6,12 +6,44 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:41:42 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/03/21 13:37:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:26:15 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+
+static size_t	set_start_point(const char *s1, const char *set)
+{
+	size_t	idx;
+
+	idx = 0;
+	while (ft_isinset(s1[idx], set) && s1[idx])
+		++idx;
+	return (idx);
+}
+
+static size_t	set_end_point(const char *s1, const char *set)
+{
+	size_t	idx;
+
+	if (s1[0] == 0)
+		return (0);
+	idx = ft_strlen(s1) - 1;
+	if (!ft_isinset(s1[idx], set))
+		return (idx + 1);
+	while (ft_isinset(s1[idx], set) && idx > 0)
+		--idx;
+	return (idx);
+}
+
+static int	get_size_of_trimmed_string(int start, int end)
+{
+	if (end <= start)
+		return (1);
+	else
+		return (end - start + 2);
+}
 
 /* Function		:	ft_strtrim
  * Description	:	Allocates (with malloc(3)) and returns a copy of ’s1’ with 
@@ -30,19 +62,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t			end;
 	size_t			size;
 
-	start = 0;
-	while (ft_isinset(s1[start], set) && s1[start])
-		++start;
-	end = ft_strlen(s1) - 1 + (ft_strlen(s1) == 0);
-	while (ft_isinset(s1[end], set) && start < end)
-		--end;
-	size = end - start + 2;
-	if (end == start)
-		size = 1;
+	start = set_start_point(s1, set);
+	end = set_end_point(s1, set);
+	size = get_size_of_trimmed_string(start, end);
 	res = malloc(sizeof(char) * (size));
 	if (res == NULL)
 		return (NULL);
 	ft_memset(res, 0, size);
+	if (size == 1)
+		return (res);
 	ft_strlcpy(res, s1 + start, size);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:07:18 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/04/15 12:05:37 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:48:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_atoi(const char *str)
 		++idx_str;
 	sign = get_sign(str[idx_str]);
 	while (issign(str[idx_str]))
-			++idx_str;
+		++idx_str;
 	while (ft_isdigit(str[idx_str]))
 	{
 		res = res * 10 + sign * (str[idx_str] - '0');

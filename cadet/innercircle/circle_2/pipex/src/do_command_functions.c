@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   do_command_functions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 08:51:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 11:11:59 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/18 10:04:17 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/18 11:07:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "pipex.h"
-
-int	main(const int argc, char *argv[])
+/*
+void	do_command(int no_command, const int argc, char **input)
 {
-	if (is_valid_argument(argc, argv) == FALSE)
+	if (no_command == 0)
 	{
-		perror("Invalid arguments");
-		return (FAILED);
+
+	}
+	else if (no_command == argc - 2)
+	{
+		
 	}
 	else
-		return (run_pipex(argc, argv));
+	{
+		return ;
+	}
 }
+*/
