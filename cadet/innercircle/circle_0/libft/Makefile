@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/04/15 14:59:48 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/18 16:39:56 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_FILES = $(SRC_DIR)ft_atoi.c\
 			$(SRC_DIR)ft_putstr_fd.c\
 			$(SRC_DIR)ft_split.c\
 			$(SRC_DIR)ft_strchr.c\
+			$(SRC_DIR)ft_strcspn.c\
 			$(SRC_DIR)ft_strdup.c\
 			$(SRC_DIR)ft_striteri.c\
 			$(SRC_DIR)ft_strjoin.c\
