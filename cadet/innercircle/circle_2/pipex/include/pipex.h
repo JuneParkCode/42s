@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 18:02:40 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 22:23:21 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@
 # define BIN_PATH "/bin/"
 /* MAIN ARGUMENT INDEX define */
 # define INFILE_IDX 1
-# define FIRST_CMD_IDX 2
+# define FIRST_CMD_IDX 1
 /* command argument index define */
 # define CMD_PATH_IDX 0
+
 /* typedefs */
 typedef int		t_bool;
 typedef int		t_status;
 /* pipe functions */
 int			build_pipe_and_fork_process(void);
+int			build_pipe_and_fork_process_parallel(int argc, char *argv[]);
 void		set_outlet_pipe(char *outfile_name);
 /* check argument functions */
 t_bool		is_valid_argument(const int argc);

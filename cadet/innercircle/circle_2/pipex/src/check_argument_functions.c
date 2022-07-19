@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:50:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 15:17:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 20:18:33 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_bool	is_valid_argument(const int argc)
 {
-	if (argc != 5)
+	if (argc != 4)
 		return (FALSE);
 	return (TRUE);
 }
