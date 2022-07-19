@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:50:04 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 18:24:07 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:17:07 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,9 @@
 #include <unistd.h>
 #include "pipex.h"
 
-t_bool	is_valid_argument(const int argc, char **argv)
+t_bool	is_valid_argument(const int argc)
 {
-	int	infile_fd;
-
-	if (argc <= 3)
+	if (argc != 5)
 		return (FALSE);
-	infile_fd = open(argv[1], O_RDONLY);
-	if (infile_fd == FAILED)
-		put_error_and_exit();
-	if (close(infile_fd) == FAILED)
-		put_error_and_exit();
 	return (TRUE);
 }

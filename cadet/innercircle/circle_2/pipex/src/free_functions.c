@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:23:37 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 19:25:24 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:21:05 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 void	free_splitted_array(char **ptr)
 {
-	while (*ptr)
-		free(ptr++);
+	int	idx;
+
+	idx = 0;
+	while (ptr[idx])
+		free(ptr[idx++]);
+	free(ptr[idx]);
 	free(ptr);
 }

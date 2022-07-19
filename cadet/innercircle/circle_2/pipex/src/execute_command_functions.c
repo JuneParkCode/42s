@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc_mode.c                                     :+:      :+:    :+:   */
+/*   execute_command_functions.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sungjpar <sungjpar@student.42seoul.k       +#+  +:+       +#+        */
+/*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 13:23:58 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 13:26:32 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/19 13:45:34 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/19 16:37:29 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "pipex.h"
 #include "libft.h"
 
-t_status	heredoc_mode(const int argc, char **argv)
+t_status	execute_command(const char *command_path, char **argv)
 {
-	const char	*limiter = argv[2];
-	// get heredoc...
-	// do command
+	if (access(command_path, X_OK) == FAILED)
+		put_error_and_exit();
+	if (execve(command_path, argv, NULL) == FAILED)
+		put_error_and_exit();
 	return (SUCCESS);
 }

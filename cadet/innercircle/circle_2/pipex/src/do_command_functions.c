@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:04:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 19:34:57 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:36:41 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,55 @@
 #include "libft.h"
 #include "pipex.h"
 
-char	**get_command_option(char *command)
+static int	get_splitted_arr_size(char **command_argv)
 {
-	char	**splitted_string;
+	int	size;
 
-	splitted_string = ft_split(command, ' ');
-	return (splitted_string);
+	size = 0;
+	while (command_argv[size])
+		++size;
+	++size;
+	return (size);
 }
 
+static char	**append_array(char **dst, char *str)
+{
+	int	idx;
 
-char	**get_inlet_argv(char **argv)
+	idx = 0;
+	while (dst[idx])
+		++idx;
+	dst[idx++] = str;
+	dst[idx++] = NULL;
+	return (dst);
+}
+
+static char	**copy_array(char **src, char **dst)
+{
+	int	idx;
+
+	idx = 0;
+	while (src[idx])
+	{
+		dst[idx] = ft_strdup(src[idx]);
+		++idx;
+	}
+	dst[idx] = NULL;
+	return (dst);
+}
+
+static char	**get_inlet_argv(char **argv)
 {
 	char	**inlet_argv;
+	char	**command_argv;
+	int		sizeof_command_argv;
 
-	inlet_argv = error_exit_malloc(sizeof(char *) * 4);
-	inlet_argv[0] = "/bin/cat";
-	inlet_argv[1] = "-e";
-	inlet_argv[2] = "build_pipe_functions.c";
-	inlet_argv[3] = NULL;
+	command_argv = get_command_argument(argv[FIRST_CMD_IDX]);
+	sizeof_command_argv = get_splitted_arr_size(command_argv);
+	inlet_argv = error_exit_malloc(sizeof(char *) * (sizeof_command_argv + 2));
+	inlet_argv = copy_array(command_argv, inlet_argv);
+	inlet_argv = append_array(inlet_argv, argv[INFILE_IDX]);
+	free_splitted_array(command_argv);
 	return (inlet_argv);
 }
 
@@ -44,10 +75,8 @@ t_status	do_command(const int argc, char **argv, const int no_cmd)
 	if (no_cmd == 2)
 	{
 		new_argv = get_inlet_argv(argv);
-		// ACCESS VERIFY CODE
-		execve(new_argv[0], new_argv, NULL);
+		execute_command(new_argv[CMD_PATH_IDX], new_argv);
 		free_splitted_array(new_argv);
-		free(new_argv);
 	}
 	else
 	{
@@ -56,12 +85,10 @@ t_status	do_command(const int argc, char **argv, const int no_cmd)
 			do_command(argc, argv, no_cmd - 1);
 		else
 		{
-			new_argv = get_command_option(argv[no_cmd]);
-			// ACCESS VERIFY CODE
-			execve(new_argv[0], new_argv, NULL);
+			new_argv = get_command_argument(argv[no_cmd]);
+			execute_command(new_argv[CMD_PATH_IDX], new_argv);
 			wait(NULL);
 			free_splitted_array(new_argv);
-			free(new_argv);
 		}
 	}
 	return (SUCCESS);

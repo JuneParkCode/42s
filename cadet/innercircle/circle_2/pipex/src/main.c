@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 11:11:59 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:17:13 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(const int argc, char *argv[])
 {
-	if (is_valid_argument(argc, argv) == FALSE)
+	if (is_valid_argument(argc) == FALSE)
 	{
 		perror("Invalid arguments");
 		return (FAILED);

@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:26:38 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/18 19:36:01 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:32:06 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ t_status	do_command_from_infile(const int argc, char **argv)
 	else
 	{
 		set_outlet_pipe(argv[argc - 1]);
-		new_argv = get_command_option(argv[argc - 2]);
-		// ACCESS VERIFY CODE
-		execve(new_argv[0], new_argv, NULL);
+		new_argv = get_command_argument(argv[argc - 2]);
+		execute_command(new_argv[CMD_PATH_IDX], new_argv);
 		wait(NULL);
-		free(new_argv);
+		free_splitted_array(new_argv);
 	}
 	return (SUCCESS);
 }
