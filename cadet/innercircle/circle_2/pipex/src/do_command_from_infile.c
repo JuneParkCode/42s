@@ -6,12 +6,13 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:26:38 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 16:32:06 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 17:43:16 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include "libft.h"
 #include "pipex.h"
 
 t_status	do_command_from_infile(const int argc, char **argv)

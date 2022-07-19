@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:04:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 16:36:41 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:02:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_status	do_command(const int argc, char **argv, const int no_cmd)
 	char	**new_argv;
 	pid_t	pid;
 
-	if (no_cmd == 2)
+	if (no_cmd == FIRST_CMD_IDX)
 	{
 		new_argv = get_inlet_argv(argv);
 		execute_command(new_argv[CMD_PATH_IDX], new_argv);
