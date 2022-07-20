@@ -6,10 +6,11 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:52:35 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 21:31:15 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:37:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
@@ -54,6 +55,7 @@ static void	read_and_write_stdin(const int fd, const char *limiter)
 		sign_flag = (ft_strchr(buf, '\n') != NULL);
 		write(fd, buf, read_size);
 	}
+	free(buf);
 }
 
 static int	create_doc_file(void)
@@ -84,5 +86,6 @@ t_status	do_heredoc_mode(int argc, char **argv)
 	new_argv = get_heredoc_mode_argv(argc, argv);
 	do_commands(argc - 1, new_argv);
 	delete_doc_file();
+	free_splitted_array(new_argv);
 	return (SUCCESS);
 }

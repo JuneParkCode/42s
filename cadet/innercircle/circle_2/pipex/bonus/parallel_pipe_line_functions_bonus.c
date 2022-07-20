@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:28:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 20:53:00 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:08:44 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	close_unused_pipe(\
 	const int	last_second_command_idx = number_of_commands - 2;
 	const int	unused_pipe_idx = no_cmd & 1;
 
-	if (no_cmd >= last_second_command_idx)
+	if (no_cmd < last_second_command_idx)
 	{
 		return ;
 	}
@@ -56,6 +56,8 @@ static void	do_child_process(
 			set_outlet_fd_trunc(argv[outfile]);
 	}
 	execute_command(new_argv[0], new_argv);
+	close_errctl(STDIN_FILENO);
+	close_errctl(STDOUT_FILENO);
 }
 
 static pid_t	build_pipe_and_fork(

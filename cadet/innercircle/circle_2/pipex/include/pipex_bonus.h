@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 21:28:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 21:55:25 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 /* command argument index define */
 # define CMD_PATH_IDX 0
 
-# define TMP_FILE_NAME "heredoc_tmp_file"
+# define TMP_FILE_NAME ".heredoc_tmp_file"
 # define HEREDOC_SIGN "heredoc> "
 # define SIGN_LENGTH 9
 
