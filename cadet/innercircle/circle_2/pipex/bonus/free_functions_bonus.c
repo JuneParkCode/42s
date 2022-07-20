@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_functions_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 08:51:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 19:57:06 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/18 19:23:37 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/20 19:55:40 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "pipex.h"
+#include <stdlib.h>
+#include "pipex_bonus.h"
 
-int	main(const int argc, char *argv[])
+void	free_splitted_array(char **ptr)
 {
-	check_valid_argument(argc);
-	do_commands(argc, argv);
-	return (SUCCESS);
+	int	idx;
+
+	idx = 0;
+	while (ptr[idx])
+		free(ptr[idx++]);
+	free(ptr[idx]);
+	free(ptr);
 }
