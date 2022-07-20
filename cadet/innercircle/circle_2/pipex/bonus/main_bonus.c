@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:07 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 22:05:25 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:11:06 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ int	main(const int argc, char *argv[])
 		do_heredoc_mode(argc, argv);
 	else
 		do_commands(argc, argv);
-	/* while (1); */
 	return (SUCCESS);
 }

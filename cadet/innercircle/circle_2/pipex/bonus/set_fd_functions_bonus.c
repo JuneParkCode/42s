@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 22:03:51 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:21:38 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	set_process_to_process_fd(\
 		status = dup2(pipelines[in_idx][PIPE_INDEX_READ], STDIN_FILENO);
 		if (status == FAILED)
 			put_error_and_exit();
-		close_errctl(pipelines[in_idx][PIPE_INDEX_READ]);
 	}
 	if (no_cmd + 1 != number_of_commands)
 	{
@@ -35,7 +34,6 @@ void	set_process_to_process_fd(\
 		status = dup2(pipelines[out_idx][PIPE_INDEX_WRITE], STDOUT_FILENO);
 		if (status == FAILED)
 			put_error_and_exit();
-		close_errctl(pipelines[out_idx][PIPE_INDEX_WRITE]);
 	}
 }
 
@@ -49,7 +47,6 @@ void	set_outlet_fd_trunc(char *outfile_name)
 		put_error_and_exit();
 	if (dup2(fd, STDOUT_FILENO) == FAILED)
 		put_error_and_exit();
-	close_errctl(fd);
 }
 
 void	set_outlet_fd_append(char *outfile_name)
@@ -62,5 +59,4 @@ void	set_outlet_fd_append(char *outfile_name)
 		put_error_and_exit();
 	if (dup2(fd, STDOUT_FILENO) == FAILED)
 		put_error_and_exit();
-	close_errctl(fd);
 }
