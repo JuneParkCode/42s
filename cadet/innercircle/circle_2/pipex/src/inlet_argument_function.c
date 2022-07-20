@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:55:34 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 15:56:53 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:23:59 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**get_inlet_argv(char **argv)
 	command_argv = get_command_argument(argv[FIRST_CMD_IDX]);
 	sizeof_cmd_argv = get_splitted_arr_size(command_argv);
 	inlet_argv
-		= error_controlled_malloc(sizeof(char *) * (sizeof_cmd_argv + 2));
+		= malloc_errctl(sizeof(char *) * (sizeof_cmd_argv + 2));
 	copy_array(command_argv, inlet_argv);
 	append_array(inlet_argv, argv[INFILE_IDX]);
 	free_splitted_array(command_argv);

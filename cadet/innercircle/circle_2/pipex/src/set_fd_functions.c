@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 18:05:08 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:24:05 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	set_process_to_process_fd(\
 
 	if (no_cmd != 0)
 	{
-		error_controlled_close(pipelines[in_idx][PIPE_INDEX_WRITE]);
+		close_errctl(pipelines[in_idx][PIPE_INDEX_WRITE]);
 		status = dup2(pipelines[in_idx][PIPE_INDEX_READ], STDIN_FILENO);
 		if (status == FAILED)
 			put_error_and_exit();
 	}
 	if (no_cmd + 1 != number_of_commands)
 	{
-		error_controlled_close(pipelines[out_idx][PIPE_INDEX_READ]);
+		close_errctl(pipelines[out_idx][PIPE_INDEX_READ]);
 		status = dup2(pipelines[out_idx][PIPE_INDEX_WRITE], STDOUT_FILENO);
 		if (status == FAILED)
 			put_error_and_exit();

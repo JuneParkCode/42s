@@ -6,11 +6,10 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:03:59 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 16:26:19 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:26:59 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +22,7 @@ void	put_error_and_exit(void)
 	exit(errno);
 }
 
-void	*error_controlled_malloc(const size_t malloc_size)
+void	*malloc_errctl(const size_t malloc_size)
 {
 	void	*ptr;
 
@@ -33,7 +32,7 @@ void	*error_controlled_malloc(const size_t malloc_size)
 	return (ptr);
 }
 
-pid_t	error_controlled_fork(void)
+pid_t	fork_errctl(void)
 {
 	const pid_t	pid = fork();
 
@@ -42,13 +41,13 @@ pid_t	error_controlled_fork(void)
 	return (pid);
 }
 
-void	error_controlled_pipe(int pipeline[2])
+void	pipe_errctl(int pipeline[2])
 {
 	if (pipe(pipeline) == FAILED)
 		put_error_and_exit();
 }
 
-void	error_controlled_close(int fd)
+void	close_errctl(int fd)
 {
 	if (close(fd) == FAILED)
 		put_error_and_exit();

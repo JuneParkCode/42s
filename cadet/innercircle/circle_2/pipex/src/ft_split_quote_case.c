@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:52:52 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 16:26:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:24:17 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	**convert_lst_to_array(t_list *lst)
 	size_t			idx;
 	char			**result_array;
 
-	result_array = error_controlled_malloc(sizeof(char *) * (lst_size + 1));
+	result_array = malloc_errctl(sizeof(char *) * (lst_size + 1));
 	idx = 0;
 	while (lst)
 	{
@@ -36,7 +36,7 @@ static char	*get_word(const char *s, const int end, const int start)
 {
 	char	*word;
 
-	word = error_controlled_malloc(sizeof(char) * (end - start + 1));
+	word = malloc_errctl(sizeof(char) * (end - start + 1));
 	ft_memset(word, 0, end - start + 1);
 	ft_memcpy(word, &s[start], end - start);
 	return (word);
@@ -81,7 +81,7 @@ char	**ft_split_quote_case(char const *s, char c)
 		{
 			while (s[idx_str] != c && s[idx_str])
 				++idx_str;
-		};
+		}
 		ft_lstadd_back(&lst, ft_lstnew(get_word(s, idx_str, idx_start)));
 		idx_str = skip_character(s, idx_str, c);
 	}

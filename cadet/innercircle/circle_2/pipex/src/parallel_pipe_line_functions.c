@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:28:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 17:58:38 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:27:59 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 #include <unistd.h>
 #include "pipex.h"
 
-#include "libft.h"
-
-static void	close_unused_pipe(int no_cmd, int pipelines[2][2])
+static void	close_unused_pipe(\
+	int no_cmd, int pipelines[2][2], const int number_of_commands)
 {
-	if (no_cmd < 2)
+	const int	last_second_command_idx = number_of_commands - 2;
+	const int	unused_pipe_idx = no_cmd & 1;
+
+	if (no_cmd >= last_second_command_idx)
 	{
 		return ;
 	}
 	else
 	{
-		error_controlled_close(pipelines[no_cmd & 1][PIPE_INDEX_READ]);
-		error_controlled_close(pipelines[no_cmd & 1][PIPE_INDEX_WRITE]);
+		close_errctl(pipelines[unused_pipe_idx][PIPE_INDEX_READ]);
+		close_errctl(pipelines[unused_pipe_idx][PIPE_INDEX_WRITE]);
 	}
 }
 
@@ -33,7 +35,7 @@ static void	do_child_process(
 	char **argv, int pipelines[2][2],
 	const int no_cmd, const int number_of_commands)
 {
-	const int	out_file_idx = number_of_commands + FIRST_CMD_IDX;
+	const int	outfile = number_of_commands + FIRST_CMD_IDX;
 	char		**new_argv;
 
 	set_process_to_process_fd(no_cmd, number_of_commands, pipelines);
@@ -47,7 +49,7 @@ static void	do_child_process(
 	}
 	if (no_cmd + 1 == number_of_commands)
 	{
-		set_outlet_fd(argv[out_file_idx]);
+		set_outlet_fd(argv[outfile]);
 	}
 	execute_command(new_argv[0], new_argv);
 }
@@ -57,9 +59,9 @@ static pid_t	build_pipe_and_fork(
 {
 	pid_t	pid;
 
-	close_unused_pipe(no_cmd, pipelines);
-	error_controlled_pipe(pipelines[no_cmd & 1]);
-	pid = error_controlled_fork();
+	close_unused_pipe(no_cmd, pipelines, number_of_commands);
+	pipe_errctl(pipelines[no_cmd & 1]);
+	pid = fork_errctl();
 	if (pid == CHILD_PROCESS_PID)
 	{
 		do_child_process(argv, pipelines, no_cmd, number_of_commands);
