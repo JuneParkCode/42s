@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:52:52 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 17:42:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:26:48 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	**convert_lst_to_array(t_list *lst)
 	size_t			idx;
 	char			**result_array;
 
-	result_array = error_exit_malloc(sizeof(char *) * (lst_size + 1));
+	result_array = error_controlled_malloc(sizeof(char *) * (lst_size + 1));
 	idx = 0;
 	while (lst)
 	{
@@ -36,9 +36,7 @@ static char	*get_word(const char *s, const int end, const int start)
 {
 	char	*word;
 
-	word = malloc(sizeof(char) * (end - start + 1));
-	if (word == NULL)
-		return (NULL);
+	word = error_controlled_malloc(sizeof(char) * (end - start + 1));
 	ft_memset(word, 0, end - start + 1);
 	ft_memcpy(word, &s[start], end - start);
 	return (word);

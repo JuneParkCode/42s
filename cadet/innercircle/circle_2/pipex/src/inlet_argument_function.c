@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_command_functions.c                             :+:      :+:    :+:   */
+/*   inlet_argument_function.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 10:04:17 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 15:55:02 by sungjpar         ###   ########.fr       */
+/*   Created: 2022/07/20 15:55:34 by sungjpar          #+#    #+#             */
+/*   Updated: 2022/07/20 15:56:53 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft.h"
 #include "pipex.h"
+#include "libft.h"
 
 static int	get_splitted_arr_size(char **command_argv)
 {
@@ -52,47 +50,18 @@ static char	**copy_array(char **src, char **dst)
 	return (dst);
 }
 
-static char	**get_inlet_argv(char **argv)
+char	**get_inlet_argv(char **argv)
 {
 	char	**inlet_argv;
 	char	**command_argv;
-	int		sizeof_command_argv;
+	int		sizeof_cmd_argv;
 
 	command_argv = get_command_argument(argv[FIRST_CMD_IDX]);
-	sizeof_command_argv = get_splitted_arr_size(command_argv);
-	inlet_argv = error_controlled_malloc(sizeof(char *) * (sizeof_command_argv + 2));
-	inlet_argv = copy_array(command_argv, inlet_argv);
-	inlet_argv = append_array(inlet_argv, argv[INFILE_IDX]);
+	sizeof_cmd_argv = get_splitted_arr_size(command_argv);
+	inlet_argv
+		= error_controlled_malloc(sizeof(char *) * (sizeof_cmd_argv + 2));
+	copy_array(command_argv, inlet_argv);
+	append_array(inlet_argv, argv[INFILE_IDX]);
 	free_splitted_array(command_argv);
 	return (inlet_argv);
-}
-
-t_status	do_command(const int argc, char **argv, const int no_cmd)
-{
-	char	**new_argv;
-	pid_t	pid;
-
-	if (no_cmd == FIRST_CMD_IDX)
-	{
-		// set inlet pipe
-		if (dup2(3, 0) == FAILED)
-			put_error_and_exit();
-		new_argv = get_inlet_argv(argv);
-		execute_command(new_argv[CMD_PATH_IDX], new_argv);
-		free_splitted_array(new_argv);
-	}
-	else
-	{
-		pid = build_pipe_and_fork_process();
-		waitpid(pid, NULL, 0);
-		if (pid == 0)
-			do_command(argc, argv, no_cmd - 1);
-		else
-		{
-			new_argv = get_command_argument(argv[no_cmd]);
-			execute_command(new_argv[CMD_PATH_IDX], new_argv);
-			free_splitted_array(new_argv);
-		}
-	}
-	return (SUCCESS);
 }

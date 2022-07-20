@@ -6,13 +6,13 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/19 22:35:15 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/20 17:28:07 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = pipex
 
@@ -31,14 +31,14 @@ SRC_FILES = $(addprefix $(SRC_DIR),\
 			argument_parsing_functions.c\
 			build_pipe_functions.c\
 			check_argument_functions.c\
-			do_command_functions.c\
-			do_command_from_infile.c\
 			error_control_functions.c\
 			execute_command_functions.c\
 			free_functions.c\
 			ft_split_quote_case.c\
-			main.c\
-			run_pipex.c\
+			inlet_argument_function.c\
+			main2.c\
+			parallel_pipe_line_functions.c\
+			set_fd_functions.c\
 )
 
 OBJS = ${SRC_FILES:.c=.o}

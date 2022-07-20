@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:09:05 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/19 18:55:38 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:27:42 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	set_pipe(const pid_t pid, const int pipe_fds[2])
 
 void	set_outlet_pipe(char *outfile_name)
 {
-	const int	fd = open(outfile_name, O_WRONLY | O_TRUNC | O_CREAT, S_IREAD | S_IWRITE);
+	const int	fd = open(outfile_name, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 
 	if (fd == FAILED)
 		put_error_and_exit();
@@ -45,7 +45,7 @@ void	set_outlet_pipe(char *outfile_name)
 		put_error_and_exit();
 }
 
-static pid_t	fork_process(void)
+pid_t	fork_process(void)
 {
 	pid_t	pid;
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parallel_do_command.c                              :+:      :+:    :+:   */
+/*   parallel_do_command _refined.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,21 +14,17 @@
 #include <unistd.h>
 #include "pipex.h"
 
-static int	get_number_of_cmds(int argc)
-{
-	return (argc - FIRST_CMD_IDX);
-}
-
 static int	**create_pipe_by_process(int number_of_commands)
 {
-	int	**pipe_lines;
-	int	idx;
+	const int	fd_arr_size = 2;
+	int			**pipe_lines;
+	int			idx;
 
 	idx = 0;
 	pipe_lines = error_controlled_malloc(sizeof(int *) * (number_of_commands));
 	while (idx < number_of_commands)
 	{
-		pipe_lines[idx] = error_controlled_malloc(sizeof(int) * 2);
+		pipe_lines[idx] = error_controlled_malloc(sizeof(int) * fd_arr_size);
 		if (pipe(pipe_lines[idx]) == FAILED)
 			put_error_and_exit();
 		++idx;
@@ -70,9 +66,25 @@ static void	close_child_pipelines(int **pipe_lines, int child_num)
 	}
 }
 
+static void	set_pipe(int **pipe_lines, int no_cmd, const int number_of_commands)
+{
+	if (no_cmd > 0
+		&& \
+		dup2(pipe_lines[no_cmd - 1][PIPE_INDEX_READ], STDIN_FILENO) == FAILED)
+	{
+		put_error_and_exit();
+	}
+	if (no_cmd + 1 < number_of_commands
+		&& \
+		dup2(pipe_lines[no_cmd][PIPE_INDEX_WRITE], STDOUT_FILENO) == FAILED)
+	{
+		put_error_and_exit();
+	}
+}
+
 int	build_pipe_and_fork_process_parallel(int argc, char **argv)
 {
-	const int	number_of_commands = get_number_of_cmds(argc);
+	const int	number_of_commands = argc - FIRST_CMD_IDX;
 	int			**pipe_lines;
 	int			idx;
 	pid_t		pid;
@@ -82,28 +94,18 @@ int	build_pipe_and_fork_process_parallel(int argc, char **argv)
 	idx = 0;
 	while (idx < number_of_commands)
 	{
-		pid = fork();
-		if (pid == FAILED)
-			put_error_and_exit();
+		pid = fork_process();
 		if (pid == CHILD_PROCESS_PID)
 		{
 			close_child_pipelines(pipe_lines, idx);
-			if (idx > 0
-				&& dup2(pipe_lines[idx - 1][PIPE_INDEX_READ], STDIN_FILENO) == FAILED)
-				put_error_and_exit();
-			if (idx + 1 < number_of_commands
-				&& dup2(pipe_lines[idx][PIPE_INDEX_WRITE], STDOUT_FILENO) == FAILED)
-				put_error_and_exit();
+			set_pipe(pipe_lines, idx, number_of_commands);
 			new_argv = get_command_argument(argv[idx + FIRST_CMD_IDX]);
 			execute_command(new_argv[0], new_argv);
-			break ;
+			return (SUCCESS);
 		}
 		++idx;
 	}
-	if (pid != CHILD_PROCESS_PID)
-	{
-		close_parent_pipelines(pipe_lines, number_of_commands);
-		waitpid(pid, NULL, 0);
-	}
+	close_parent_pipelines(pipe_lines, number_of_commands);
+	waitpid(pid, NULL, 0);
 	return (SUCCESS);
 }
