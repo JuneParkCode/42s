@@ -1,0 +1,32 @@
+BONUS_DIR = ./bonus/$
+			argument_parsing_functions_bonus.c\$
+			check_argument_functions_bonus.c\$
+			error_control_functions_bonus.c\$
+			execute_command_functions_bonus.c\$
+			free_functions_bonus.c\$
+			ft_split_quote_case_bonus.c\$
+			heredoc_mode_bonus.c\$
+			inlet_argument_function_bonus.c\$
+			main_bonus.c\$
+			parallel_pipe_line_functions_bonus.c\$
+			set_fd_functions_bonus.c\$
+bonus_re: fclean$
+	$(MAKE) bonus$
+bonus	:$
+.PHONY	: clean fclean re all bonus$
+BONUS_DIR=./bonus/$$
+			argument_parsing_functions_bonus.c\$$
+			check_argument_functions_bonus.c\$$
+			error_control_functions_bonus.c\$$
+			execute_command_functions_bonus.c\$$
+			free_functions_bonus.c\$$
+			ft_split_quote_case_bonus.c\$$
+			heredoc_mode_bonus.c\$$
+			inlet_argument_function_bonus.c\$$
+			main_bonus.c\$$
+			parallel_pipe_line_functions_bonus.c\$$
+			set_fd_functions_bonus.c\$$
+bonus_re:fclean$$
+	$(MAKE)bonus$$
+bonus	:$$
+.PHONY	:cleanfcleanreallbonus$$

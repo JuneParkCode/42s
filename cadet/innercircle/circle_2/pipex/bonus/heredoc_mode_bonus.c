@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:52:35 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 21:37:30 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:25:23 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	delete_doc_file(void)
 		put_error_and_exit();
 }
 
-t_status	do_heredoc_mode(int argc, char **argv)
+t_status	do_heredoc_mode(int argc, char **argv, char **envp)
 {
 	int		tmp_file_fd;
 	char	**new_argv;
@@ -84,7 +84,7 @@ t_status	do_heredoc_mode(int argc, char **argv)
 	read_and_write_stdin(tmp_file_fd, argv[2]);
 	close_errctl(tmp_file_fd);
 	new_argv = get_heredoc_mode_argv(argc, argv);
-	do_commands(argc - 1, new_argv);
+	do_commands(argc - 1, new_argv, envp);
 	delete_doc_file();
 	free_splitted_array(new_argv);
 	return (SUCCESS);

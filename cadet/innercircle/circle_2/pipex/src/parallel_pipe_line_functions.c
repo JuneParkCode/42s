@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:28:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 19:27:59 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:34:29 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,46 +31,31 @@ static void	close_unused_pipe(\
 	}
 }
 
-static void	do_child_process(
-	char **argv, int pipelines[2][2],
-	const int no_cmd, const int number_of_commands)
+static void	do_child_process_task(
+	char **argv, char **envp, const int no_cmd)
 {
-	const int	outfile = number_of_commands + FIRST_CMD_IDX;
-	char		**new_argv;
+	char	**new_argv;
 
-	set_process_to_process_fd(no_cmd, number_of_commands, pipelines);
 	if (no_cmd == 0)
-	{
-		new_argv = get_inlet_argv(argv);
-	}
+		new_argv = get_inlet_argv(argv, envp);
 	else
-	{
-		new_argv = get_command_argument(argv[no_cmd + FIRST_CMD_IDX]);
-	}
-	if (no_cmd + 1 == number_of_commands)
-	{
-		set_outlet_fd(argv[outfile]);
-	}
+		new_argv = get_command_argument(argv[no_cmd + FIRST_CMD_IDX], envp);
 	execute_command(new_argv[0], new_argv);
+	free_splitted_array(new_argv);
 }
 
 static pid_t	build_pipe_and_fork(
-	int no_cmd, int pipelines[2][2], const int number_of_commands, char **argv)
+	int no_cmd, int pipelines[2][2], const int number_of_commands)
 {
 	pid_t	pid;
 
 	close_unused_pipe(no_cmd, pipelines, number_of_commands);
 	pipe_errctl(pipelines[no_cmd & 1]);
 	pid = fork_errctl();
-	if (pid == CHILD_PROCESS_PID)
-	{
-		do_child_process(argv, pipelines, no_cmd, number_of_commands);
-		return (pid);
-	}
 	return (pid);
 }
 
-t_status	do_commands(int argc, char **argv)
+t_status	do_commands(int argc, char **argv, char **envp)
 {
 	const int	number_of_commands = argc - FIRST_CMD_IDX - 1;
 	int			pipelines[2][2];
@@ -80,9 +65,14 @@ t_status	do_commands(int argc, char **argv)
 	no_cmd = number_of_commands - 1;
 	while (no_cmd >= 0)
 	{
-		pid = build_pipe_and_fork(no_cmd, pipelines, number_of_commands, argv);
+		pid = build_pipe_and_fork(no_cmd, pipelines, number_of_commands);
 		if (pid == CHILD_PROCESS_PID)
+		{
+			set_process_to_process_fd(\
+				no_cmd, number_of_commands, pipelines, argv);
+			do_child_process_task(argv, envp, no_cmd);
 			return (SUCCESS);
+		}
 		--no_cmd;
 	}
 	waitpid(pid, NULL, 0);

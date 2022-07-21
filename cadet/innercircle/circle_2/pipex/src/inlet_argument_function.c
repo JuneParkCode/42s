@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 15:55:34 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 19:23:59 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 13:43:10 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ static char	**copy_array(char **src, char **dst)
 	return (dst);
 }
 
-char	**get_inlet_argv(char **argv)
+char	**get_inlet_argv(char **argv, char **envp)
 {
 	char	**inlet_argv;
 	char	**command_argv;
 	int		sizeof_cmd_argv;
 
-	command_argv = get_command_argument(argv[FIRST_CMD_IDX]);
+	command_argv = get_command_argument(argv[FIRST_CMD_IDX], envp);
 	sizeof_cmd_argv = get_splitted_arr_size(command_argv);
 	inlet_argv
 		= malloc_errctl(sizeof(char *) * (sizeof_cmd_argv + 2));

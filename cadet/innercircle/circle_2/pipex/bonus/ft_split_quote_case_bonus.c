@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:52:52 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 19:55:43 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:53:40 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static int	skip_until_char(const char *s, int idx, char c)
 	idx_str = idx;
 	while (s[idx_str] != c && s[idx_str])
 		++idx_str;
-	idx_str += (s[idx_str] == c);
 	return (idx_str);
 }
 
@@ -82,8 +81,10 @@ char	**ft_split_quote_case(char const *s, char c)
 			while (s[idx_str] != c && s[idx_str])
 				++idx_str;
 		}
-		ft_lstadd_back(&lst, ft_lstnew(get_word(s, idx_str, idx_start)));
-		idx_str = skip_character(s, idx_str, c);
+		idx_start += (s[idx_start] == '\'');
+		ft_lstadd_back(\
+			&lst, ft_lstnew(get_word(s, idx_str, idx_start)));
+		idx_str = skip_character(s, idx_str, c) + (s[idx_str] == '\'');
 	}
 	res = convert_lst_to_array(lst);
 	ft_lstclear(&lst, free);

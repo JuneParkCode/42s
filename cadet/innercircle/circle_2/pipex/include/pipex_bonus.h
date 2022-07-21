@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 08:51:49 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 21:55:25 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:28:30 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ typedef int		t_status;
 t_bool		check_valid_argument(const int argc);
 t_bool		is_heredoc_mode(int argc, char **argv);
 /* run command function */
-t_status	do_commands(int argc, char **argv);
-t_status	do_heredoc_mode(int argc, char **argv);
+t_status	do_commands(int argc, char **argv, char **envp);
+t_status	do_heredoc_mode(int argc, char **argv, char **envp);
 /* argument parsing functions  */
-char		**get_command_argument(char *command);
-char		**get_inlet_argv(char **argv);
+char		**get_command_argument(char *command, char **envp);
+char		**get_inlet_argv(char **argv, char **envp);
 char		**ft_split_quote_case(char const *s, char c);
 /* error control functions */
 void		put_error_and_exit(void);
@@ -65,5 +65,6 @@ t_status	execute_command(const char *command_path, char **argv);
 void		set_outlet_fd_append(char *outfile_name);
 void		set_outlet_fd_trunc(char *outfile_name);
 void		set_process_to_process_fd(\
-	const int no_cmd, const int number_of_commands, int pipelines[2][2]);
+	const int no_cmd, const int number_of_commands, \
+	int pipelines[2][2], char **argv);
 #endif

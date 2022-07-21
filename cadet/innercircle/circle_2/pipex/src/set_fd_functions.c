@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/20 19:24:05 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:33:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 #include "pipex.h"
 
 void	set_process_to_process_fd(\
-	const int no_cmd, const int number_of_commands, int pipelines[2][2])
+	const int no_cmd, const int number_of_commands,
+	int pipelines[2][2], char **argv)
 {
+	const int	outfile_idx = number_of_commands + FIRST_CMD_IDX;
 	const int	in_idx = no_cmd & 1;
 	const int	out_idx = (in_idx + 1) % 2;
 	int			status;
@@ -35,6 +37,8 @@ void	set_process_to_process_fd(\
 		if (status == FAILED)
 			put_error_and_exit();
 	}
+	if (no_cmd + 1 == number_of_commands)
+		set_outlet_fd(argv[outfile_idx]);
 }
 
 void	set_outlet_fd(char *outfile_name)

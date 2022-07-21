@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/20 20:58:40 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/21 14:36:46 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,10 +87,15 @@ fclean	:
 	$(MAKE) clean
 	$(MAKE) -C $(LFT_DIR) fclean
 
-re		: fclean
+re		:
+	$(MAKE) fclean
 	$(MAKE) all
 
+bonus_re: fclean
+	$(MAKE) bonus
+
 bonus	:
+	$(MAKE) fclean
 	@make WITH_BONUS=1 all
 
 .PHONY	: clean fclean re all bonus
