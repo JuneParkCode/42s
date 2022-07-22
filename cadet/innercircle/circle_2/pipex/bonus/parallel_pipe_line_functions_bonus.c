@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:28:09 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/21 14:34:17 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:29:18 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ static void	do_child_process_task(
 {
 	char	**new_argv;
 
-	if (no_cmd == 0)
-		new_argv = get_inlet_argv(argv, envp);
-	else
-		new_argv = get_command_argument(argv[no_cmd + FIRST_CMD_IDX], envp);
+	new_argv = get_command_argument(argv[no_cmd + FIRST_CMD_IDX], envp);
 	execute_command(new_argv[0], new_argv);
 	free_splitted_array(new_argv);
 }

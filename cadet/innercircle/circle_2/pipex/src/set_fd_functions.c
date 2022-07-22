@@ -6,13 +6,36 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/21 14:33:03 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:24:56 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include "pipex.h"
+
+void	set_inlet_fd(char *infile_name)
+{
+	const int	open_option = O_RDONLY;
+	const int	fd = open(infile_name, open_option);
+
+	if (fd == FAILED)
+		put_error_and_exit();
+	if (dup2(fd, STDIN_FILENO) == FAILED)
+		put_error_and_exit();
+}
+
+void	set_outlet_fd(char *outfile_name)
+{
+	const int	open_option = O_WRONLY | O_TRUNC | O_CREAT;
+	const int	open_mode = S_IREAD | S_IWRITE;
+	const int	fd = open(outfile_name, open_option, open_mode);
+
+	if (fd == FAILED)
+		put_error_and_exit();
+	if (dup2(fd, STDOUT_FILENO) == FAILED)
+		put_error_and_exit();
+}
 
 void	set_process_to_process_fd(\
 	const int no_cmd, const int number_of_commands,
@@ -30,6 +53,8 @@ void	set_process_to_process_fd(\
 		if (status == FAILED)
 			put_error_and_exit();
 	}
+	else
+		set_inlet_fd(argv[INFILE_IDX]);
 	if (no_cmd + 1 != number_of_commands)
 	{
 		close_errctl(pipelines[out_idx][PIPE_INDEX_READ]);
@@ -39,16 +64,4 @@ void	set_process_to_process_fd(\
 	}
 	if (no_cmd + 1 == number_of_commands)
 		set_outlet_fd(argv[outfile_idx]);
-}
-
-void	set_outlet_fd(char *outfile_name)
-{
-	const int	open_option = O_WRONLY | O_TRUNC | O_CREAT;
-	const int	open_mode = S_IREAD | S_IWRITE;
-	const int	fd = open(outfile_name, open_option, open_mode);
-
-	if (fd == FAILED)
-		put_error_and_exit();
-	if (dup2(fd, STDOUT_FILENO) == FAILED)
-		put_error_and_exit();
 }

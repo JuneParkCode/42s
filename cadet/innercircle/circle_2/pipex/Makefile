@@ -6,7 +6,7 @@
 #    By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 00:54:23 by sungjpar          #+#    #+#              #
-#    Updated: 2022/07/21 14:36:46 by sungjpar         ###   ########.fr        #
+#    Updated: 2022/07/22 18:30:17 by sungjpar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRC_FILES = $(addprefix $(SRC_DIR),\
 			execute_command_functions.c\
 			free_functions.c\
 			ft_split_quote_case.c\
-			inlet_argument_function.c\
 			main.c\
 			parallel_pipe_line_functions.c\
 			set_fd_functions.c\
@@ -50,7 +49,6 @@ BONUS_FILES = $(addprefix $(BONUS_DIR),\
 			free_functions_bonus.c\
 			ft_split_quote_case_bonus.c\
 			heredoc_mode_bonus.c\
-			inlet_argument_function_bonus.c\
 			main_bonus.c\
 			parallel_pipe_line_functions_bonus.c\
 			set_fd_functions_bonus.c\
