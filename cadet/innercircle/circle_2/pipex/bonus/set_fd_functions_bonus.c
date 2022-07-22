@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/22 18:28:48 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:33:03 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	set_process_to_process_fd(\
 		if (dup2(pipelines[out_idx][PIPE_INDEX_WRITE], STDOUT_FILENO) == FAILED)
 			put_error_and_exit();
 	}
-	if (no_cmd + 1 == number_of_commands)
+	else
 	{
 		if (ft_strncmp(TMP_FILE_NAME, argv[1], -1) == 0)
 			set_outlet_fd_append(argv[outfile_idx]);

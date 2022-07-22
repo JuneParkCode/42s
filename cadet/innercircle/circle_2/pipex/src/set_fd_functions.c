@@ -6,7 +6,7 @@
 /*   By: sungjpar <sungjpar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:05:08 by sungjpar          #+#    #+#             */
-/*   Updated: 2022/07/22 18:24:56 by sungjpar         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:33:19 by sungjpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	set_process_to_process_fd(\
 		if (status == FAILED)
 			put_error_and_exit();
 	}
-	if (no_cmd + 1 == number_of_commands)
+	else
 		set_outlet_fd(argv[outfile_idx]);
 }
